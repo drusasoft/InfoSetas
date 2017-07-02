@@ -8,6 +8,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/layout_pantalla_principal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -21,32 +22,75 @@
             app:theme="@style/AppTheme.ToolbarStyle"
             app:titleTextAppearance="@style/AppTheme.ToolbarTextStyle"/>
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Setas Comestibles" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/layout_btn_setas"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Setas Venenosas" />
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="40dp"
+            android:elevation="2dp"
+            android:clickable="true"
+            android:background="@drawable/btn_main"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/seta_ico"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+                android:textColor="@drawable/texto_pulsacion"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="@string/btnSetas"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/layout_btn_galeria"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Setas Mortales" />
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="40dp"
+            android:elevation="2dp"
+            android:clickable="true"
+            android:background="@drawable/btn_main"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/galeria"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+                android:textColor="@drawable/texto_pulsacion"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="@string/btnGaleria"/>
+
+        </LinearLayout>
 
 
     </LinearLayout>
-
-
-
 
 
     <!-- Menu Lateral-->
@@ -55,6 +99,10 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@color/colorPrimary"
+        app:itemTextColor="@drawable/texto_pulsacion"
+        app:itemTextAppearance="@style/AppTheme.drawerTextStyle"
+        app:headerLayout="@layout/layout_nav_header"
         app:menu="@menu/drawer_view"/>
 
 

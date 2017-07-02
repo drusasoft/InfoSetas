@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_pantalla_lista"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_lista_setas"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        app:theme="@style/AppTheme.ToolbarStyle"
+        app:titleTextAppearance="@style/AppTheme.ToolbarTextStyle">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Spinner
+                android:id="@+id/spinner_setas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+        
+    </android.support.v7.widget.Toolbar>
+
+    <ListView android:id="@+id/listview_setas"
+        android:layout_marginTop="20dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:divider="@null"
+        android:listSelector="@color/transparente"/>
+
+</LinearLayout>

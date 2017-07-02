@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="tipos_array">
+        <item>Todas...</item>
+        <item>Comestibles</item>
+        <item>Venenosas</item>
+        <item>Mortales</item>
+    </string-array>
+
+</resources>

@@ -10,14 +10,27 @@
         <item name="android:windowBackground">@color/verde_claro</item>
     </style>
 
+    <!-- Estilo de la ToolBar-->
     <style name="AppTheme.ToolbarStyle" parent="AppTheme">
         <item name="colorControlNormal">@color/colorBlanco</item>
     </style>
 
+    <!-- Estilo del titulo de la ToolBar-->
     <style name="AppTheme.ToolbarTextStyle" parent="TextAppearance.AppCompat.Title">
-
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorBlanco</item>
     </style>
+
+    <!-- Estilo del PagerTabStrip-->
+    <style name="AppTheme.PagerTabStrip" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/colorBlanco</item>
+    </style>
+
+    <!--Estilo del texto de Navigation drawer-->
+    <style name="AppTheme.drawerTextStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
 
 </resources>

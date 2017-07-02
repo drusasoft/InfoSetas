@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "767589365089",
+    "firebase_url": "https://info-setas.firebaseio.com",
+    "project_id": "info-setas",
+    "storage_bucket": "info-setas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767589365089:android:866ebcfc0c8b57b3",
+        "android_client_info": {
+          "package_name": "com.dssoft.infosetas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767589365089-b80ao20s625g03h91hv3eeprnahikjij.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdBSDGrSsUSKqBtCfFsgbqyFnWaxxDZoQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

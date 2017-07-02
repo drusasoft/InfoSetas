@@ -18,7 +18,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".PantallaSetasComestibles" android:screenOrientation="portrait"/>
+        <activity android:name=".PantallaDetallesSeta" android:screenOrientation="portrait" android:parentActivityName=".PantallaListaSetas"/>
+        <activity android:name=".PantallaListaSetas" android:screenOrientation="portrait" android:parentActivityName=".PantallaPrincipal"/>
+        <activity android:name=".PantallaListaGaleria" android:screenOrientation="portrait" android:parentActivityName=".PantallaPrincipal"/>
+        <activity android:name=".PantallaGaleria" android:screenOrientation="portrait" android:parentActivityName=".PantallaListaGaleria"/>
+        <activity android:name=".PantallaZoom" android:screenOrientation="portrait"/>
 
     </application>
 
