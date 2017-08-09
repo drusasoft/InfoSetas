@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:layout_height="180dp">
+
+    <ImageView android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@drawable/seta_ico"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text="Soy un Inutil"
+        android:textColor="@color/colorBlanco"/>
+
+</LinearLayout>
