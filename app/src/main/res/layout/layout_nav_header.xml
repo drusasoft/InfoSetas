@@ -16,7 +16,7 @@
         android:textStyle="bold"
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
-        android:text="Soy un Inutil"
+        android:text="@string/totSetas"
         android:textColor="@color/colorBlanco"/>
 
 </LinearLayout>

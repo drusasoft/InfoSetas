@@ -1,8 +1,6 @@
 package com.dssoft.infosetas.adaptadores;
 
 import android.app.Activity;
-import android.content.Context;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,11 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.dssoft.infosetas.R;
-
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -68,11 +62,19 @@ public class AdaptadorSpinnerSetas extends ArrayAdapter<String>
                     holder.imgSpinner.setVisibility(View.VISIBLE);
                     break;
 
-            case 2: holder.imgSpinner.setImageResource(R.drawable.seta_venenosa_small);
+            case 2: holder.imgSpinner.setImageResource(R.drawable.seta_regular_small);
                     holder.imgSpinner.setVisibility(View.VISIBLE);
                     break;
 
-            case 3: holder.imgSpinner.setImageResource(R.drawable.skull_ico);
+            case 3: holder.imgSpinner.setImageResource(R.drawable.cuidado_small);
+                    holder.imgSpinner.setVisibility(View.VISIBLE);
+                    break;
+
+            case 4: holder.imgSpinner.setImageResource(R.drawable.seta_venenosa_small);
+                    holder.imgSpinner.setVisibility(View.VISIBLE);
+                    break;
+
+            case 5: holder.imgSpinner.setImageResource(R.drawable.skull_ico);
                     holder.imgSpinner.setVisibility(View.VISIBLE);
                     break;
         }

@@ -17,12 +17,15 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-
-import com.google.firebase.FirebaseApp;
-
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 
 public class PantallaPrincipal extends AppCompatActivity
 {
@@ -35,6 +38,7 @@ public class PantallaPrincipal extends AppCompatActivity
     private ActionBarDrawerToggle drawerToggle;
     private AnimationDrawable animacionFondo;
     private boolean animacionFondoIniciada;
+    private InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,6 +47,9 @@ public class PantallaPrincipal extends AppCompatActivity
         setContentView(R.layout.activity_pantalla_principal);
         MultiDex.install(this);
         ButterKnife.bind(this);
+
+        //Inicializa el SDK de Google Mobile Ads
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2712815213167664~2533509012");
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -60,11 +67,34 @@ public class PantallaPrincipal extends AppCompatActivity
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
             }
+
         };
 
         drawerLayout.addDrawerListener(drawerToggle);
 
         animacion_fondo();//Se crea la animacion de la imagen de fondo de la pantalla principal
+
+        //Se carga el banner
+        /*AdView mAdView = (AdView) findViewById(R.id.banner_pantalla_principal);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        //Se carga el anuncio Interstitial
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-2712815213167664/8493069249");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+        //Si se cierra el Instersticioal se vuelve a crear uno nuevo
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed()
+            {
+                super.onAdClosed();
+
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            }
+
+        });*/
 
     }
 
@@ -165,9 +195,14 @@ public class PantallaPrincipal extends AppCompatActivity
         return false;
     }
 
+
     @OnClick(R.id.layout_btn_setas)
     public void irPantallaSetas()
     {
+
+        //if(mInterstitialAd.isLoaded())
+            //mInterstitialAd.show();
+
         Intent intent = new Intent(this, PantallaListaSetas.class);
         startActivity(intent);
     }
@@ -176,9 +211,14 @@ public class PantallaPrincipal extends AppCompatActivity
     @OnClick(R.id.layout_btn_galeria)
     public void irPantallaGaleria()
     {
+
+        //if(mInterstitialAd.isLoaded())
+            //mInterstitialAd.show();
+
         Intent intent = new Intent(this, PantallaListaGaleria.class);
         startActivity(intent);
     }
+
 
     //Se inicia la animacion (AnimationDrawable) de la imagen de fondo de la pantalla principal
     private void animacion_fondo()

@@ -3,12 +3,10 @@ package com.dssoft.infosetas.fragments;
 import android.animation.Animator;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -17,16 +15,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewSwitcher;
-
 import com.dssoft.infosetas.PantallaZoom;
 import com.dssoft.infosetas.R;
 import com.dssoft.infosetas.pojos.SetaFireBase;
-import com.squareup.picasso.Picasso;
-
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import java.util.StringTokenizer;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -37,7 +32,7 @@ import butterknife.Unbinder;
  * Created by Angel on 18/05/2017.
  */
 
-public class PagerFragmentComestibles extends Fragment
+public class PagerFragmentSetas extends Fragment
 {
 
     @Nullable @BindView(R.id.cardViewNombre) CardView cardViewNombre;
@@ -87,7 +82,6 @@ public class PagerFragmentComestibles extends Fragment
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
 
-        //View root = null;
 
         switch (numPagina)
         {
@@ -110,8 +104,15 @@ public class PagerFragmentComestibles extends Fragment
                                 rootPag1.removeOnLayoutChangeListener(this);
                                 efecto_mostrar_circular(cardViewNombre);
                                 efecto_mostrar_circular(cardViewDescripcion);
+
+                                //Se carga el banner
+                                /*AdView mAdView = (AdView) rootPag1.findViewById(R.id.banner_pantalla_detalles_1);
+                                AdRequest adRequest = new AdRequest.Builder().build();
+                                mAdView.loadAd(adRequest);*/
+
                             }
                         });
+
 
                     }
 
@@ -135,6 +136,11 @@ public class PagerFragmentComestibles extends Fragment
                                 rootPag2.removeOnLayoutChangeListener(this);
                                 efecto_mostrar_circular(cardViewHabitat);
                                 efecto_mostrar_circular(cardViewComestibilidad);
+
+                                //Se carga el banner
+                                /*AdView mAdView = (AdView) rootPag2.findViewById(R.id.banner_pantalla_detalles_2);
+                                AdRequest adRequest = new AdRequest.Builder().build();
+                                mAdView.loadAd(adRequest);*/
                             }
                         });
                     }
@@ -158,12 +164,16 @@ public class PagerFragmentComestibles extends Fragment
                             {
                                 rootPag3.removeOnLayoutChangeListener(this);
                                 efecto_mostrar_circular(cardViewObservaciones);
+
+                                //Se carga el banner
+                                /*AdView mAdView = (AdView) rootPag3.findViewById(R.id.banner_pantalla_detalles_3);
+                                AdRequest adRequest = new AdRequest.Builder().build();
+                                mAdView.loadAd(adRequest);*/
                             }
 
                         });
 
                     }
-
 
                     return rootPag3;
 
@@ -192,6 +202,7 @@ public class PagerFragmentComestibles extends Fragment
                         imgSwitcher.setInAnimation(AnimationUtils.loadAnimation(getContext(), android.R.anim.slide_in_left));
                         imgSwitcher.setOutAnimation(AnimationUtils.loadAnimation(getContext(), android.R.anim.slide_out_right));
                         imgSwitcher.setBackgroundResource(arrayFotos[0]);
+                        imgSwitcher.setTag(arrayFotos[0]);
 
                         imageView1.setBackgroundResource(arrayFotos[0]);
                         imageView2.setBackgroundResource(arrayFotos[1]);

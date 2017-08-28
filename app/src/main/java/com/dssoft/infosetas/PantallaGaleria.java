@@ -16,11 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
-
-import com.dssoft.infosetas.fragments.PagerFragmentComestibles;
-
 import java.util.StringTokenizer;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -137,6 +133,7 @@ public class PantallaGaleria extends AppCompatActivity
         imgSwitcherGaleria.setInAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
         imgSwitcherGaleria.setOutAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
         imgSwitcherGaleria.setBackgroundResource(arrayFotos[0]);
+        imgSwitcherGaleria.setTag(arrayFotos[0]);
 
         imgGaleria_1.setBackgroundResource(arrayFotos[0]);
         imgGaleria_2.setBackgroundResource(arrayFotos[1]);
@@ -151,7 +148,30 @@ public class PantallaGaleria extends AppCompatActivity
     private void setColorPantalla(String comestible)
     {
 
-        if(comestible.equals("venenosa"))
+        if(comestible.equals("precaucion"))
+        {
+            imgToolbar.setImageResource(R.drawable.cuidado_small);
+
+            return;
+        }
+
+        if(comestible.equals("sin_interes"))
+        {
+            //Se cambia el color de la statusbar, toolbar y pagertabstrip
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDarkGrey));
+
+            toolBar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryGrey));
+            layoutGaleria.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentGrey));
+
+            imgToolbar.setImageResource(R.drawable.seta_regular_small);
+
+            return;
+        }
+
+        if(comestible.equals("toxica"))
         {
             //Se cambia el color de la statusbar, toolbar y pagertabstrip
             Window window = this.getWindow();
@@ -179,7 +199,7 @@ public class PantallaGaleria extends AppCompatActivity
             toolBar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryRed));
             layoutGaleria.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentRed));
 
-            imgToolbar.setImageResource(R.drawable.seta_mortal_small);
+            imgToolbar.setImageResource(R.drawable.skull_ico);
 
             return;
         }

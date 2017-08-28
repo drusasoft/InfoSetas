@@ -16,21 +16,18 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.dssoft.infosetas.fragments.PagerFragmentComestibles;
+import com.dssoft.infosetas.fragments.PagerFragmentSetas;
 import com.dssoft.infosetas.pojos.SetaFireBase;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -98,7 +95,6 @@ public class PantallaDetallesSeta extends AppCompatActivity
     }
 
 
-
     private void getDatosFirebase(String nombreSeta)
     {
         //FirebaseApp.initializeApp(this);
@@ -121,25 +117,18 @@ public class PantallaDetallesSeta extends AppCompatActivity
 
                 if(setaDetalles != null)
                 {
-                    Log.e("Firebase Comun",setaDetalles.getNombre_comun());
-                    Log.e("Firebase Descripcion", setaDetalles.getDescripcion());
-                    Log.e("Firebase Habitat", setaDetalles.getHabitat());
-                    Log.e("Firebase Nombre",setaDetalles.getNombre());
+                    pagerAdapter.notifyDataSetChanged();//Se actualiza el contenido del viewpager
                 }else
                 {
-                    Log.e("Datos Firebase","Nulos");
+                    mostrarDialogError(R.string.titErrorDialog_1, R.string.txtErrorDialog_1);
                 }
-
-
-
-                pagerAdapter.notifyDataSetChanged();//Se actualiza el contenido del viewpager
 
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError)
             {
-                Log.e("Error ","erro culo");
+
                 progressDialog.dismiss();
                 mostrarDialogError(R.string.titErrorDialog_1, R.string.txtErrorDialog_1);
             }
@@ -151,6 +140,30 @@ public class PantallaDetallesSeta extends AppCompatActivity
     //Se cambia el color de la pantalla segun la comestibilidad de la seta
     private void setColorPantalla(String comestible)
     {
+
+        if(comestible.equals("precaucion"))
+        {
+            imgTooBar.setImageResource(R.drawable.cuidado_small);
+
+            return;
+        }
+
+        if(comestible.equals("sin_interes"))
+        {
+            //Se cambia el color de la statusbar, toolbar y pagertabstrip
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDarkGrey));
+
+            toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryGrey));
+            pagerTabStrip.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryGrey));
+            layoutPrincipal.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentGrey));
+
+            imgTooBar.setImageResource(R.drawable.seta_regular_small);
+
+            return;
+        }
 
         if(comestible.equals("toxica"))
         {
@@ -192,6 +205,7 @@ public class PantallaDetallesSeta extends AppCompatActivity
 
 
     }
+
 
     private boolean comprobarConexion()
     {
@@ -258,10 +272,10 @@ public class PantallaDetallesSeta extends AppCompatActivity
             bundle.putString("fotos", fotos);
             bundle.putString("comestible",comestible);
 
-            PagerFragmentComestibles pagerFragmentComestibles = new PagerFragmentComestibles();
-            pagerFragmentComestibles.setArguments(bundle);
+            PagerFragmentSetas pagerFragmentSetas = new PagerFragmentSetas();
+            pagerFragmentSetas.setArguments(bundle);
 
-            return pagerFragmentComestibles;
+            return pagerFragmentSetas;
         }
 
         @Override
@@ -284,4 +298,6 @@ public class PantallaDetallesSeta extends AppCompatActivity
             return POSITION_NONE;
         }
     }
+
+
 }

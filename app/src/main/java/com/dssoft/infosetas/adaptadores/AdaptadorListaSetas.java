@@ -1,8 +1,6 @@
 package com.dssoft.infosetas.adaptadores;
 
 import android.app.Activity;
-import android.content.Context;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,13 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.dssoft.infosetas.R;
 import com.dssoft.infosetas.pojos.Seta;
 import com.squareup.picasso.Picasso;
-
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -66,19 +61,31 @@ public class AdaptadorListaSetas extends ArrayAdapter<Seta>
         //Picasso.with(context).load(listaSetas.get(position).getFoto_lista()).into(holder.imgSeta);
         holder.imgSeta.setBackgroundResource(listaSetas.get(position).getFoto_lista());
 
-        if(listaSetas.get(position).getComestible().equals("toxica"))
+
+        switch(listaSetas.get(position).getComestible())
         {
-            Picasso.with(context).load(R.drawable.seta_venenosa_small).into(holder.imgSetaMario);
-        }else
-        {
-            if(listaSetas.get(position).getComestible().equals("mortal"))
-            {
-                Picasso.with(context).load(R.drawable.skull_ico).into(holder.imgSetaMario);
-            }else
-            {
-                Picasso.with(context).load(R.drawable.seta_buena_small).into(holder.imgSetaMario);
-            }
+
+            case ("sin_interes"): Picasso.with(context).load(R.drawable.seta_regular_small).into(holder.imgSetaMario);
+
+                                  break;
+
+            case ("precaucion"): Picasso.with(context).load(R.drawable.cuidado_small).into(holder.imgSetaMario);
+
+                                 break;
+
+            case ("toxica"): Picasso.with(context).load(R.drawable.seta_venenosa_small).into(holder.imgSetaMario);
+
+                             break;
+
+            case ("mortal"): Picasso.with(context).load(R.drawable.skull_ico).into(holder.imgSetaMario);
+
+                             break;
+
+            default: Picasso.with(context).load(R.drawable.seta_buena_small).into(holder.imgSetaMario);
+                     break;
+
         }
+
 
         return fila;
 

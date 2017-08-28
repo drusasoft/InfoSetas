@@ -4,7 +4,9 @@
     <string-array name="tipos_array">
         <item>Todas...</item>
         <item>Comestibles</item>
-        <item>Venenosas</item>
+        <item>Sin Interés Culinario</item>
+        <item>Con Precaución</item>
+        <item>Tóxicas</item>
         <item>Mortales</item>
     </string-array>
 

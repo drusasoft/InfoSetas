@@ -4,7 +4,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import com.dssoft.infosetas.R;
 
 /**
@@ -18,7 +17,7 @@ public class BDAdapter
             "Integer, nombre_ordenar Integer, comestible Integer, fotos String, foto_list Integer)";
     private final String eliminarTaabla = "DROP TABLE IF EXISTS Plantas";
     private final String nombreBD = "BDSetas";
-    private final int versionBD = 1;
+    private final int versionBD = 3;
 
     private Context context;
     private SQLiteDatabase db;
@@ -131,7 +130,7 @@ public class BDAdapter
 
             stringFotos = String.valueOf(R.drawable.astraeus1)+"-"+String.valueOf(R.drawable.astraeus2)+"-"+String.valueOf(R.drawable.astraeus3)+"-"+String.valueOf(R.drawable.astraeus4);
             db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta13+", "+R.string.nombre_comunSeta13+
-                    ", "+R.string.nombre_ordenarSeta13+", "+R.string.comestibilidad_seta13+", '"+stringFotos+"', "+R.drawable.arvensis_list+")");
+                    ", "+R.string.nombre_ordenarSeta13+", "+R.string.comestibilidad_seta13+", '"+stringFotos+"', "+R.drawable.astraeus_list+")");
 
             stringFotos = String.valueOf(R.drawable.oreja1)+"-"+String.valueOf(R.drawable.oreja2)+"-"+String.valueOf(R.drawable.oreja3)+"-"+String.valueOf(R.drawable.oreja4);
             db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta14+", "+R.string.nombre_comunSeta14+
@@ -312,13 +311,13 @@ public class BDAdapter
             db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta57+", "+R.string.nombre_comunSeta57+
                     ", "+R.string.nombre_ordenarSeta57+", "+R.string.comestibilidad_seta57+", '"+stringFotos+"', "+R.drawable.procera_list+")");
 
-            stringFotos = String.valueOf(R.drawable.oreades1)+"-"+String.valueOf(R.drawable.oreades2)+"-"+String.valueOf(R.drawable.oreades3)+"-"+String.valueOf(R.drawable.oreades4);
-            db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta58+", "+R.string.nombre_comunSeta58+
-                    ", "+R.string.nombre_ordenarSeta58+", "+R.string.comestibilidad_seta58+", '"+stringFotos+"', "+R.drawable.oreades_list+")");
-
             stringFotos = String.valueOf(R.drawable.quercophilus1)+"-"+String.valueOf(R.drawable.quercophilus2)+"-"+String.valueOf(R.drawable.quercophilus3)+"-"+String.valueOf(R.drawable.quercophilus4);
+            db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta58+", "+R.string.nombre_comunSeta58+
+                    ", "+R.string.nombre_ordenarSeta58+", "+R.string.comestibilidad_seta58+", '"+stringFotos+"', "+R.drawable.quercophilus_list+")");
+
+            stringFotos = String.valueOf(R.drawable.oreades1)+"-"+String.valueOf(R.drawable.oreades2)+"-"+String.valueOf(R.drawable.oreades3)+"-"+String.valueOf(R.drawable.oreades4);
             db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta59+", "+R.string.nombre_comunSeta59+
-                    ", "+R.string.nombre_ordenarSeta59+", "+R.string.comestibilidad_seta59+", '"+stringFotos+"', "+R.drawable.quercophilus_list+")");
+                    ", "+R.string.nombre_ordenarSeta59+", "+R.string.comestibilidad_seta59+", '"+stringFotos+"', "+R.drawable.oreades_list+")");
 
             stringFotos = String.valueOf(R.drawable.paludosa1)+"-"+String.valueOf(R.drawable.paludosa2)+"-"+String.valueOf(R.drawable.paludosa3)+"-"+String.valueOf(R.drawable.paludosa4);
             db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta60+", "+R.string.nombre_comunSeta60+
@@ -416,9 +415,9 @@ public class BDAdapter
             db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta83+", "+R.string.nombre_comunSeta83+
                     ", "+R.string.nombre_ordenarSeta83+", "+R.string.comestibilidad_seta83+", '"+stringFotos+"', "+R.drawable.xerocomus_list+")");
 
-            stringFotos = String.valueOf(R.drawable.xerocomus1)+"-"+String.valueOf(R.drawable.xerocomus2)+"-"+String.valueOf(R.drawable.xerocomus3)+"-"+String.valueOf(R.drawable.xerocomus4);
+            stringFotos = String.valueOf(R.drawable.parvistriatum1)+"-"+String.valueOf(R.drawable.parvistriatum2)+"-"+String.valueOf(R.drawable.parvistriatum3)+"-"+String.valueOf(R.drawable.parvistriatum4);
             db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta84+", "+R.string.nombre_comunSeta84+
-                    ", "+R.string.nombre_ordenarSeta84+", "+R.string.comestibilidad_seta84+", '"+stringFotos+"', "+R.drawable.xerocomus_list+")");
+                    ", "+R.string.nombre_ordenarSeta84+", "+R.string.comestibilidad_seta84+", '"+stringFotos+"', "+R.drawable.parvistriatum_list+")");
 
             stringFotos = String.valueOf(R.drawable.lacustris1)+"-"+String.valueOf(R.drawable.lacustris2)+"-"+String.valueOf(R.drawable.lacustris3)+"-"+String.valueOf(R.drawable.lacustris4);
             db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta85+", "+R.string.nombre_comunSeta85+

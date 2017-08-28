@@ -7,21 +7,19 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
-
 import com.dssoft.infosetas.adaptadores.AdaptadorListaSetas;
 import com.dssoft.infosetas.adaptadores.AdaptadorSpinnerSetas;
 import com.dssoft.infosetas.base_datos.BDAdapter;
 import com.dssoft.infosetas.pojos.Seta;
-
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -65,6 +63,12 @@ public class PantallaListaGaleria extends AppCompatActivity implements AdapterVi
         listViewSetas.setAdapter(als);
 
         animacion_fondo();
+
+        //Se carga el banner
+        AdView mAdView = (AdView) findViewById(R.id.banner_pantalla_lista);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
     }
 
 
@@ -126,13 +130,45 @@ public class PantallaListaGaleria extends AppCompatActivity implements AdapterVi
             int foto_list = cursor.getInt(6);
 
             Seta seta = new Seta(nombre, nombre_comun, nombre_ordenar, comestible, fotos, foto_list);
-            listSetas.add(seta);
             listSetasAux.add(seta);
 
         }while(cursor.moveToNext());
 
-
         bd.cerrarBD();
+
+        ordenarLista();
+
+    }
+
+
+    //Se ordena la lista de setas por ordena alfabetico
+    private void ordenarLista()
+    {
+
+        Seta setamenor;
+
+        for(int i=0;i<listSetasAux.size();i++)
+        {
+            setamenor = listSetasAux.get(i);
+
+            for(int j=i+1; j<listSetasAux.size();j++)
+            {
+
+                if(listSetasAux.get(j).getNombre_ordenar().compareTo(setamenor.getNombre_ordenar())<0)
+                {
+
+                    Seta aux = listSetasAux.get(j);
+                    listSetasAux.set(i, aux);
+                    listSetasAux.set(j, setamenor);
+                    setamenor = aux;
+
+                }
+
+            }
+
+        }
+
+        listSetas.addAll(listSetasAux);
 
     }
 
@@ -160,11 +196,11 @@ public class PantallaListaGaleria extends AppCompatActivity implements AdapterVi
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
     {
 
-        Log.e("Posicion Pulsada", String.valueOf(position));
         listSetas.clear();
 
         switch (position)
         {
+
             case 0: listSetas.addAll(listSetasAux);
                 break;
 
@@ -178,7 +214,7 @@ public class PantallaListaGaleria extends AppCompatActivity implements AdapterVi
 
             case 2: for(Seta seta: listSetasAux)
             {
-                if(seta.getComestible().equals("venenosa"))
+                if(seta.getComestible().equals("sin_interes"))
                     listSetas.add(seta);
             }
 
@@ -186,17 +222,31 @@ public class PantallaListaGaleria extends AppCompatActivity implements AdapterVi
 
             case 3: for(Seta seta: listSetasAux)
             {
+                if(seta.getComestible().equals("precaucion"))
+                    listSetas.add(seta);
+            }
+
+                break;
+
+            case 4: for(Seta seta: listSetasAux)
+            {
+                if(seta.getComestible().equals("toxica"))
+                    listSetas.add(seta);
+            }
+
+                break;
+
+            case 5: for(Seta seta: listSetasAux)
+            {
                 if(seta.getComestible().equals("mortal"))
                     listSetas.add(seta);
             }
 
                 break;
 
-
         }
 
         als.notifyDataSetChanged();
-
 
     }
 
