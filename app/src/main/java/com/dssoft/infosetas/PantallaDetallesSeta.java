@@ -15,11 +15,14 @@ import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import com.dssoft.infosetas.fragments.PagerFragmentSetas;
 import com.dssoft.infosetas.pojos.SetaFireBase;
@@ -93,6 +96,8 @@ public class PantallaDetallesSeta extends AppCompatActivity
         }
 
     }
+
+
 
 
     private void getDatosFirebase(String nombreSeta)
@@ -239,11 +244,13 @@ public class PantallaDetallesSeta extends AppCompatActivity
 
         builder.setPositiveButton(R.string.btnAceptar, new DialogInterface.OnClickListener()
         {
+
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
                 dialog.dismiss();
             }
+
         });
 
         builder.create().show();

@@ -6,7 +6,11 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -20,6 +24,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import java.util.ArrayList;
 import java.util.List;
+import butterknife.BindColor;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -28,16 +33,20 @@ import butterknife.ButterKnife;
  * Created by Angel on 23/05/2017.
  */
 
-public class PantallaListaSetas extends AppCompatActivity implements AdapterView.OnItemSelectedListener
+public class PantallaListaSetas extends AppCompatActivity implements AdapterView.OnItemSelectedListener, SearchView.OnQueryTextListener, SearchView.OnCloseListener
 {
 
     @BindView(R.id.toolbar_lista_setas) Toolbar toolbar;
     @BindView(R.id.layout_pantalla_lista) LinearLayout layoutPantallaLista;
     @BindView(R.id.listview_setas) ListView listViewSetas;
     @BindView(R.id.spinner_setas) Spinner spinnerSetas;
+    @BindView(R.id.buscador_setas) SearchView buscador;
+    @BindColor(R.color.colorPrimaryDarkOrange) int colorNaranja;
 
-    private List<Seta> listSetas = new ArrayList<Seta>();
-    private List<Seta> listSetasAux = new ArrayList<Seta>();
+    private List<Seta> listSetas = new ArrayList<Seta>();//Aqui se almacenan las setas que se van a mostrar en el ListView
+    private List<Seta> listSetasAux = new ArrayList<Seta>();//Esta loista contiene todas las setas de la BD
+    private List<Seta> listBusqueda = new ArrayList<Seta>();//Se usa para almecenar temporalmente las setas que coinciden con la busqueda
+    private List<Seta> listBusquedaAux = new ArrayList<Seta>();//Se usa para volver a mostrar las mismas setas, antes de haber usado el buscador
     private AnimationDrawable animacionFondo;
     private boolean animacionFondoIniciada;
     private AdaptadorListaSetas als;
@@ -54,6 +63,9 @@ public class PantallaListaSetas extends AppCompatActivity implements AdapterView
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+        buscador.setOnQueryTextListener(this);
+        buscador.setOnCloseListener(this);
+
         String[] arrayTipos = getResources().getStringArray(R.array.tipos_array);
         AdaptadorSpinnerSetas ass = new AdaptadorSpinnerSetas(this, arrayTipos);
         ass.setDropDownViewResource(R.layout.spinner_item_dropdown);
@@ -67,9 +79,9 @@ public class PantallaListaSetas extends AppCompatActivity implements AdapterView
         animacion_fondo();
 
         //Se carga el banner
-        /*AdView mAdView = (AdView) findViewById(R.id.banner_pantalla_lista);
+        AdView mAdView = (AdView) findViewById(R.id.banner_pantalla_lista);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);*/
+        mAdView.loadAd(adRequest);
 
     }
 
@@ -93,8 +105,25 @@ public class PantallaListaSetas extends AppCompatActivity implements AdapterView
 
         });
 
+
+        buscador.setOnSearchClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v)
+                {
+                    //Si se pulsa sobre el buscador se oculta el spinner
+                    spinnerSetas.setVisibility(View.GONE);
+
+                    //Se lamacenan la lista de setas que se estan mostrando ahora en la lista auxikiar,
+                    //para poder recuperarlas cuando se cierre el buscador
+                    listBusquedaAux.clear();
+                    listBusquedaAux.addAll(listSetas);
+                }
+        });
+
+
         if(animacionFondoIniciada && !animacionFondo.isRunning())
             animacionFondo.start();//se vuelve a iniciar la animacion del fondo de pantalla
+
     }
 
 
@@ -106,6 +135,132 @@ public class PantallaListaSetas extends AppCompatActivity implements AdapterView
         if(animacionFondoIniciada && animacionFondo.isRunning())
             animacionFondo.stop();//se pausa la animacion del fondo de pantalla
     }
+
+
+    @Override
+    //Se ejecuta cuando se selecciona un item del spinner
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+    {
+
+        listSetas.clear();
+
+        switch (position)
+        {
+            case 0: listSetas.addAll(listSetasAux);
+                break;
+
+            case 1: for(Seta seta: listSetasAux)
+            {
+                if(seta.getComestible().equals("comestible"))
+                    listSetas.add(seta);
+            }
+
+                break;
+
+            case 2: for(Seta seta: listSetasAux)
+            {
+                if(seta.getComestible().equals("sin_interes"))
+                    listSetas.add(seta);
+            }
+
+                break;
+
+            case 3: for(Seta seta: listSetasAux)
+            {
+                if(seta.getComestible().equals("precaucion"))
+                    listSetas.add(seta);
+            }
+
+                break;
+
+            case 4: for(Seta seta: listSetasAux)
+            {
+                if(seta.getComestible().equals("toxica"))
+                    listSetas.add(seta);
+            }
+
+                break;
+
+            case 5: for(Seta seta: listSetasAux)
+            {
+                if(seta.getComestible().equals("mortal"))
+                    listSetas.add(seta);
+            }
+
+                break;
+
+
+        }
+
+        als.notifyDataSetChanged();
+
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+
+    //**********************************************************************************************
+    //Listeners del Buscador
+    //**********************************************************************************************
+
+    @Override
+    //Se ejecuta cuando se cierra el buscador
+    public boolean onClose()
+    {
+        //Si se cierra el buscador se muestra el spinner
+        spinnerSetas.setVisibility(View.VISIBLE);
+
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query)
+    {
+
+        return false;
+    }
+
+    @Override
+    //Se ejecuta cada vez que escribimos o borramos una letra en el buscador
+    public boolean onQueryTextChange(String newText)
+    {
+
+        //Si se borra la palabra escrita en el buscador
+        if(newText.length() == 0)
+        {
+
+            //Se recupera la lista de setas que se estaban mostrando antes de hacer la busqueda
+            listSetas.clear();
+            listSetas.addAll(listBusquedaAux);
+
+            //se pone a null todos los campos spanables, para que no se muestre letras en color naranja, por la busqueda realziada
+            for(Seta seta:listSetas)
+            {
+                seta.setSpanableNombre(null);
+                seta.setSpanableNombreComun(null);
+            }
+
+            als.notifyDataSetChanged();
+
+        }else
+        {
+            newText = newText.toLowerCase();
+            listBusqueda.clear();
+
+            buscarPalabra(newText);
+        }
+
+
+        return false;
+    }
+    //**********************************************************************************************
+        //Fin Listeners del Buscador
+    //**********************************************************************************************
+
 
     //Se obtienen los datos de la BD
     //Y se crea la lista de setas
@@ -130,6 +285,9 @@ public class PantallaListaSetas extends AppCompatActivity implements AdapterView
             int foto_list = cursor.getInt(6);
 
             Seta seta = new Seta(nombre, nombre_comun, nombre_ordenar, comestible, fotos, foto_list);
+            seta.setSpanableNombre(null);
+            seta.setSpanableNombreComun(null);
+
             listSetasAux.add(seta);
 
 
@@ -175,6 +333,69 @@ public class PantallaListaSetas extends AppCompatActivity implements AdapterView
     }
 
 
+    //Se busca en la lista de setas que se muestran en el ListView
+    private void buscarPalabra(String newText)
+    {
+        //si el texto escrito esta contenido en el nombre y nombre_normal de cada seta
+        //y si es asi se añade dicha seta en la lista de busqueda que despues se muestra en el Listview
+        listSetas.clear();
+        listSetas.addAll(listBusquedaAux);
+
+        for(Seta seta: listSetas)
+        {
+            //Si el texto escrito aparece en el nombre de la seta
+            if(seta.getNombre_ordenar().contains(newText))
+            {
+
+                seta.setSpanableNombreComun(null);
+
+                //Se obtiene la posicion del texto encontrado
+                int posicion = seta.getNombre_ordenar().indexOf(newText);
+
+                //Se crea un objeto spanable con el texto del titulo y dentro de el resaltamos en color naranja
+                //la palabra buscada que aparece dentro del texto titulo
+                Spannable spannableText = new SpannableString(seta.getNombre());
+                spannableText.setSpan(new ForegroundColorSpan(colorNaranja), posicion, posicion + newText.length(), 0);
+
+                seta.setSpanableNombre(spannableText);
+
+                listBusqueda.add(seta);
+
+            }else
+            {
+
+                //Si el texto escrito aparece en el nombre comun de la seta
+                if(seta.getNombre_comun().toLowerCase().contains(newText))
+                {
+
+                    seta.setSpanableNombre(null);
+
+                    //Se obtiene la posicion del texto encontrado
+                    int posicion = seta.getNombre_comun().toLowerCase().indexOf(newText);
+
+                    //Se crea un objeto spanable con el texto del titulo y dentro de el resaltamos en color naranja
+                    //la palabra buscada que aparece dentro del texto titulo
+                    Spannable spannableText = new SpannableString(seta.getNombre_comun());
+                    spannableText.setSpan(new ForegroundColorSpan(colorNaranja), posicion, posicion + newText.length(), 0);
+
+                    seta.setSpanableNombreComun(spannableText);
+
+                    listBusqueda.add(seta);
+
+                }
+
+            }
+
+        }
+
+        listSetas.clear();
+        listSetas.addAll(listBusqueda);
+
+        als.notifyDataSetChanged();
+
+    }
+
+
     //Se inicia la animacion (AnimationDrawable) de la imagen de fondo de la pantalla principal
     private void animacion_fondo()
     {
@@ -192,71 +413,6 @@ public class PantallaListaSetas extends AppCompatActivity implements AdapterView
         });
     }
 
-
-    @Override
-    //Se ejecuta cuando se selecciona un item del spinner
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-    {
-
-        listSetas.clear();
-
-        switch (position)
-        {
-            case 0: listSetas.addAll(listSetasAux);
-                    break;
-
-            case 1: for(Seta seta: listSetasAux)
-                    {
-                        if(seta.getComestible().equals("comestible"))
-                            listSetas.add(seta);
-                    }
-
-                    break;
-
-            case 2: for(Seta seta: listSetasAux)
-                    {
-                        if(seta.getComestible().equals("sin_interes"))
-                            listSetas.add(seta);
-                    }
-
-                    break;
-
-            case 3: for(Seta seta: listSetasAux)
-                    {
-                        if(seta.getComestible().equals("precaucion"))
-                            listSetas.add(seta);
-                    }
-
-                    break;
-
-            case 4: for(Seta seta: listSetasAux)
-                    {
-                        if(seta.getComestible().equals("toxica"))
-                            listSetas.add(seta);
-                    }
-
-                    break;
-
-            case 5: for(Seta seta: listSetasAux)
-                    {
-                        if(seta.getComestible().equals("mortal"))
-                            listSetas.add(seta);
-                    }
-
-                    break;
-
-
-        }
-
-        als.notifyDataSetChanged();
-
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
 
 
 }

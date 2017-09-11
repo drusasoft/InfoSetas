@@ -32,5 +32,11 @@
         <item name="android:textSize">15sp</item>
     </style>
 
+    <!--Estilo de la barra de busqueda -->
+    <style name="AppTheme.searchViewtext" parent="Widget.AppCompat.SearchView.ActionBar">
+        <item name="android:textColorHint">@color/colorBlanco</item>
+        <item name="android:editTextColor">@color/colorBlanco</item>
+    </style>
+
 
 </resources>

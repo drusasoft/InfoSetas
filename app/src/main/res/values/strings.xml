@@ -6,7 +6,7 @@
     <!-- Pantalla Principal-->
     <string name="btnSetas">SETAS</string>
     <string name="btnGaleria">GALERÍA</string>
-    <string name="totSetas">85 Setas</string>
+    <string name="totSetas">90 Setas</string>
     <!-- Fin Pantalla Principal-->
 
     <!-- Pantalla Lista Setas-->
@@ -683,6 +683,127 @@
     <string name="nombre_ordenarSeta85">cortinarius lacustris</string>
     <string name="comestibilidad_seta85">sin_interes</string>
     <!-- fin Seta 85 -->
+
+
+
+    <!-- Seta 86 -->
+    <string name="nombreSeta86">Agaricus Bitorquis</string>
+    <string name="nombre_comunSeta86">Champiñon Bianillado</string>
+    <string name="nombre_ordenarSeta86">agaricus bitorquis</string>
+    <string name="comestibilidad_seta86">comestible</string>
+    <!-- fin Seta 86 -->
+
+
+    <!-- Seta 87 -->
+    <string name="nombreSeta87">Lepista Personata</string>
+    <string name="nombre_comunSeta87">Seta de Vaca; Pie Violeta</string>
+    <string name="nombre_ordenarSeta87">lepista Personata</string>
+    <string name="comestibilidad_seta87">comestible</string>
+    <!-- fin Seta 87 -->
+
+
+    <!-- Seta 88 -->
+    <string name="nombreSeta88">Agaricus Sylvicola</string>
+    <string name="nombre_comunSeta88">Champiñon Anisado; Hongo de Bosque</string>
+    <string name="nombre_ordenarSeta88">agaricus sylvicola</string>
+    <string name="comestibilidad_seta88">comestible</string>
+    <!-- fin Seta 88 -->
+
+
+    <!-- Seta 89 -->
+    <string name="nombreSeta89">Amanita Ponderosa</string>
+    <string name="nombre_comunSeta89">Gurumelo</string>
+    <string name="nombre_ordenarSeta89">amanita ponderosa</string>
+    <string name="comestibilidad_seta89">comestible</string>
+    <!-- fin Seta 89 -->
+
+
+    <!-- Seta 90 -->
+    <string name="nombreSeta90">Amanita Vaginata</string>
+    <string name="nombre_comunSeta90">Amanita Enfundada</string>
+    <string name="nombre_ordenarSeta90">amanita vaginata</string>
+    <string name="comestibilidad_seta90">precaucion</string>
+    <!-- fin Seta 90 -->
+
+
+    <!-- Seta 91 -->
+    <string name="nombreSeta91">Infundibulicybe Geotropa</string>
+    <string name="nombre_comunSeta91">Platera</string>
+    <string name="nombre_ordenarSeta91">infundibulicybe geotropa</string>
+    <string name="comestibilidad_seta91">comestible</string>
+    <!-- fin Seta 91 -->
+
+
+    <!-- Seta 92 -->
+    <string name="nombreSeta92">Clitopilus Prunulus</string>
+    <string name="nombre_comunSeta92">Molinera</string>
+    <string name="nombre_ordenarSeta92">clitopilus prunulus</string>
+    <string name="comestibilidad_seta92">comestible</string>
+    <!-- fin Seta 92 -->
+
+
+    <!-- Seta 93 -->
+    <string name="nombreSeta93">Laccaria Laccata</string>
+    <string name="nombre_comunSeta93">Lacaria</string>
+    <string name="nombre_ordenarSeta93">laccaria laccata</string>
+    <string name="comestibilidad_seta93">comestible</string>
+    <!-- fin Seta 93 -->
+
+
+    <!-- Seta 94 -->
+    <string name="nombreSeta94">Lactarius Rugatus</string>
+    <string name="nombre_comunSeta94">Níscalo Arrugado</string>
+    <string name="nombre_ordenarSeta94">lactarius rugatus</string>
+    <string name="comestibilidad_seta94">comestible</string>
+    <!-- fin Seta 94 -->
+
+
+    <!-- Seta 95 -->
+    <string name="nombreSeta95">Lactarius Semisanguifluus</string>
+    <string name="nombre_comunSeta95">Níscalo Sanguinolento</string>
+    <string name="nombre_ordenarSeta95">lactarius semisanguifluus</string>
+    <string name="comestibilidad_seta95">comestible</string>
+    <!-- fin Seta 95 -->
+
+
+    <!-- Seta 96 -->
+    <string name="nombreSeta96">Lyophyllum Decastes</string>
+    <string name="nombre_comunSeta96">Liófilo Agregado</string>
+    <string name="nombre_ordenarSeta96">lyophyllum decastes</string>
+    <string name="comestibilidad_seta96">comestible</string>
+    <!-- fin Seta 96 -->
+
+
+    <!-- Seta 97 -->
+    <string name="nombreSeta97">Macrolepiota Mastoidea</string>
+    <string name="nombre_comunSeta97">Parasol</string>
+    <string name="nombre_ordenarSeta97">macrolepiota mastoidea</string>
+    <string name="comestibilidad_seta97">comestible</string>
+    <!-- fin Seta 97 -->
+
+
+    <!-- Seta 98 -->
+    <string name="nombreSeta98">Melanoleuca Grammopodia</string>
+    <string name="nombre_comunSeta98">Seta de Cañadilla</string>
+    <string name="nombre_ordenarSeta98">melanoleuca grammopodia</string>
+    <string name="comestibilidad_seta98">comestible</string>
+    <!-- fin Seta 98 -->
+
+
+    <!-- Seta 99 -->
+    <string name="nombreSeta99">Pleurotus Ostreatus</string>
+    <string name="nombre_comunSeta99">Seta de Mimbre; Seta de Ostra</string>
+    <string name="nombre_ordenarSeta99">pleurotus ostreatus</string>
+    <string name="comestibilidad_seta99">comestible</string>
+    <!-- fin Seta 99 -->
+
+
+    <!-- Seta 100 -->
+    <string name="nombreSeta100">Russula Virescens</string>
+    <string name="nombre_comunSeta100">Russula Cambiante</string>
+    <string name="nombre_ordenarSeta100">russula virescens</string>
+    <string name="comestibilidad_seta100">comestible</string>
+    <!-- fin Seta 100 -->
 
 
 </resources>

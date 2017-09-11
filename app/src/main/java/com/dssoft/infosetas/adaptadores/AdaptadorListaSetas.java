@@ -13,6 +13,8 @@ import com.dssoft.infosetas.R;
 import com.dssoft.infosetas.pojos.Seta;
 import com.squareup.picasso.Picasso;
 import java.util.List;
+
+import butterknife.BindColor;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -56,8 +58,22 @@ public class AdaptadorListaSetas extends ArrayAdapter<Seta>
             fila.setTag(holder);
         }
 
-        holder.txtNombreSeta.setText(listaSetas.get(position).getNombre());
-        holder.txtNombreSetaComun.setText(listaSetas.get(position).getNombre_comun());
+        if(listaSetas.get(position).getSpanableNombre()!= null)
+        {
+            holder.txtNombreSeta.setText(listaSetas.get(position).getSpanableNombre());
+        }else
+        {
+            holder.txtNombreSeta.setText(listaSetas.get(position).getNombre());
+        }
+
+        if(listaSetas.get(position).getSpanableNombreComun() != null)
+        {
+            holder.txtNombreSetaComun.setText(listaSetas.get(position).getSpanableNombreComun());
+        }else
+        {
+            holder.txtNombreSetaComun.setText(listaSetas.get(position).getNombre_comun());
+        }
+
         //Picasso.with(context).load(listaSetas.get(position).getFoto_lista()).into(holder.imgSeta);
         holder.imgSeta.setBackgroundResource(listaSetas.get(position).getFoto_lista());
 

@@ -1,5 +1,7 @@
 package com.dssoft.infosetas.pojos;
 
+import android.text.Spannable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,8 @@ public class Seta
     private String comestible;
     private String fotos;
     private int foto_lista;
+    private Spannable spanableNombre;
+    private Spannable spanableNombreComun;
 
     public Seta()
     {
@@ -78,5 +82,21 @@ public class Seta
 
     public void setFoto_lista(int foto_lista) {
         this.foto_lista = foto_lista;
+    }
+
+    public Spannable getSpanableNombre() {
+        return spanableNombre;
+    }
+
+    public void setSpanableNombre(Spannable spanableNombre) {
+        this.spanableNombre = spanableNombre;
+    }
+
+    public Spannable getSpanableNombreComun() {
+        return spanableNombreComun;
+    }
+
+    public void setSpanableNombreComun(Spannable spanableNombreComun) {
+        this.spanableNombreComun = spanableNombreComun;
     }
 }

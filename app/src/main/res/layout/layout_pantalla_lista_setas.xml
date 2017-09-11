@@ -16,18 +16,30 @@
         app:theme="@style/AppTheme.ToolbarStyle"
         app:titleTextAppearance="@style/AppTheme.ToolbarTextStyle">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <Spinner
                 android:id="@+id/spinner_setas"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
                 android:layout_centerVertical="true"/>
 
-        </RelativeLayout>
+            <android.support.v7.widget.SearchView
+                android:id="@+id/buscador_setas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="2dp"
+                android:theme="@style/AppTheme.searchViewtext"/>
 
+        </LinearLayout>
         
     </android.support.v7.widget.Toolbar>
 
