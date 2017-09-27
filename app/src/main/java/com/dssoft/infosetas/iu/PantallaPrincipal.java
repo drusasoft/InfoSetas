@@ -1,8 +1,9 @@
-package com.dssoft.infosetas;
+package com.dssoft.infosetas.iu;
 
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.AnimationDrawable;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -11,12 +12,12 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import com.dssoft.infosetas.R;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -75,7 +76,7 @@ public class PantallaPrincipal extends AppCompatActivity
         animacion_fondo();//Se crea la animacion de la imagen de fondo de la pantalla principal
 
         //Se carga el banner
-        AdView mAdView = (AdView) findViewById(R.id.banner_pantalla_principal);
+        /*AdView mAdView = (AdView) findViewById(R.id.banner_pantalla_principal);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
@@ -94,7 +95,7 @@ public class PantallaPrincipal extends AppCompatActivity
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
 
-        });
+        });*/
 
     }
 
@@ -200,8 +201,8 @@ public class PantallaPrincipal extends AppCompatActivity
     public void irPantallaSetas()
     {
 
-        if(mInterstitialAd.isLoaded())
-            mInterstitialAd.show();
+        /*if(mInterstitialAd.isLoaded())
+            mInterstitialAd.show();*/
 
         Intent intent = new Intent(this, PantallaListaSetas.class);
         startActivity(intent);
@@ -212,8 +213,8 @@ public class PantallaPrincipal extends AppCompatActivity
     public void irPantallaGaleria()
     {
 
-        if(mInterstitialAd.isLoaded())
-            mInterstitialAd.show();
+        /*if(mInterstitialAd.isLoaded())
+            mInterstitialAd.show();*/
 
         Intent intent = new Intent(this, PantallaListaGaleria.class);
         startActivity(intent);

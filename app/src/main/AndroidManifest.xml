@@ -4,6 +4,7 @@
     android:installLocation="auto">
 
     <application
+        android:name=".InfoSetas"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,7 +13,7 @@
         android:theme="@style/AppTheme"
         android:largeHeap="true">
 
-        <activity android:name=".PantallaPrincipal" android:screenOrientation="portrait">
+        <activity android:name=".iu.PantallaPrincipal" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,11 +21,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".PantallaDetallesSeta" android:screenOrientation="portrait" android:parentActivityName=".PantallaListaSetas"/>
-        <activity android:name=".PantallaListaSetas" android:screenOrientation="portrait" android:parentActivityName=".PantallaPrincipal"/>
-        <activity android:name=".PantallaListaGaleria" android:screenOrientation="portrait" android:parentActivityName=".PantallaPrincipal"/>
-        <activity android:name=".PantallaGaleria" android:screenOrientation="portrait" android:parentActivityName=".PantallaListaGaleria"/>
-        <activity android:name=".PantallaZoom" android:screenOrientation="portrait"/>
+        <activity android:name=".iu.PantallaDetallesSeta" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaListaSetas"/>
+        <activity android:name=".iu.PantallaListaSetas" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaPrincipal"/>
+        <activity android:name=".iu.PantallaListaGaleria" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaPrincipal"/>
+        <activity android:name=".iu.PantallaGaleria" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaListaGaleria"/>
+        <activity android:name=".iu.PantallaZoom" android:screenOrientation="portrait"/>
 
     </application>
 

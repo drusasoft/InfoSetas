@@ -16,7 +16,7 @@ import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
-import com.dssoft.infosetas.PantallaZoom;
+import com.dssoft.infosetas.iu.PantallaZoom;
 import com.dssoft.infosetas.R;
 import com.dssoft.infosetas.pojos.SetaFireBase;
 import com.google.android.gms.ads.AdRequest;
@@ -106,9 +106,9 @@ public class PagerFragmentSetas extends Fragment
                                 efecto_mostrar_circular(cardViewDescripcion);
 
                                 //Se carga el banner
-                                AdView mAdView = (AdView) rootPag1.findViewById(R.id.banner_pantalla_detalles_1);
+                                /*AdView mAdView = (AdView) rootPag1.findViewById(R.id.banner_pantalla_detalles_1);
                                 AdRequest adRequest = new AdRequest.Builder().build();
-                                mAdView.loadAd(adRequest);
+                                mAdView.loadAd(adRequest);*/
 
                             }
                         });
@@ -138,9 +138,9 @@ public class PagerFragmentSetas extends Fragment
                                 efecto_mostrar_circular(cardViewComestibilidad);
 
                                 //Se carga el banner
-                                AdView mAdView = (AdView) rootPag2.findViewById(R.id.banner_pantalla_detalles_2);
+                                /*AdView mAdView = (AdView) rootPag2.findViewById(R.id.banner_pantalla_detalles_2);
                                 AdRequest adRequest = new AdRequest.Builder().build();
-                                mAdView.loadAd(adRequest);
+                                mAdView.loadAd(adRequest);*/
                             }
                         });
                     }
@@ -166,9 +166,9 @@ public class PagerFragmentSetas extends Fragment
                                 efecto_mostrar_circular(cardViewObservaciones);
 
                                 //Se carga el banner
-                                AdView mAdView = (AdView) rootPag3.findViewById(R.id.banner_pantalla_detalles_3);
+                                /*AdView mAdView = (AdView) rootPag3.findViewById(R.id.banner_pantalla_detalles_3);
                                 AdRequest adRequest = new AdRequest.Builder().build();
-                                mAdView.loadAd(adRequest);
+                                mAdView.loadAd(adRequest);*/
                             }
 
                         });

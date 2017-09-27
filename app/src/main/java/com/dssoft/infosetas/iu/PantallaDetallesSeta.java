@@ -1,4 +1,4 @@
-package com.dssoft.infosetas;
+package com.dssoft.infosetas.iu;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -15,22 +15,17 @@ import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
+import com.dssoft.infosetas.InfoSetas;
+import com.dssoft.infosetas.R;
 import com.dssoft.infosetas.fragments.PagerFragmentSetas;
 import com.dssoft.infosetas.pojos.SetaFireBase;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.dssoft.infosetas.presentador.PresentadorDetalles;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -38,7 +33,7 @@ import butterknife.ButterKnife;
  * Created by Angel on 17/05/2017.
  */
 
-public class PantallaDetallesSeta extends AppCompatActivity
+public class PantallaDetallesSeta extends AppCompatActivity implements VistaDetalles
 {
 
     @BindView(R.id.layoutPantallaDetalles) LinearLayout layoutPrincipal;
@@ -47,6 +42,8 @@ public class PantallaDetallesSeta extends AppCompatActivity
     @BindView(R.id.PagerTabStrip_Comestibles) PagerTabStrip pagerTabStrip;
     @BindView(R.id.imgToolBar) ImageView imgTooBar;
     @BindView(R.id.titToolBar) TextView titTooBar;
+
+    private PresentadorDetalles presentadorDetalles;
 
     private static int NUM_PAGINAS=4;
     private String[] titPestañas = new String[]{"Descripción", "Hábitat y Comestibilidad", "Observaciones", "Galería"};
@@ -60,6 +57,7 @@ public class PantallaDetallesSeta extends AppCompatActivity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pantalla_detalles_seta);
         ButterKnife.bind(this);
@@ -67,6 +65,11 @@ public class PantallaDetallesSeta extends AppCompatActivity
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        //Se crea el Presentador de esta pantalla y se le pasa la capa modelo (DataManagerFB) creada en la variable global
+        InfoSetas infoSetas = (InfoSetas) getApplication();
+        presentadorDetalles = new PresentadorDetalles(infoSetas.getDataManagerFB());
+        presentadorDetalles.setVista(this);
 
         //Se obtiene el nombre de la seta pasado como paremetro
         String nombreSeta = getIntent().getStringExtra("nombreSeta");
@@ -82,8 +85,8 @@ public class PantallaDetallesSeta extends AppCompatActivity
 
             mostrarProgresDialog();
 
-            //Se obtienen los datos de la seta de Firebase
-            getDatosFirebase(nombreSeta);
+            //Se llama al metodo del presentador que se encarga de obtener los datos de la seta indicada
+            presentadorDetalles.getDetallesSeta(nombreSeta, presentadorDetalles);
 
             //Se crea el ViewPager
             pagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
@@ -98,48 +101,44 @@ public class PantallaDetallesSeta extends AppCompatActivity
     }
 
 
-
-
-    private void getDatosFirebase(String nombreSeta)
+    @Override
+    public void mostrarDatosSetas(SetaFireBase seta)
     {
-        //FirebaseApp.initializeApp(this);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference databaseReference = database.getReference("setas_esp").child(nombreSeta);
+        if(progressDialog != null)
+            progressDialog.dismiss();
 
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener()
+        setaDetalles = seta;
+        pagerAdapter.notifyDataSetChanged();//Se actualiza el contenido del viewpager
+
+    }
+
+
+    @Override
+    public void mostrarDialogError(int titError, int txtError)
+    {
+
+        if(progressDialog != null)
+            progressDialog.dismiss();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(titError);
+        builder.setMessage(txtError);
+
+        builder.setPositiveButton(R.string.btnAceptar, new DialogInterface.OnClickListener()
         {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
-            {
-
-                progressDialog.dismiss();
-
-                //Se desregistra el listener
-                databaseReference.removeEventListener(this);
-
-                //Obtenemos los datos de la seta Firebase y lo guardamos en una variable
-                setaDetalles = dataSnapshot.getValue(SetaFireBase.class);
-
-                if(setaDetalles != null)
-                {
-                    pagerAdapter.notifyDataSetChanged();//Se actualiza el contenido del viewpager
-                }else
-                {
-                    mostrarDialogError(R.string.titErrorDialog_1, R.string.txtErrorDialog_1);
-                }
-
-            }
 
             @Override
-            public void onCancelled(DatabaseError databaseError)
+            public void onClick(DialogInterface dialog, int which)
             {
-
-                progressDialog.dismiss();
-                mostrarDialogError(R.string.titErrorDialog_1, R.string.txtErrorDialog_1);
+                dialog.dismiss();
             }
 
         });
+
+        builder.create().show();
+
     }
+
 
 
     //Se cambia el color de la pantalla segun la comestibilidad de la seta
@@ -231,29 +230,6 @@ public class PantallaDetallesSeta extends AppCompatActivity
         progressDialog.setMessage(getString(R.string.txtProgressDialog));
         progressDialog.setCancelable(false);
         progressDialog.show();
-
-    }
-
-
-    private void mostrarDialogError(int titError, int txtError)
-    {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(titError);
-        builder.setMessage(txtError);
-
-        builder.setPositiveButton(R.string.btnAceptar, new DialogInterface.OnClickListener()
-        {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
-                dialog.dismiss();
-            }
-
-        });
-
-        builder.create().show();
 
     }
 

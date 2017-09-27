@@ -1,4 +1,4 @@
-package com.dssoft.infosetas;
+package com.dssoft.infosetas.iu;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,7 +11,10 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.dssoft.infosetas.R;
 import com.github.chrisbanes.photoview.PhotoView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

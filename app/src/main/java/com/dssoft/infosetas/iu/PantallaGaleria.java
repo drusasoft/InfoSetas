@@ -1,4 +1,4 @@
-package com.dssoft.infosetas;
+package com.dssoft.infosetas.iu;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +16,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
+
+import com.dssoft.infosetas.R;
+
 import java.util.StringTokenizer;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
