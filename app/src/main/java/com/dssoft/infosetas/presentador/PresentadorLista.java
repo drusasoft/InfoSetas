@@ -5,7 +5,6 @@ import com.dssoft.infosetas.iu.VistaBase;
 import com.dssoft.infosetas.iu.VistaLista;
 import com.dssoft.infosetas.modelo.DataManagerBD;
 import com.dssoft.infosetas.pojos.Seta;
-
 import java.util.List;
 
 /**
@@ -18,6 +17,7 @@ public class PresentadorLista implements PresentadorMvpLista
 
     private VistaLista vista;
     private DataManagerBD dataManagerBD;
+    private boolean mostrandoFav = false;//Para sabe si se esta mostrando la lista de setas favoritas
 
     //El presentador recibe el modelo para poder llamar a sus metodos y recuperar asi los datos necesarios
     public PresentadorLista(DataManagerBD dataManagerBD)
@@ -48,22 +48,32 @@ public class PresentadorLista implements PresentadorMvpLista
 
         switch(tipo_seta)
         {
-            case 0: listSetas = dataManagerBD.getTodasSetas();
+            case 0: mostrandoFav = false;
+                    listSetas = dataManagerBD.getTodasSetas();
                     break;
 
-            case 1: listSetas = dataManagerBD.getSetasComestibles();
+            case 1: mostrandoFav = true;
+                    listSetas = dataManagerBD.getSetasFavoritas();
                     break;
 
-            case 2: listSetas = dataManagerBD.getSetasSinInteres();
+            case 2: mostrandoFav = false;
+                    listSetas = dataManagerBD.getSetasComestibles();
                     break;
 
-            case 3: listSetas = dataManagerBD.getSetasPrecaucion();
+            case 3: mostrandoFav = false;
+                    listSetas = dataManagerBD.getSetasSinInteres();
                     break;
 
-            case 4: listSetas = dataManagerBD.getSetasToxicas();
+            case 4: mostrandoFav = false;
+                    listSetas = dataManagerBD.getSetasPrecaucion();
                     break;
 
-            case 5: listSetas = dataManagerBD.getSetasMortales();
+            case 5: mostrandoFav = false;
+                    listSetas = dataManagerBD.getSetasToxicas();
+                    break;
+
+            case 6: mostrandoFav = false;
+                    listSetas = dataManagerBD.getSetasMortales();
                     break;
 
         }
@@ -94,6 +104,39 @@ public class PresentadorLista implements PresentadorMvpLista
         //Se muestra dicha lista
         vista.mostrarListaSetas(listSetas);
 
+    }
+
+
+    @Override
+    //Se añade la seta a la lista de favoritas
+    public void addFavorita(String nombreSeta)
+    {
+        //Se añade la seta a la lista de favoritas
+        List<Seta> listSetas = dataManagerBD.addFavorita(nombreSeta);
+
+        //Se muestra dicha lista
+        vista.mostrarListaSetas(listSetas);
+
+    }
+
+
+    @Override
+    //Se elimian la seta de la lista de favoritas
+    public void delFavorita(String nombreSeta)
+    {
+        //Se añade la seta a la lista de favoritas
+        List<Seta> listSetas = dataManagerBD.delFavorita(nombreSeta, mostrandoFav);
+
+        //Se muestra dicha lista
+        vista.mostrarListaSetas(listSetas);
+
+    }
+
+    @Override
+    //Para sabe si se ha elejodo la opcion del spinner de mostrar favoritas
+    public boolean isMostrandoFav()
+    {
+        return mostrandoFav;
     }
 
 

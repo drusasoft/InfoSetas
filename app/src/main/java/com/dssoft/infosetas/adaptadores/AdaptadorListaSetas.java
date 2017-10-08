@@ -79,6 +79,7 @@ public class AdaptadorListaSetas extends ArrayAdapter<Seta>
         holder.imgSeta.setBackgroundResource(listaSetas.get(position).getFoto_lista());
 
 
+        //Se comprueba que tipo de seta es para mostrar el icono adecuado
         switch(listaSetas.get(position).getComestible())
         {
 
@@ -104,6 +105,16 @@ public class AdaptadorListaSetas extends ArrayAdapter<Seta>
         }
 
 
+        //Se comprueba si la seta esta en la lista de favoritas, para mostrar el icono de la estrella
+       if(listaSetas.get(position).isFavorita())
+       {
+            holder.imgFavorita.setVisibility(View.VISIBLE);
+
+       }else
+       {
+            holder.imgFavorita.setVisibility(View.GONE);
+       }
+
         return fila;
 
     }
@@ -116,6 +127,7 @@ public class AdaptadorListaSetas extends ArrayAdapter<Seta>
         @BindView(R.id.txtList_nombre_seta_comun) TextView txtNombreSetaComun;
         @BindView(R.id.imageView_ListaSetas) ImageView imgSeta;
         @BindView(R.id.imageView_seta_mario) ImageView imgSetaMario;
+        @BindView(R.id.imageView_favorita) ImageView imgFavorita;
 
         public ViewHolder(View view)
         {

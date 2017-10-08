@@ -1,13 +1,16 @@
 package com.dssoft.infosetas.iu;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -38,6 +41,7 @@ public class PantallaListaGaleria extends AppCompatActivity implements VistaList
     @BindView(R.id.listview_setas) ListView listViewSetas;
     @BindView(R.id.spinner_setas) Spinner spinnerSetas;
     @BindView(R.id.buscador_setas) SearchView buscador;
+    @BindView(R.id.cardViewFavoritas) CardView cardViewFavoritas;
     @BindColor(R.color.colorPrimaryDarkOrange) int colorNaranja;
 
     private PresentadorLista presentadorLista;
@@ -82,9 +86,9 @@ public class PantallaListaGaleria extends AppCompatActivity implements VistaList
         animacion_fondo();
 
         //Se carga el banner
-        /*AdView mAdView = (AdView) findViewById(R.id.banner_pantalla_lista);
+        AdView mAdView = (AdView) findViewById(R.id.banner_pantalla_lista);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);*/
+        mAdView.loadAd(adRequest);
 
     }
 
@@ -104,6 +108,27 @@ public class PantallaListaGaleria extends AppCompatActivity implements VistaList
                 intent.putExtra("comestible", listSetas.get(position).getComestible());
                 intent.putExtra("fotos", listSetas.get(position).getFotos());
                 startActivity(intent);
+            }
+
+        });
+
+        //Si se hace una pulsacion larga sobre un elemento de la lista se añade o quita el elemento de la lista de favoritos
+        listViewSetas.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener()
+        {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
+            {
+
+
+                if(listSetas.get(position).isFavorita())
+                {
+                    presentadorLista.delFavorita(listSetas.get(position).getNombre());
+                }else
+                {
+                    presentadorLista.addFavorita(listSetas.get(position).getNombre());
+                }
+
+                return true;
             }
 
         });
@@ -163,6 +188,9 @@ public class PantallaListaGaleria extends AppCompatActivity implements VistaList
                     break;
 
                 case 5: presentadorLista.getSetas(5);
+                    break;
+
+                case 6: presentadorLista.getSetas(6);
                     break;
 
             }
@@ -227,6 +255,27 @@ public class PantallaListaGaleria extends AppCompatActivity implements VistaList
     //**********************************************************************************************
 
 
+    private void efecto_mostrar_circular(View view)
+    {
+
+        // get the center for the clipping circle
+        int cx = (view.getLeft() + view.getRight())/2;
+        int cy = (view.getTop() + view.getBottom())/2;
+
+        // get the final radius for the clipping circle
+        int finalRadious = Math.max(view.getWidth(), view.getHeight());
+
+        // create the animator for this view (the start radius is zero)
+        Animator anim = ViewAnimationUtils.createCircularReveal(view, cx, cy, 0, finalRadious);
+        anim.setDuration(1500);//Establezco una duracion mayor al la animacion para ver mejor el efecto
+
+        // make the view visible and start the animation
+        view.setVisibility(View.VISIBLE);
+        anim.start();
+
+    }
+
+
     //Se inicia la animacion (AnimationDrawable) de la imagen de fondo de la pantalla principal
     private void animacion_fondo()
     {
@@ -250,6 +299,14 @@ public class PantallaListaGaleria extends AppCompatActivity implements VistaList
     public void mostrarListaSetas(List<Seta> listSetas)
     {
         this.listSetas = listSetas;
+
+        if(listSetas.size() == 0 && presentadorLista.isMostrandoFav())
+        {
+            efecto_mostrar_circular(cardViewFavoritas);
+        }else
+        {
+            cardViewFavoritas.setVisibility(View.INVISIBLE);
+        }
 
         als.notifyDataSetChanged();
     }

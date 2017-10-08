@@ -18,6 +18,7 @@ public class Seta
     private String comestible;
     private String fotos;
     private int foto_lista;
+    private boolean favorita;
     private Spannable spanableNombre;
     private Spannable spanableNombreComun;
 
@@ -82,6 +83,14 @@ public class Seta
 
     public void setFoto_lista(int foto_lista) {
         this.foto_lista = foto_lista;
+    }
+
+    public boolean isFavorita() {
+        return favorita;
+    }
+
+    public void setFavorita(boolean favorita) {
+        this.favorita = favorita;
     }
 
     public Spannable getSpanableNombre() {

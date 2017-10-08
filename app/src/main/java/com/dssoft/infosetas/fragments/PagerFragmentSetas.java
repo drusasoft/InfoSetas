@@ -48,6 +48,7 @@ public class PagerFragmentSetas extends Fragment
     @Nullable @BindView(R.id.txtObservaciones) TextView txtObservaciones;
     @Nullable @BindView(R.id.txtNombre) TextView txtNombre;
     @Nullable @BindView(R.id.txtNombreComun) TextView txtNombreComun;
+
     @Nullable @BindView(R.id.imgGaleria_1) ImageView imageView1;
     @Nullable @BindView(R.id.imgGaleria_2) ImageView imageView2;
     @Nullable @BindView(R.id.imgGaleria_3) ImageView imageView3;
@@ -106,9 +107,9 @@ public class PagerFragmentSetas extends Fragment
                                 efecto_mostrar_circular(cardViewDescripcion);
 
                                 //Se carga el banner
-                                /*AdView mAdView = (AdView) rootPag1.findViewById(R.id.banner_pantalla_detalles_1);
+                                AdView mAdView = (AdView) rootPag1.findViewById(R.id.banner_pantalla_detalles_1);
                                 AdRequest adRequest = new AdRequest.Builder().build();
-                                mAdView.loadAd(adRequest);*/
+                                mAdView.loadAd(adRequest);
 
                             }
                         });
@@ -138,9 +139,9 @@ public class PagerFragmentSetas extends Fragment
                                 efecto_mostrar_circular(cardViewComestibilidad);
 
                                 //Se carga el banner
-                                /*AdView mAdView = (AdView) rootPag2.findViewById(R.id.banner_pantalla_detalles_2);
+                                AdView mAdView = (AdView) rootPag2.findViewById(R.id.banner_pantalla_detalles_2);
                                 AdRequest adRequest = new AdRequest.Builder().build();
-                                mAdView.loadAd(adRequest);*/
+                                mAdView.loadAd(adRequest);
                             }
                         });
                     }
@@ -166,9 +167,9 @@ public class PagerFragmentSetas extends Fragment
                                 efecto_mostrar_circular(cardViewObservaciones);
 
                                 //Se carga el banner
-                                /*AdView mAdView = (AdView) rootPag3.findViewById(R.id.banner_pantalla_detalles_3);
+                                AdView mAdView = (AdView) rootPag3.findViewById(R.id.banner_pantalla_detalles_3);
                                 AdRequest adRequest = new AdRequest.Builder().build();
-                                mAdView.loadAd(adRequest);*/
+                                mAdView.loadAd(adRequest);
                             }
 
                         });

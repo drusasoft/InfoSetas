@@ -58,23 +58,27 @@ public class AdaptadorSpinnerSetas extends ArrayAdapter<String>
             case 0: holder.imgSpinner.setVisibility(View.GONE);
                     break;
 
-            case 1: holder.imgSpinner.setImageResource(R.drawable.seta_buena_small);
+            case 1: holder.imgSpinner.setImageResource(R.drawable.img_favorita);
                     holder.imgSpinner.setVisibility(View.VISIBLE);
                     break;
 
-            case 2: holder.imgSpinner.setImageResource(R.drawable.seta_regular_small);
+            case 2: holder.imgSpinner.setImageResource(R.drawable.seta_buena_small);
                     holder.imgSpinner.setVisibility(View.VISIBLE);
                     break;
 
-            case 3: holder.imgSpinner.setImageResource(R.drawable.cuidado_small);
+            case 3: holder.imgSpinner.setImageResource(R.drawable.seta_regular_small);
                     holder.imgSpinner.setVisibility(View.VISIBLE);
                     break;
 
-            case 4: holder.imgSpinner.setImageResource(R.drawable.seta_venenosa_small);
+            case 4: holder.imgSpinner.setImageResource(R.drawable.cuidado_small);
                     holder.imgSpinner.setVisibility(View.VISIBLE);
                     break;
 
-            case 5: holder.imgSpinner.setImageResource(R.drawable.skull_ico);
+            case 5: holder.imgSpinner.setImageResource(R.drawable.seta_venenosa_small);
+                    holder.imgSpinner.setVisibility(View.VISIBLE);
+                    break;
+
+            case 6: holder.imgSpinner.setImageResource(R.drawable.skull_ico);
                     holder.imgSpinner.setVisibility(View.VISIBLE);
                     break;
         }

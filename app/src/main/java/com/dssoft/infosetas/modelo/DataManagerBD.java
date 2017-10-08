@@ -17,8 +17,9 @@ public class DataManagerBD
 {
 
     private List<Seta> listSetas = new ArrayList<Seta>();//Esta lista contiene las setas que se pasaran a la activity para mostrarlas en el ListView correspondiente
-    private List<Seta> listSetasAux = new ArrayList<Seta>();//Esta lista es una copia de la lista klistSetas y se usa para que en caso de funalizar una busqueda se muestre la lista de setas previa a la busqueda
+    private List<Seta> listSetasAux = new ArrayList<Seta>();//Esta lista es una copia de la lista listSetas y se usa para que en caso de funalizar una busqueda se muestre la lista de setas previa a la busqueda
     private List<Seta> listSetasBD = new ArrayList<Seta>();//Esta lista contiene todas las setas almacenadas en la BD
+    private List<String> listFavoritas = new ArrayList<>();//Lista con los nombre de las setas favoritas guardadas en la BD
     private BDAdapter mBDAdapter;
 
 
@@ -35,6 +36,44 @@ public class DataManagerBD
     private void cerrarBD()
     {
         mBDAdapter.cerrarBD();
+    }
+
+    //Se obtinen las setas Favoritas de la BD y se guardan sus nombre en una lista
+    private void obtenerfavoritasBD()
+    {
+        abrirBDLectura();
+
+        listFavoritas.clear();
+        Cursor cursor = mBDAdapter.obtenerFavoritasBD();
+
+        if(cursor.getCount()>0)
+        {
+            cursor.moveToFirst();
+
+            do
+            {
+                listFavoritas.add(cursor.getString(0));
+
+            }while(cursor.moveToNext());
+
+        }
+
+        cerrarBD();
+
+    }
+
+    //Se verifica que setas obtenidas de la BD estan tambien en la lista de favoritas y se cambia su campo para indicarlo
+    private void checkFavoritas()
+    {
+
+        for(Seta seta:listSetasBD)
+        {
+
+            if(listFavoritas.contains(seta.getNombre()))
+                seta.setFavorita(true);
+
+        }
+
     }
 
     private void ordenarLista()
@@ -99,6 +138,10 @@ public class DataManagerBD
         cerrarBD();
 
         ordenarLista();
+
+        obtenerfavoritasBD();
+
+        checkFavoritas();
 
         return listSetas;
 
@@ -192,6 +235,66 @@ public class DataManagerBD
     }
 
 
+    //Se añade una seta en la lista de favoritas
+    public List<Seta> addFavorita(String nombreSeta)
+    {
+
+        //Se añade el nombre de la seta a la lista de favoritas
+        listFavoritas.add(nombreSeta);
+
+        //Se indica que es favorita en el resto de lista
+        for(Seta seta:listSetasBD)
+        {
+            if(seta.getNombre().equals(nombreSeta))
+            {
+                seta.setFavorita(true);
+                break;
+            }
+        }
+
+        //Se añade el nombre de la seta favorita de la BD
+        mBDAdapter.addFavoritaBD(nombreSeta);
+
+        return listSetas;
+
+    }
+
+
+    //Se quita una seta de la lista de Favoritas
+    public List<Seta> delFavorita(String nombreSeta, boolean mostrandoFav)
+    {
+
+        Seta setaAux=null;
+
+        //Se quita el nombre de la seta a la lista de favoritas
+        listFavoritas.remove(nombreSeta);
+
+        //Se indica que ya no es favorita en el resto de lista
+        for(Seta seta:listSetasBD)
+        {
+            if(seta.getNombre().equals(nombreSeta))
+            {
+                seta.setFavorita(false);
+                setaAux = seta;
+                break;
+            }
+        }
+
+        //Si se esta mostrand0 en estos momentos la lista de setas favoritas, entonces de deja de mostrar dicha seta
+        if(mostrandoFav)
+        {
+            listSetas.remove(setaAux);
+            listSetasAux.remove(setaAux);
+        }
+
+        //Se elimina el nombre de la seta favorita de la BD
+        mBDAdapter.delFavoritaBD(nombreSeta);
+
+        return listSetas;
+
+    }
+
+
     //Se devuelve las lista con todas las setas de la BD
     public List<Seta> getTodasSetas()
     {
@@ -203,6 +306,27 @@ public class DataManagerBD
         listSetasAux.addAll(listSetas);
 
         return listSetas;
+    }
+
+
+    //Se devuelve las lista con las setas favoritas
+    public List<Seta> getSetasFavoritas()
+    {
+        listSetas.clear();
+        listSetasAux.clear();
+
+        for(Seta seta:listSetasBD)
+        {
+
+            if(listFavoritas.contains(seta.getNombre()))
+                listSetas.add(seta);
+
+        }
+
+        listSetasAux.addAll(listSetas);
+
+        return listSetas;
+
     }
 
 

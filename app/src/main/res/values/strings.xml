@@ -6,11 +6,15 @@
     <!-- Pantalla Principal-->
     <string name="btnSetas">SETAS</string>
     <string name="btnGaleria">GALERÍA</string>
-    <string name="totSetas">115 Setas</string>
+    <string name="totSetas">120 Setas</string>
     <!-- Fin Pantalla Principal-->
 
+
+
     <!-- Pantalla Lista Setas-->
-    <string name="tit_pantalla_lista_setas"></string>
+    <string name="txtFavoritas">Actualmente tu lista de setas favoritas esta vacía.\n\n
+        Para agregar/eliminar una seta a dicha lista, debe realizar una pulsación larga sobre la seta deseada.</string>
+
     <!-- Fin Pantalla Lista Setas-->
 
     <!-- Pantalla Detalles Seta-->
@@ -617,7 +621,7 @@
     <string name="nombreSeta77">Suillus Luteus</string>
     <string name="nombre_comunSeta77">Babosa; Boleto Anillado</string>
     <string name="nombre_ordenarSeta77">suillus luteus</string>
-    <string name="comestibilidad_seta77">comestible</string>
+    <string name="comestibilidad_seta77">precaucion</string>
     <!-- fin Seta 77 -->
 
 
@@ -924,6 +928,46 @@
     <string name="nombre_ordenarSeta115">clitocybe nebularis</string>
     <string name="comestibilidad_seta115">precaucion</string>
     <!-- fin Seta 115 -->
+
+
+    <!-- Seta 116 -->
+    <string name="nombreSeta116">Tricholoma Goniospermum</string>
+    <string name="nombre_comunSeta116">--</string>
+    <string name="nombre_ordenarSeta116">tricholoma goniospermum</string>
+    <string name="comestibilidad_seta116">comestible</string>
+    <!-- fin Seta 116 -->
+
+
+    <!-- Seta 117 -->
+    <string name="nombreSeta117">Leucopaxillus Lepistoides</string>
+    <string name="nombre_comunSeta117">--</string>
+    <string name="nombre_ordenarSeta117">leucopaxillus lepistoides</string>
+    <string name="comestibilidad_seta117">comestible</string>
+    <!-- fin Seta 117 -->
+
+
+    <!-- Seta 118 -->
+    <string name="nombreSeta118">Russula Vesca</string>
+    <string name="nombre_comunSeta118">Rúsula Comestible</string>
+    <string name="nombre_ordenarSeta118">russula vesca</string>
+    <string name="comestibilidad_seta118">comestible</string>
+    <!-- fin Seta 118 -->
+
+
+    <!-- Seta 119 -->
+    <string name="nombreSeta119">Boletus Pinophilus</string>
+    <string name="nombre_comunSeta119">Boleto de Pino</string>
+    <string name="nombre_ordenarSeta119">boletus pinophilus</string>
+    <string name="comestibilidad_seta119">comestible</string>
+    <!-- fin Seta 119 -->
+
+
+    <!-- Seta 120 -->
+    <string name="nombreSeta120">Boletus Aestivalis</string>
+    <string name="nombre_comunSeta120">Boleto Reticulado</string>
+    <string name="nombre_ordenarSeta120">boletus aestivalis</string>
+    <string name="comestibilidad_seta120">comestible</string>
+    <!-- fin Seta 120 -->
 
 
 </resources>

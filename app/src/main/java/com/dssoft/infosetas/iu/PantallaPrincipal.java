@@ -76,7 +76,7 @@ public class PantallaPrincipal extends AppCompatActivity
         animacion_fondo();//Se crea la animacion de la imagen de fondo de la pantalla principal
 
         //Se carga el banner
-        /*AdView mAdView = (AdView) findViewById(R.id.banner_pantalla_principal);
+        AdView mAdView = (AdView) findViewById(R.id.banner_pantalla_principal);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
@@ -95,7 +95,7 @@ public class PantallaPrincipal extends AppCompatActivity
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
 
-        });*/
+        });
 
     }
 
@@ -201,8 +201,8 @@ public class PantallaPrincipal extends AppCompatActivity
     public void irPantallaSetas()
     {
 
-        /*if(mInterstitialAd.isLoaded())
-            mInterstitialAd.show();*/
+        if(mInterstitialAd.isLoaded())
+            mInterstitialAd.show();
 
         Intent intent = new Intent(this, PantallaListaSetas.class);
         startActivity(intent);
@@ -213,8 +213,8 @@ public class PantallaPrincipal extends AppCompatActivity
     public void irPantallaGaleria()
     {
 
-        /*if(mInterstitialAd.isLoaded())
-            mInterstitialAd.show();*/
+        if(mInterstitialAd.isLoaded())
+            mInterstitialAd.show();
 
         Intent intent = new Intent(this, PantallaListaGaleria.class);
         startActivity(intent);

@@ -86,6 +86,16 @@
             </LinearLayout>
 
         <ImageView
+            android:id="@+id/imageView_favorita"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:visibility="gone"
+            android:src="@drawable/img_favorita"/>
+
+        <ImageView
             android:id="@+id/imageView_seta_mario"
             android:layout_width="30dp"
             android:layout_height="30dp"

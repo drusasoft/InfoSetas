@@ -51,7 +51,6 @@ public class DataManagerFB
                     presentadorDetalles.mostrarDialogError(R.string.titErrorDialog_1, R.string.txtErrorDialog_1);
                 }
 
-
             }
 
             @Override

@@ -1,5 +1,6 @@
 package com.dssoft.infosetas.modelo;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,11 +14,14 @@ import com.dssoft.infosetas.R;
 public class BDAdapter
 {
 
+    private final String crearTrablaFavoritas = "Create Table Favoritas (nombre String)";
+    private final String comprobarExistencia = "select DISTINCT tbl_name from sqlite_master where tbl_name = 'Favoritas'";
+
     private final String crearTrabla = "Create Table Setas (id_seta Integer PRIMARY KEY AUTOINCREMENT, nombre Integer, nombre_comun" +
             "Integer, nombre_ordenar Integer, comestible Integer, fotos String, foto_list Integer)";
     private final String eliminarTabla = "DROP TABLE IF EXISTS Setas";
     private final String nombreBD = "BDSetas";
-    private final int versionBD = 9;
+    private final int versionBD = 12;
 
     private Context context;
     private SQLiteDatabase db;
@@ -46,6 +50,42 @@ public class BDAdapter
         return db.rawQuery("Select * from Setas", null);
     }
 
+    //Se obtienen todos los registro de la tabla favoritas
+    public Cursor obtenerFavoritasBD()
+    {
+        return db.rawQuery("Select * from Favoritas", null);
+    }
+
+    //Se guaeda lel nombre de la seta en la Tabla Favoritas
+    public void addFavoritaBD(String nombre)
+    {
+        db = setasSQLiteHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("nombre",nombre);
+        db.insert("Favoritas",null,values);
+
+        db.close();
+    }
+
+    //Se elimina la seta de la tabla Favoritas
+    public void delFavoritaBD(String nombre)
+    {
+
+        db = setasSQLiteHelper.getWritableDatabase();
+
+        // Define 'where' part of query.
+        String selection = "nombre LIKE ?";
+
+        // Specify arguments in placeholder order.
+        String[] selectionArgs = { nombre };
+
+        db.delete("Favoritas", selection, selectionArgs);
+
+        db.close();
+
+    }
+
 
     private class SetasSQLiteHelper extends SQLiteOpenHelper
     {
@@ -58,6 +98,7 @@ public class BDAdapter
         public void onCreate(SQLiteDatabase db)
         {
             db.execSQL(crearTrabla);
+            db.execSQL(crearTrablaFavoritas);
             insertarDatos(db);
         }
 
@@ -65,6 +106,13 @@ public class BDAdapter
         //Se ejecuta cuando se actualzia la version de la BD
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
         {
+
+            //Si se crea una tabla que ya existe entonces peta (comprobado) por lo que antes de crearla se compruba si existe
+            Cursor cursor = db.rawQuery(comprobarExistencia, null);
+
+            if(cursor.getCount() == 0)
+                db.execSQL(crearTrablaFavoritas);
+
             //Se elimina la Tabla
             db.execSQL(eliminarTabla);
 
@@ -77,6 +125,7 @@ public class BDAdapter
         {
             String stringFotos="";
             db.beginTransaction();
+
 
             stringFotos = String.valueOf(R.drawable.arvensis1)+"-"+String.valueOf(R.drawable.arvensis2)+"-"+String.valueOf(R.drawable.arvensis3)+"-"+String.valueOf(R.drawable.arvensis4);
             db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta1+", "+R.string.nombre_comunSeta1+
@@ -541,6 +590,26 @@ public class BDAdapter
             stringFotos = String.valueOf(R.drawable.nebularis1)+"-"+String.valueOf(R.drawable.nebularis2)+"-"+String.valueOf(R.drawable.nebularis3)+"-"+String.valueOf(R.drawable.nebularis4);
             db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta115+", "+R.string.nombre_comunSeta115+
                     ", "+R.string.nombre_ordenarSeta115+", "+R.string.comestibilidad_seta115+", '"+stringFotos+"', "+R.drawable.nebularis_list+")");
+
+            stringFotos = String.valueOf(R.drawable.goniospermum1)+"-"+String.valueOf(R.drawable.goniospermum2)+"-"+String.valueOf(R.drawable.goniospermum3)+"-"+String.valueOf(R.drawable.goniospermum4);
+            db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta116+", "+R.string.nombre_comunSeta116+
+                    ", "+R.string.nombre_ordenarSeta116+", "+R.string.comestibilidad_seta116+", '"+stringFotos+"', "+R.drawable.goniospermum_list+")");
+
+            stringFotos = String.valueOf(R.drawable.lepistoides1)+"-"+String.valueOf(R.drawable.lepistoides2)+"-"+String.valueOf(R.drawable.lepistoides3)+"-"+String.valueOf(R.drawable.lepistoides4);
+            db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta117+", "+R.string.nombre_comunSeta117+
+                    ", "+R.string.nombre_ordenarSeta117+", "+R.string.comestibilidad_seta117+", '"+stringFotos+"', "+R.drawable.lepistoides_list+")");
+
+            stringFotos = String.valueOf(R.drawable.vesca1)+"-"+String.valueOf(R.drawable.vesca2)+"-"+String.valueOf(R.drawable.vesca3)+"-"+String.valueOf(R.drawable.vesca4);
+            db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta118+", "+R.string.nombre_comunSeta118+
+                    ", "+R.string.nombre_ordenarSeta118+", "+R.string.comestibilidad_seta118+", '"+stringFotos+"', "+R.drawable.vesca_list+")");
+
+            stringFotos = String.valueOf(R.drawable.pinophilus1)+"-"+String.valueOf(R.drawable.pinophilus2)+"-"+String.valueOf(R.drawable.pinophilus3)+"-"+String.valueOf(R.drawable.pinophilus4);
+            db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta119+", "+R.string.nombre_comunSeta119+
+                    ", "+R.string.nombre_ordenarSeta119+", "+R.string.comestibilidad_seta119+", '"+stringFotos+"', "+R.drawable.pinophilus_list+")");
+
+            stringFotos = String.valueOf(R.drawable.aestivalis1)+"-"+String.valueOf(R.drawable.aestivalis2)+"-"+String.valueOf(R.drawable.aestivalis3)+"-"+String.valueOf(R.drawable.aestivalis4);
+            db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta120+", "+R.string.nombre_comunSeta120+
+                    ", "+R.string.nombre_ordenarSeta120+", "+R.string.comestibilidad_seta120+", '"+stringFotos+"', "+R.drawable.aestivalis_list+")");
 
 
 

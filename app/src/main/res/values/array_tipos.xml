@@ -3,6 +3,7 @@
 
     <string-array name="tipos_array">
         <item>Todas...</item>
+        <item>Favoritas</item>
         <item>Comestibles</item>
         <item>Sin Interés Culinario</item>
         <item>Con Precaución</item>
