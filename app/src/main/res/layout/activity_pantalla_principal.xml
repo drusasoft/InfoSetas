@@ -34,72 +34,117 @@
         </com.google.android.gms.ads.AdView>
 
 
-        <LinearLayout
-            android:id="@+id/layout_btn_setas"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="40dp"
-            android:elevation="2dp"
-            android:clickable="true"
-            android:background="@drawable/btn_main"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/seta_ico"/>
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
-                android:textColor="@drawable/texto_pulsacion"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:text="@string/btnSetas"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:id="@+id/layout_btn_galeria"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="40dp"
-            android:elevation="2dp"
-            android:clickable="true"
-            android:background="@drawable/btn_main"
-            android:orientation="horizontal">
+                    <LinearLayout
+                        android:id="@+id/layout_btn_setas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginTop="20dp"
+                        android:elevation="2dp"
+                        android:clickable="true"
+                        android:background="@drawable/btn_main"
+                        android:orientation="horizontal">
 
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/galeria"/>
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/seta_ico"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
-                android:textColor="@drawable/texto_pulsacion"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:text="@string/btnGaleria"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+                            android:textColor="@drawable/texto_pulsacion"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:text="@string/btnSetas"/>
 
-        </LinearLayout>
+                    </LinearLayout>
 
+
+
+                    <LinearLayout
+                        android:id="@+id/layout_btn_galeria"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginTop="40dp"
+                        android:elevation="2dp"
+                        android:clickable="true"
+                        android:background="@drawable/btn_main"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/galeria"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+                            android:textColor="@drawable/texto_pulsacion"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:text="@string/btnGaleria"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/layout_btn_tiempo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginTop="40dp"
+                        android:elevation="2dp"
+                        android:clickable="true"
+                        android:background="@drawable/btn_main"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/tiempo"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+                            android:textColor="@drawable/texto_pulsacion"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:text="@string/btnTiempo"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 

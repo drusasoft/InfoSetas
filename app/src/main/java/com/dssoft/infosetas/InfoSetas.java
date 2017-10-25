@@ -5,6 +5,7 @@ import android.app.Application;
 import com.dssoft.infosetas.modelo.BDAdapter;
 import com.dssoft.infosetas.modelo.DataManagerBD;
 import com.dssoft.infosetas.modelo.DataManagerFB;
+import com.dssoft.infosetas.modelo.DataManagerWS;
 
 /**
  * Created by Angel on 11/09/2017.
@@ -15,6 +16,7 @@ public class InfoSetas extends Application
 
     DataManagerBD dataManagerBD;
     DataManagerFB dataManagerFB;
+    DataManagerWS dataManagerWS;
 
     @Override
     public void onCreate()
@@ -26,6 +28,8 @@ public class InfoSetas extends Application
 
         dataManagerFB = new DataManagerFB();
 
+        dataManagerWS = new DataManagerWS();
+
     }
 
     public DataManagerBD getDataManagerBD()
@@ -35,5 +39,9 @@ public class InfoSetas extends Application
 
     public DataManagerFB getDataManagerFB() {
         return dataManagerFB;
+    }
+
+    public DataManagerWS getDataManagerWS() {
+        return dataManagerWS;
     }
 }

@@ -12,6 +12,10 @@
             android:icon="@mipmap/flecha"
             android:title="@string/btnGaleria"/>
 
+        <item android:id="@+id/drawer_opcion3"
+            android:icon="@mipmap/flecha"
+            android:title="@string/btnTiempo"/>
+
     </group>
 
 

@@ -26,6 +26,7 @@
         <activity android:name=".iu.PantallaListaGaleria" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaPrincipal"/>
         <activity android:name=".iu.PantallaGaleria" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaListaGaleria"/>
         <activity android:name=".iu.PantallaZoom" android:screenOrientation="portrait"/>
+        <activity android:name=".iu.PantallaTiempo" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaPrincipal"/>
 
     </application>
 

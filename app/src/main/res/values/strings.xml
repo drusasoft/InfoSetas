@@ -1,4 +1,5 @@
 <resources>
+    <string name="ws_key">8da3fe404852b2987901d2ccb4d3de97</string>
     <string name="app_name">InfoSetas</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
@@ -6,6 +7,7 @@
     <!-- Pantalla Principal-->
     <string name="btnSetas">SETAS</string>
     <string name="btnGaleria">GALERÍA</string>
+    <string name="btnTiempo">TIEMPO</string>
     <string name="totSetas">120 Setas</string>
     <!-- Fin Pantalla Principal-->
 
@@ -28,9 +30,27 @@
     <string name="txtProgressDialog">Conectando con el Servidor...</string>
     <string name="btnAceptar">Aceptar</string>
     <string name="titErrorDialog_1">Error Conexión</string>
+    <string name="titErrorDialog_2">Error Localidad</string>
     <string name="txtErrorDialog_1">No se han podido obtener los datos del Servidor</string>
     <string name="txtErrorDialog_2">Conexión a internet necesaria</string>
     <!-- Fin Pantalla Detalles Seta-->
+
+
+    <!-- Pantalla Tiempo -->
+    <string name="titPantallaTiempo">Tiempo</string>
+    <string name="edit_localidad">Localidad</string>
+    <string name="edit_pais">Pais</string>
+    <string name="btn_aceptar">Aceptar</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="tit_dialog_guardar">Guardar</string>
+    <string name="txt_dialog_guardar">¿Desea guardar esta Localidad?</string>
+    <string name="tit_progress_dialog">Conectando...</string>
+    <string name="txt_progress_dialog">Conectando con Servidor Meteorológico...</string>
+    <string name="errGeoLocalidad">No se ha podido encontrar la Localidad</string>
+    <string name="errGeoLocalidad2">Error, no se han podido obtener datos para esa localidad</string>
+    <string name="errFormLocalidad">Debes introducir la localidad y el pais</string>
+    <string name="errWSTiempo">No se han podido obtnener los datos de Servidor</string>
+    <!-- Fin Pantalla Tiempo -->
 
     <!-- Bloques de Anuncios -->
     <string name="banner_ad_unit_id">ca-app-pub-2712815213167664/2866527416</string>

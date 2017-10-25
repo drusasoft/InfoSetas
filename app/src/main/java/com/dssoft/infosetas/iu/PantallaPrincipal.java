@@ -135,6 +135,9 @@ public class PantallaPrincipal extends AppCompatActivity
 
                     case R.id.drawer_opcion2: irPantallaGaleria();
                                                 break;
+
+                    case R.id.drawer_opcion3: irPantallaTiempo();
+                                                break;
                 }
 
 
@@ -218,6 +221,19 @@ public class PantallaPrincipal extends AppCompatActivity
 
         Intent intent = new Intent(this, PantallaListaGaleria.class);
         startActivity(intent);
+    }
+
+
+    @OnClick(R.id.layout_btn_tiempo)
+    public void irPantallaTiempo()
+    {
+
+         if(mInterstitialAd.isLoaded())
+            mInterstitialAd.show();
+
+         Intent intent = new Intent(this, PantallaTiempo.class);
+         startActivity(intent);
+
     }
 
 

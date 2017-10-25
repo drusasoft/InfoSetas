@@ -17,11 +17,15 @@ public class BDAdapter
     private final String crearTrablaFavoritas = "Create Table Favoritas (nombre String)";
     private final String comprobarExistencia = "select DISTINCT tbl_name from sqlite_master where tbl_name = 'Favoritas'";
 
+    private final String crearTablaLocalidades = "Create Table Localidades (localidad String, pais String, cod_pais String)";
+    private final String comprobarLocalidades = "select DISTINCT tbl_name from sqlite_master where tbl_name = 'Localidades'";
+
     private final String crearTrabla = "Create Table Setas (id_seta Integer PRIMARY KEY AUTOINCREMENT, nombre Integer, nombre_comun" +
             "Integer, nombre_ordenar Integer, comestible Integer, fotos String, foto_list Integer)";
     private final String eliminarTabla = "DROP TABLE IF EXISTS Setas";
+
     private final String nombreBD = "BDSetas";
-    private final int versionBD = 12;
+    private final int versionBD = 13;
 
     private Context context;
     private SQLiteDatabase db;
@@ -87,6 +91,51 @@ public class BDAdapter
     }
 
 
+    //Se inserta un registro en la tabla localidades
+    public void addLocalidad(String localidad, String pais, String cod_pais)
+    {
+
+        //Se abre la BD en modo escriture
+        db = setasSQLiteHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("localidad", localidad);
+        values.put("pais", pais);
+        values.put("cod_pais", cod_pais);
+
+        db.insert("Localidades", null, values);
+
+        db.close();
+
+    }
+
+
+    //Se elimina un Registro de la tabla localidades
+    public void delLocalidad(String localidad, String cod_pais)
+    {
+
+        db = setasSQLiteHelper.getWritableDatabase();
+
+        // Define 'where' part of query.
+        String selection = "localidad LIKE ? and cod_pais LIKE ?";
+
+        // Specify arguments in placeholder order.
+        String[] selectionArgs = { localidad, cod_pais };
+
+        db.delete("Localidades", selection, selectionArgs);
+
+        db.close();
+
+    }
+
+
+    //Se obtienen todos los registros de la Tabla Localidades
+    public Cursor getLocalidades()
+    {
+        return db.rawQuery("Select * from Localidades", null);
+    }
+
+
     private class SetasSQLiteHelper extends SQLiteOpenHelper
     {
 
@@ -99,6 +148,7 @@ public class BDAdapter
         {
             db.execSQL(crearTrabla);
             db.execSQL(crearTrablaFavoritas);
+            db.execSQL(crearTablaLocalidades);
             insertarDatos(db);
         }
 
@@ -113,10 +163,16 @@ public class BDAdapter
             if(cursor.getCount() == 0)
                 db.execSQL(crearTrablaFavoritas);
 
-            //Se elimina la Tabla
+            cursor = db.rawQuery(comprobarLocalidades, null);
+
+            if(cursor.getCount() == 0)
+                db.execSQL(crearTablaLocalidades);
+            //Fin comprobacion existencia tablas
+
+            //Se elimina la Tabla de Setas
             db.execSQL(eliminarTabla);
 
-            //Se vuelve a crear la tabla y se insertan los datos
+            //Se vuelve a crear la tabla Setas y se insertan los datos
             db.execSQL(crearTrabla);
             insertarDatos(db);
         }

@@ -7,8 +7,8 @@ android {
         applicationId "com.dssoft.infosetas"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 13
-        versionName "1.13"
+        versionCode 14
+        versionName "1.14"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -35,6 +35,10 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
     compile 'com.google.firebase:firebase-core:10.2.6'
     compile 'com.google.firebase:firebase-ads:10.2.6'
     compile 'com.google.firebase:firebase-database:10.2.6'

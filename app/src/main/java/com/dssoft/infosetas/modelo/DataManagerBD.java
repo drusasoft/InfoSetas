@@ -2,12 +2,18 @@ package com.dssoft.infosetas.modelo;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.support.annotation.NonNull;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+
+import com.dssoft.infosetas.pojos.Localidad;
 import com.dssoft.infosetas.pojos.Seta;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 /**
  * Created by Angel on 11/09/2017.
@@ -20,6 +26,7 @@ public class DataManagerBD
     private List<Seta> listSetasAux = new ArrayList<Seta>();//Esta lista es una copia de la lista listSetas y se usa para que en caso de funalizar una busqueda se muestre la lista de setas previa a la busqueda
     private List<Seta> listSetasBD = new ArrayList<Seta>();//Esta lista contiene todas las setas almacenadas en la BD
     private List<String> listFavoritas = new ArrayList<>();//Lista con los nombre de las setas favoritas guardadas en la BD
+    private List<Localidad> listLocalidades = new ArrayList<Localidad>();//Lista que contiene todas las Localidades almacenadas en la BD
     private BDAdapter mBDAdapter;
 
 
@@ -36,6 +43,40 @@ public class DataManagerBD
     private void cerrarBD()
     {
         mBDAdapter.cerrarBD();
+    }
+
+
+    //Se obtienen todas las Localidades de la BD y se guardan en una lista en memoria
+    public void obtenerLocalidadesBD()
+    {
+
+        abrirBDLectura();
+
+        listLocalidades.clear();
+
+        Cursor cursor = mBDAdapter.getLocalidades();
+
+        if(cursor.getCount() > 0)
+        {
+
+            cursor.moveToFirst();
+
+            do
+            {
+
+                Localidad localidad = new Localidad();
+                localidad.setNombre(cursor.getString(0));
+                localidad.setPais(cursor.getString(1));
+                localidad.setCodPais(cursor.getString(2));
+
+                listLocalidades.add(localidad);
+
+            }while (cursor.moveToNext());
+
+        }
+
+        cerrarBD();
+
     }
 
     //Se obtinen las setas Favoritas de la BD y se guardan sus nombre en una lista
@@ -421,6 +462,81 @@ public class DataManagerBD
         listSetasAux.addAll(listSetas);
 
         return listSetas;
+    }
+
+
+    //Se crea la lista de Localidades (a partir de la lista obtenida de la BD) que se van a mostrar en el Spinner
+    public List<String> getLocalidades()
+    {
+        List<String> listMunicipio = new ArrayList<String>();
+
+        for(Localidad localidad: listLocalidades)
+        {
+            String municipio = localidad.getNombre()+", "+localidad.getCodPais();
+            listMunicipio.add(municipio);
+        }
+
+        return listMunicipio;
+    }
+
+
+    //Se añade una Localidad en la BD
+    public void addLocalidad(String localidad, String pais, String cod_pais)
+    {
+        //Se guarda la Localidad en la BD
+        mBDAdapter.addLocalidad(localidad, pais, cod_pais);
+
+        //Se añade la localidad a la lista de localidades
+        Localidad local = new Localidad();
+        local.setNombre(localidad);
+        local.setPais(pais);
+        local.setCodPais(cod_pais);
+
+        listLocalidades.add(local);
+
+    }
+
+
+    //Se elimina una Localidad de la BD
+    public void delLocalidad(String localidad, String cod_pais)
+    {
+
+        //Se elimina la localidad de la BD
+        mBDAdapter.delLocalidad(localidad, cod_pais);
+
+        //Se elimina la localidad de la lista de Localidades
+        Localidad localidadBorrar = null;
+        for(Localidad local: listLocalidades)
+        {
+            if(local.getNombre().equals(localidad) && local.getCodPais().equals(cod_pais))
+            {
+                localidadBorrar = local;
+                break;
+            }
+        }
+
+        if(localidadBorrar != null)
+            listLocalidades.remove(localidadBorrar);
+
+    }
+
+
+    //Se comprueba si la Localidad pasada como parametro ya exite en la BD
+    public boolean compLocalidad(String nombre, String pais)
+    {
+
+        //Se comprueba si la localidad existe en la lista creada con los datos de la BD
+        for(Localidad localidad:listLocalidades)
+        {
+
+            if(localidad.getNombre().equals(nombre) && localidad.getPais().equals(pais))
+            {
+                return true;
+            }
+
+        }
+
+        return false;
     }
 
 }
