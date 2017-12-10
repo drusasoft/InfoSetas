@@ -7,8 +7,8 @@ android {
         applicationId "com.dssoft.infosetas"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 14
-        versionName "1.14"
+        versionCode 16
+        versionName "1.16"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -25,7 +25,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.google.android.gms:play-services:10.2.6'
+    compile 'com.google.android.gms:play-services:11.6.0'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:cardview-v7:25.3.1'
@@ -39,9 +39,9 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
-    compile 'com.google.firebase:firebase-core:10.2.6'
-    compile 'com.google.firebase:firebase-ads:10.2.6'
-    compile 'com.google.firebase:firebase-database:10.2.6'
+    compile 'com.google.firebase:firebase-core:11.6.0'
+    compile 'com.google.firebase:firebase-ads:11.6.0'
+    compile 'com.google.firebase:firebase-database:11.6.0'
     testCompile 'junit:junit:4.12'
 }
 

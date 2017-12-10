@@ -8,7 +8,7 @@
     <string name="btnSetas">SETAS</string>
     <string name="btnGaleria">GALERÍA</string>
     <string name="btnTiempo">TIEMPO</string>
-    <string name="totSetas">120 Setas</string>
+    <string name="totSetas">125 Setas</string>
     <!-- Fin Pantalla Principal-->
 
 
@@ -988,6 +988,42 @@
     <string name="nombre_ordenarSeta120">boletus aestivalis</string>
     <string name="comestibilidad_seta120">comestible</string>
     <!-- fin Seta 120 -->
+
+
+    <!-- Seta 121 -->
+    <string name="nombreSeta121">Clitocybe Phyllophylla</string>
+    <string name="nombre_comunSeta121">Clitocibe Blanco</string>
+    <string name="nombre_ordenarSeta121">clitocybe phyllophylla</string>
+    <string name="comestibilidad_seta121">toxica</string>
+    <!-- fin Seta 121 -->
+
+    <!-- Seta 122 -->
+    <string name="nombreSeta122">Entoloma Lividum</string>
+    <string name="nombre_comunSeta122">Pérfido; Seta Engañosa</string>
+    <string name="nombre_ordenarSeta122">entoloma lividum</string>
+    <string name="comestibilidad_seta122">toxica</string>
+    <!-- fin Seta 122 -->
+
+    <!-- Seta 123 -->
+    <string name="nombreSeta123">Amanita Pantherina</string>
+    <string name="nombre_comunSeta123">Amanita Pantera</string>
+    <string name="nombre_ordenarSeta123">amanita pantherina</string>
+    <string name="comestibilidad_seta123">mortal</string>
+    <!-- fin Seta 123 -->
+
+    <!-- Seta 124 -->
+    <string name="nombreSeta124">Amanita Virosa</string>
+    <string name="nombre_comunSeta124">Amanita Maloliente</string>
+    <string name="nombre_ordenarSeta124">amanita virosa</string>
+    <string name="comestibilidad_seta124">mortal</string>
+    <!-- fin Seta 124 -->
+
+    <!-- Seta 125 -->
+    <string name="nombreSeta125">Cortinarius Orellanus</string>
+    <string name="nombre_comunSeta125">Ortinario de Montaña</string>
+    <string name="nombre_ordenarSeta125">cortinarius orellanus</string>
+    <string name="comestibilidad_seta125">mortal</string>
+    <!-- fin Seta 125 -->
 
 
 </resources>

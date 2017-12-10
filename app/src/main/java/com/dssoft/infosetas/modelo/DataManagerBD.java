@@ -2,18 +2,13 @@ package com.dssoft.infosetas.modelo;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.support.annotation.NonNull;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
-
 import com.dssoft.infosetas.pojos.Localidad;
 import com.dssoft.infosetas.pojos.Seta;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 /**
  * Created by Angel on 11/09/2017.
@@ -468,6 +463,8 @@ public class DataManagerBD
     //Se crea la lista de Localidades (a partir de la lista obtenida de la BD) que se van a mostrar en el Spinner
     public List<String> getLocalidades()
     {
+        obtenerLocalidadesBD();
+
         List<String> listMunicipio = new ArrayList<String>();
 
         for(Localidad localidad: listLocalidades)
