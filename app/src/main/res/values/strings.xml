@@ -8,7 +8,7 @@
     <string name="btnSetas">SETAS</string>
     <string name="btnGaleria">GALERÍA</string>
     <string name="btnTiempo">TIEMPO</string>
-    <string name="totSetas">125 Setas</string>
+    <string name="totSetas">130 Setas</string>
     <!-- Fin Pantalla Principal-->
 
 
@@ -1024,6 +1024,41 @@
     <string name="nombre_ordenarSeta125">cortinarius orellanus</string>
     <string name="comestibilidad_seta125">mortal</string>
     <!-- fin Seta 125 -->
+
+    <!-- Seta 126 -->
+    <string name="nombreSeta126">Omphalotus Illudens</string>
+    <string name="nombre_comunSeta126">--</string>
+    <string name="nombre_ordenarSeta126">omphalotus illudens</string>
+    <string name="comestibilidad_seta126">toxica</string>
+    <!-- fin Seta 126 -->
+
+    <!-- Seta 127 -->
+    <string name="nombreSeta127">Amanita Verna</string>
+    <string name="nombre_comunSeta127">Cicuta Blanca; Cogomasa</string>
+    <string name="nombre_ordenarSeta127">amanita verna</string>
+    <string name="comestibilidad_seta127">mortal</string>
+    <!-- fin Seta 127 -->
+
+    <!-- Seta 128 -->
+    <string name="nombreSeta128">Coprinopsis Atramentaria</string>
+    <string name="nombre_comunSeta128">Coprino Antialcohólico; Coprino Entintado</string>
+    <string name="nombre_ordenarSeta128">coprinopsis atramentaria</string>
+    <string name="comestibilidad_seta128">toxica</string>
+    <!-- fin Seta 128 -->
+
+    <!-- Seta 129 -->
+    <string name="nombreSeta129">Cortinarius Sanguineus</string>
+    <string name="nombre_comunSeta129">Cortinario rojo</string>
+    <string name="nombre_ordenarSeta129">cortinarius sanguineus</string>
+    <string name="comestibilidad_seta129">mortal</string>
+    <!-- fin Seta 129 -->
+
+    <!-- Seta 130 -->
+    <string name="nombreSeta130">Hebeloma Sinapizans</string>
+    <string name="nombre_comunSeta130">Seta con Olor a Rábano</string>
+    <string name="nombre_ordenarSeta130">hebeloma sinapizans</string>
+    <string name="comestibilidad_seta130">toxica</string>
+    <!-- fin Seta 130 -->
 
 
 </resources>
