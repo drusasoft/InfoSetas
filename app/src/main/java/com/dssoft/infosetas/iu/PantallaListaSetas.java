@@ -15,8 +15,6 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
-
 import com.dssoft.infosetas.InfoSetas;
 import com.dssoft.infosetas.R;
 import com.dssoft.infosetas.adaptadores.AdaptadorListaSetas;
@@ -25,9 +23,11 @@ import com.dssoft.infosetas.pojos.Seta;
 import com.dssoft.infosetas.presentador.PresentadorLista;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 import butterknife.BindColor;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -288,7 +288,32 @@ public class PantallaListaSetas extends AppCompatActivity implements VistaLista,
     //Se inicia la animacion (AnimationDrawable) de la imagen de fondo de la pantalla principal
     private void animacion_fondo()
     {
-        layoutPantallaLista.setBackgroundResource(R.drawable.animacion_pantallalista);
+
+        //Obtener hora del Systema
+        Long millis = System.currentTimeMillis();
+        Date date = new Date(millis);
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");//HH devuelve la hora en formato 24h y hh en formato de 12
+        String hora = sdf.format(date);
+
+        StringTokenizer stringTokenizer = new StringTokenizer(hora,":");
+        String token = stringTokenizer.nextToken();
+        int hh = Integer.valueOf(token);
+
+        //Dependiendo de la hora del sistema entonces se muestra el fondo animado correcpondiente
+        if(hh>6 && hh<15)
+        {
+            layoutPantallaLista.setBackgroundResource(R.drawable.animacion_pantallalista);
+        }else
+        {
+            if(hh>=15 && hh<21)
+            {
+                layoutPantallaLista.setBackgroundResource(R.drawable.animacion_pantallalista_tarde);
+            }else
+            {
+                layoutPantallaLista.setBackgroundResource(R.drawable.animacion_pantallalista_noche);
+            }
+        }
+
 
         layoutPantallaLista.post(new Runnable() {
             @Override

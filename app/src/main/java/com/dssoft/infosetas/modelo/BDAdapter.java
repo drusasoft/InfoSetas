@@ -15,17 +15,20 @@ public class BDAdapter
 {
 
     private final String crearTrablaFavoritas = "Create Table Favoritas (nombre String)";
-    private final String comprobarExistencia = "select DISTINCT tbl_name from sqlite_master where tbl_name = 'Favoritas'";
+    private final String comprobarExistencia = "Select DISTINCT tbl_name from sqlite_master where tbl_name = 'Favoritas'";
 
     private final String crearTablaLocalidades = "Create Table Localidades (localidad String, pais String, cod_pais String)";
-    private final String comprobarLocalidades = "select DISTINCT tbl_name from sqlite_master where tbl_name = 'Localidades'";
+    private final String comprobarLocalidades = "Select DISTINCT tbl_name from sqlite_master where tbl_name = 'Localidades'";
+
+    private final String crearTablaZonas = "Create Table Zonas (id_zona Integer PRIMARY KEY AUTOINCREMENT, nombre String, descripcion String, latitud String, longitud String)";
+    private final String comprobarTablaZonas = "Select DISTINCT tbl_name from sqlite_master where tbl_name = 'Zonas'";
 
     private final String crearTrabla = "Create Table Setas (id_seta Integer PRIMARY KEY AUTOINCREMENT, nombre Integer, nombre_comun" +
             "Integer, nombre_ordenar Integer, comestible Integer, fotos String, foto_list Integer)";
     private final String eliminarTabla = "DROP TABLE IF EXISTS Setas";
 
     private final String nombreBD = "BDSetas";
-    private final int versionBD = 16;
+    private final int versionBD = 18;
 
     private Context context;
     private SQLiteDatabase db;
@@ -135,6 +138,69 @@ public class BDAdapter
         return db.rawQuery("Select * from Localidades", null);
     }
 
+    //Se añade una nueva Zona a la BD
+    public void addZona(String nombre, String descripcion, String latitud, String longitud) throws Exception
+    {
+        //Se abre la BD en modo escriture
+        db = setasSQLiteHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("nombre", nombre);
+        values.put("descripcion", descripcion);
+        values.put("latitud", latitud);
+        values.put("longitud", longitud);
+
+        db.insert("Zonas", null, values);
+
+        db.close();
+
+    }
+
+    //Se elimina una zona de la BD
+    public void delZona(int id_zona) throws Exception
+    {
+
+        db = setasSQLiteHelper.getWritableDatabase();
+
+        // Define 'where' part of query.
+        String selecction = "id_zona = ?";
+
+        // Specify arguments in placeholder order.
+        String[] selectionArgs = {String.valueOf(id_zona)};
+
+        db.delete("Zonas", selecction, selectionArgs);
+
+        db.close();
+
+    }
+
+
+    public void updateZona(int id_zona, String nombre, String descripcion) throws  Exception
+    {
+
+        db = setasSQLiteHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("nombre", nombre);
+        values.put("descripcion", descripcion);
+
+        // Define 'where' part of query.
+        String selection = "id_zona = ?";
+
+        // Specify arguments in placeholder order.
+        String[] selectionArgs = {String.valueOf(id_zona)};
+
+        db.update("Zonas", values, selection, selectionArgs);
+
+        db.close();
+    }
+
+
+    public Cursor getZonas()
+    {
+        return db.rawQuery("Select * from Zonas", null);
+    }
+
 
     private class SetasSQLiteHelper extends SQLiteOpenHelper
     {
@@ -149,6 +215,7 @@ public class BDAdapter
             db.execSQL(crearTrabla);
             db.execSQL(crearTrablaFavoritas);
             db.execSQL(crearTablaLocalidades);
+            db.execSQL(crearTablaZonas);
             insertarDatos(db);
         }
 
@@ -167,6 +234,12 @@ public class BDAdapter
 
             if(cursor.getCount() == 0)
                 db.execSQL(crearTablaLocalidades);
+
+            cursor = db.rawQuery(comprobarTablaZonas, null);
+
+            if(cursor.getCount() == 0)
+                db.execSQL(crearTablaZonas);
+
             //Fin comprobacion existencia tablas
 
             //Se elimina la Tabla de Setas
@@ -706,7 +779,6 @@ public class BDAdapter
             stringFotos = String.valueOf(R.drawable.sinapizans1)+"-"+String.valueOf(R.drawable.sinapizans2)+"-"+String.valueOf(R.drawable.sinapizans3)+"-"+String.valueOf(R.drawable.sinapizans4);
             db.execSQL("Insert into Setas values(null, "+ R.string.nombreSeta130+", "+R.string.nombre_comunSeta130+
                     ", "+R.string.nombre_ordenarSeta130+", "+R.string.comestibilidad_seta130+", '"+stringFotos+"', "+R.drawable.sinapizans_list+")");
-
 
 
 

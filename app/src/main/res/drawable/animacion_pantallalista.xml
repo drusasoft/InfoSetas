@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
     <item android:drawable="@drawable/fondo0_0" android:duration="100"/>
-    <item android:drawable="@drawable/fondo1_1" android:duration="100"/>
-    <item android:drawable="@drawable/fondo2_2" android:duration="100"/>
-    <item android:drawable="@drawable/fondo3_3" android:duration="100"/>
+    <item android:drawable="@drawable/fondo0_1" android:duration="100"/>
+    <item android:drawable="@drawable/fondo0_2" android:duration="100"/>
+    <item android:drawable="@drawable/fondo0_3" android:duration="100"/>
+    <item android:drawable="@drawable/fondo0_4" android:duration="100"/>
+    <item android:drawable="@drawable/fondo0_5" android:duration="100"/>
+    <item android:drawable="@drawable/fondo0_6" android:duration="100"/>
+    <item android:drawable="@drawable/fondo0_7" android:duration="100"/>
+    <item android:drawable="@drawable/fondo0_8" android:duration="100"/>
+    <item android:drawable="@drawable/fondo0_9" android:duration="100"/>
+    <item android:drawable="@drawable/fondo0_10" android:duration="100"/>
+    <item android:drawable="@drawable/fondo0_11" android:duration="100"/>
 </animation-list>

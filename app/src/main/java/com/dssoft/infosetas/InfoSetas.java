@@ -5,6 +5,7 @@ import android.app.Application;
 import com.dssoft.infosetas.modelo.BDAdapter;
 import com.dssoft.infosetas.modelo.DataManagerBD;
 import com.dssoft.infosetas.modelo.DataManagerFB;
+import com.dssoft.infosetas.modelo.DataManagerGPS;
 import com.dssoft.infosetas.modelo.DataManagerWS;
 
 /**
@@ -17,6 +18,7 @@ public class InfoSetas extends Application
     DataManagerBD dataManagerBD;
     DataManagerFB dataManagerFB;
     DataManagerWS dataManagerWS;
+    DataManagerGPS dataManagerGPS;
 
     @Override
     public void onCreate()
@@ -29,6 +31,8 @@ public class InfoSetas extends Application
         dataManagerFB = new DataManagerFB();
 
         dataManagerWS = new DataManagerWS();
+
+        dataManagerGPS = new DataManagerGPS(getApplicationContext());
 
     }
 
@@ -43,5 +47,9 @@ public class InfoSetas extends Application
 
     public DataManagerWS getDataManagerWS() {
         return dataManagerWS;
+    }
+
+    public DataManagerGPS getDataManagerGPS() {
+        return dataManagerGPS;
     }
 }

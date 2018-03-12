@@ -4,11 +4,23 @@
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
 
+    <!-- Menus -->
+    <string name="menu_actualizar">Actualizar</string>
+    <string name="menu_buscar">Buscar</string>
+    <string name="menu_eliminar">Eliminar</string>
+    <string name="menu_vista_normal">Vista Normal</string>
+    <string name="menu_vista_satelite">Vista Satelite</string>
+    <string name="menu_vista_terreno">Vista Terreno</string>
+    <string name="menu_vista_hibrida">Vista Hibrida</string>
+    <!-- Fin Menu -->
+
     <!-- Pantalla Principal-->
     <string name="btnSetas">SETAS</string>
     <string name="btnGaleria">GALERÍA</string>
     <string name="btnTiempo">TIEMPO</string>
+    <string name="btnZona">MIS ZONAS</string>
     <string name="totSetas">130 Setas</string>
+    <string name="txtUbicacion">Para usar esta funcionalidad, debes permitir que la aplicacion acceda a la ubicación del dispositivo</string>
     <!-- Fin Pantalla Principal-->
 
 
@@ -51,6 +63,53 @@
     <string name="errFormLocalidad">Debes introducir la localidad y el pais</string>
     <string name="errWSTiempo">No se han podido obtnener los datos de Servidor</string>
     <!-- Fin Pantalla Tiempo -->
+
+
+    <!-- Pantalla Zonas -->
+    <string name="titPantallaZonas">Mis Zonas</string>
+    <string name="txtNoZonas">Actualmente no tienes guardada ninguna zona de setas. Si deseas añadir una nueva localizacion
+        pulsa el boton situado en la parte inferior de la pantalla</string>
+    <string name="btnSi">Si</string>
+    <string name="btnNo">No</string>
+    <string name="titDialogUbicacionZona">GPS Deshabilitado</string>
+    <string name="txtDialogUbicacionZona">¿Deseas ir a la pantalla de configuracion para activarlo?</string>
+    <string name="titDialogBorrarZona">Borrar Zona</string>
+    <string name="txtDialogBorrarZona">¿Deseas borrar la zona seleccionada?</string>
+    <string name="titDialogBorrarZonas">Borrar Zonas</string>
+    <string name="txtDialogBorrarZonas">¿Deseas borrar la zonas seleccionadas?</string>
+    <string name="txtErrorBorrarZonas">Error, No se ha podido borrar la Zona de la Base de Datos</string>
+    <!-- Fin Pantalla Zonas -->
+
+    <!-- Pantalla Mapa Nueva Zona -->
+    <string name="titPantallaMapaNuevaZona">Nueva Zona</string>
+    <string name="txtDialogMapaNuevaZona">¿Desea guardar la posicion marcada en el mapa?</string>
+    <!-- Fin Pantalla Mapa Nueva Zona-->
+
+    <!-- Pantalla Mapa GPS -->
+    <string name="titPantallaMapaGPS">GPS</string>
+    <string name="txtCuentaAtras">Obteniendo ubicación en </string>
+    <string name="txtNuevaZonaGpsOK">La zona ha sido gurdada con exito</string>
+    <string name="titDialogGPS">Buscando GPS...</string>
+    <string name="txtNuevaConexionGps">Conectando con GPS...</string>
+    <string name="txtConexionGpsCancelada">Se ha cancelado la conexión</string>
+    <string name="titMarcadorPosicion">Posición Actual</string>
+    <!-- Fin Pantalla Mapa GPS-->
+
+    <!-- Pantalla Insertar Datos Zonas -->
+    <string name="titPantallaDatosNuevaZona">Datos Nueva Zona</string>
+    <string name="txtEditNombreNuevaZona">Nombre Zona</string>
+    <string name="txtEditDescripcionNuevaZona">Descripcion Zona</string>
+    <string name="titMensajeOK">Nueva Zona</string>
+    <string name="txtMensajeOK">Los datos de la nueva zona se han guardado correctamente</string>
+    <string name="titMensajeKO">Error</string>
+    <string name="txtMensajeKO">Los datos de la nueva zona no se han podido guardar</string>
+    <string name="txtNombreVacio">Debes indicar un nombre de zona</string>
+    <!-- Fin Pantalla Insertar Datos Zonas -->
+
+    <!-- Pantalla Insertar Datos Zonas -->
+    <string name="txtErrorCambios">Error, No se han podido guardar los datos</string>
+    <string name="txtCambiosOK">Modificación de datos correcta</string>
+    <!-- Fin Pantalla Insertar Datos Zonas -->
 
     <!-- Bloques de Anuncios -->
     <string name="banner_ad_unit_id">ca-app-pub-2712815213167664/2866527416</string>

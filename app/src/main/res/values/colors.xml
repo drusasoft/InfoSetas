@@ -18,4 +18,7 @@
     <color name="colorPrimaryGrey">#607d8b</color>
     <color name="colorPrimaryDarkGrey">#37474f</color>
     <color name="colorAccentGrey">#cfd8dc</color>
+
+    <color name="colorAzulClaro">#E8EAF6</color>
+    <color name="colorAzulClaro2">#C5CAE9</color>
 </resources>

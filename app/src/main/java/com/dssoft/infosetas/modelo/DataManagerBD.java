@@ -7,6 +7,7 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import com.dssoft.infosetas.pojos.Localidad;
 import com.dssoft.infosetas.pojos.Seta;
+import com.dssoft.infosetas.pojos.Zona;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class DataManagerBD
     private List<Seta> listSetasBD = new ArrayList<Seta>();//Esta lista contiene todas las setas almacenadas en la BD
     private List<String> listFavoritas = new ArrayList<>();//Lista con los nombre de las setas favoritas guardadas en la BD
     private List<Localidad> listLocalidades = new ArrayList<Localidad>();//Lista que contiene todas las Localidades almacenadas en la BD
+    private List<Zona> listZonas = new ArrayList<Zona>();//Lista que contiene todas las Zonas almacenadas en la BD
     private BDAdapter mBDAdapter;
 
 
@@ -74,6 +76,7 @@ public class DataManagerBD
 
     }
 
+
     //Se obtinen las setas Favoritas de la BD y se guardan sus nombre en una lista
     private void obtenerfavoritasBD()
     {
@@ -98,6 +101,39 @@ public class DataManagerBD
 
     }
 
+
+    private void obtenerZonasBD()
+    {
+
+        abrirBDLectura();
+        listZonas.clear();
+
+        Cursor cursor = mBDAdapter.getZonas();
+
+        if(cursor.getCount()>0)
+        {
+
+            cursor.moveToFirst();
+
+           do
+           {
+               Zona zona = new Zona();
+               zona.setId_zona(cursor.getInt(0));
+               zona.setNombre(cursor.getString(1));
+               zona.setDescripcion(cursor.getString(2));
+               zona.setLatitud(cursor.getString(3));
+               zona.setLongitud(cursor.getString(4));
+
+               listZonas.add(zona);
+
+           }while (cursor.moveToNext());
+
+        }
+
+
+    }
+
+
     //Se verifica que setas obtenidas de la BD estan tambien en la lista de favoritas y se cambia su campo para indicarlo
     private void checkFavoritas()
     {
@@ -111,6 +147,7 @@ public class DataManagerBD
         }
 
     }
+
 
     private void ordenarLista()
     {
@@ -534,6 +571,70 @@ public class DataManagerBD
         }
 
         return false;
+    }
+
+
+    //Se obtiene la lista con todas las zona almacenadas en BD
+    public List<Zona> getListaZonas()
+    {
+        obtenerZonasBD();
+
+        return listZonas;
+    }
+
+
+    //Se insertan los datos de la nueva zona en la BD
+    public boolean addZona(Zona nuevaZona)
+    {
+        try
+        {
+            mBDAdapter.addZona(nuevaZona.getNombre(), nuevaZona.getDescripcion(), nuevaZona.getLatitud(), nuevaZona.getLongitud());
+
+            return true;
+
+        }catch (Exception ex)
+        {
+            return false;
+        }
+
+    }
+
+
+    //Se borra la zona de la BD
+    public boolean delZona(List<Zona> zonasSeleccionadas)
+    {
+
+        try
+        {
+            for(Zona zona:zonasSeleccionadas)
+                mBDAdapter.delZona(zona.getId_zona());
+
+            return true;
+
+        }catch (Exception ex)
+        {
+            return false;
+        }
+
+
+    }
+
+
+    //Se actualiza los datos de la zona en la BD
+    public boolean updateZona(int id_zona, String nombre, String descripcion)
+    {
+
+        try
+        {
+            mBDAdapter.updateZona(id_zona, nombre, descripcion);
+
+            return true;
+
+        }catch(Exception ex)
+        {
+            return false;
+        }
+
     }
 
 }

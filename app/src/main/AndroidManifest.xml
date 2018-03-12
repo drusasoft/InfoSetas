@@ -3,6 +3,10 @@
     package="com.dssoft.infosetas"
     android:installLocation="auto">
 
+    <uses-feature android:name="android.hardware.location.gps"/>
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
     <application
         android:name=".InfoSetas"
         android:allowBackup="true"
@@ -12,6 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:largeHeap="true">
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyDiDM_3yz238Doe57JsY_RslQfurmQnURQ"/>
 
         <activity android:name=".iu.PantallaPrincipal" android:screenOrientation="portrait">
             <intent-filter>
@@ -27,6 +38,12 @@
         <activity android:name=".iu.PantallaGaleria" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaListaGaleria"/>
         <activity android:name=".iu.PantallaZoom" android:screenOrientation="portrait"/>
         <activity android:name=".iu.PantallaTiempo" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaPrincipal"/>
+        <activity android:name=".iu.PantallaZonas" android:screenOrientation="portrait" android:label="@string/titPantallaZonas" android:parentActivityName=".iu.PantallaPrincipal"/>
+        <activity android:name=".iu.PantallaMapaNuevaZona" android:screenOrientation="portrait" android:label="@string/titPantallaMapaNuevaZona" android:parentActivityName=".iu.PantallaZonas"/>
+        <activity android:name=".iu.PantallaInsertarDatosZona" android:screenOrientation="portrait" android:label="@string/titPantallaDatosNuevaZona"/>
+        <activity android:name=".iu.PantallaVerDatosZonas" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaZonas"/>
+        <activity android:name=".iu.PantallaMapaVerZona" android:screenOrientation="portrait"/>
+        <activity android:name=".iu.PantallaMapaGPS" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaZonas" android:label="@string/titPantallaMapaGPS"/>
 
     </application>
 

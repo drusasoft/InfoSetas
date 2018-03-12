@@ -4,4 +4,12 @@
     <item android:drawable="@drawable/fondo1" android:duration="100"/>
     <item android:drawable="@drawable/fondo2" android:duration="100"/>
     <item android:drawable="@drawable/fondo3" android:duration="100"/>
+    <item android:drawable="@drawable/fondo4" android:duration="100"/>
+    <item android:drawable="@drawable/fondo5" android:duration="100"/>
+    <item android:drawable="@drawable/fondo6" android:duration="100"/>
+    <item android:drawable="@drawable/fondo7" android:duration="100"/>
+    <item android:drawable="@drawable/fondo8" android:duration="100"/>
+    <item android:drawable="@drawable/fondo9" android:duration="100"/>
+    <item android:drawable="@drawable/fondo10" android:duration="100"/>
+    <item android:drawable="@drawable/fondo11" android:duration="100"/>
 </animation-list>

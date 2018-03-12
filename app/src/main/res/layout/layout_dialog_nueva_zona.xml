@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        android:text="Selecciona la forma de obtener la ubicacion de la zona que quieres guardar"/>
+
+    <LinearLayout
+        android:id="@+id/layoutOpcionMapa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:id="@+id/layoutImageMap"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@android:drawable/ic_dialog_map"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtMapaDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            android:text="Usar Mapa"
+            android:textColor="@color/colorPrimaryDarkGrey"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layoutOpcionGps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/layoutImageGps"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@android:drawable/ic_menu_compass"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtGpsDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            android:text="Usar GPS"
+            android:textColor="@color/colorPrimaryDarkGrey"/>
+
+    </LinearLayout>
+
+</LinearLayout>
