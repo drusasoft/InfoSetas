@@ -1,5 +1,6 @@
 package com.dssoft.infosetas.iu;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,11 +17,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
-
 import com.dssoft.infosetas.R;
-
 import java.util.StringTokenizer;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -44,6 +42,7 @@ public class PantallaGaleria extends AppCompatActivity
 
     private int[] arrayFotos;
     private String nombreSeta, comestible;
+    private ImageView imgSeleccionada;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -60,6 +59,7 @@ public class PantallaGaleria extends AppCompatActivity
         nombreSeta = getIntent().getStringExtra("nombreSeta");
         comestible = getIntent().getStringExtra("comestible");
         String fotos = getIntent().getStringExtra("fotos");
+        imgSeleccionada = imgGaleria_1;
         titToolbar.setText(nombreSeta);
 
         //se cambia el color de la ventana (segun el tipo de seta)
@@ -75,6 +75,7 @@ public class PantallaGaleria extends AppCompatActivity
     {
         imgSwitcherGaleria.setBackgroundResource(arrayFotos[0]);
         imgSwitcherGaleria.setTag(arrayFotos[0]);
+        imgSeleccionada = imgGaleria_1;
     }
 
 
@@ -83,6 +84,7 @@ public class PantallaGaleria extends AppCompatActivity
     {
         imgSwitcherGaleria.setBackgroundResource(arrayFotos[1]);
         imgSwitcherGaleria.setTag(arrayFotos[1]);
+        imgSeleccionada = imgGaleria_2;
     }
 
 
@@ -91,6 +93,7 @@ public class PantallaGaleria extends AppCompatActivity
     {
         imgSwitcherGaleria.setBackgroundResource(arrayFotos[2]);
         imgSwitcherGaleria.setTag(arrayFotos[2]);
+        imgSeleccionada = imgGaleria_3;
     }
 
 
@@ -99,6 +102,7 @@ public class PantallaGaleria extends AppCompatActivity
     {
         imgSwitcherGaleria.setBackgroundResource(arrayFotos[3]);
         imgSwitcherGaleria.setTag(arrayFotos[3]);
+        imgSeleccionada = imgGaleria_4;
     }
 
 
@@ -110,7 +114,9 @@ public class PantallaGaleria extends AppCompatActivity
         intent.putExtra("nombreSeta", nombreSeta);
         intent.putExtra("comestible", comestible);
         intent.putExtra("foto", Integer.valueOf(imgSwitcherGaleria.getTag().toString()));
-        startActivity(intent);
+
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this,imgSeleccionada,"img_zoom");
+        startActivity(intent,options.toBundle());
 
     }
 

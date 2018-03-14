@@ -55,6 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/imgZoom"
+            android:transitionName="img_zoom"
             android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>

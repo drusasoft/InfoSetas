@@ -45,7 +45,7 @@ public class PantallaDetallesSeta extends AppCompatActivity implements VistaDeta
 
     private PresentadorDetalles presentadorDetalles;
 
-    private static int NUM_PAGINAS=4;
+    private final int NUM_PAGINAS=4;
     private String[] titPestañas = new String[]{"Descripción", "Hábitat y Comestibilidad", "Observaciones", "Galería"};
     private PagerAdapter pagerAdapter;
 

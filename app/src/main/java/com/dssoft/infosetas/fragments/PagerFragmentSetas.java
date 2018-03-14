@@ -1,6 +1,7 @@
 package com.dssoft.infosetas.fragments;
 
 import android.animation.Animator;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -61,6 +62,7 @@ public class PagerFragmentSetas extends Fragment
     private Unbinder unbinder;
     private Context context;
     private String fotos, comestible;
+    private ImageView imgSeleccionada;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState)
@@ -209,6 +211,7 @@ public class PagerFragmentSetas extends Fragment
                         imageView2.setBackgroundResource(arrayFotos[1]);
                         imageView3.setBackgroundResource(arrayFotos[2]);
                         imageView4.setBackgroundResource(arrayFotos[3]);
+                        imgSeleccionada = imageView1;
 
                         /*Picasso.with(getContext()).load(R.drawable.arvensis1).into(imageView1);
                         Picasso.with(getContext()).load(R.drawable.arvensis2).into(imageView2);
@@ -244,6 +247,7 @@ public class PagerFragmentSetas extends Fragment
         {
             imgSwitcher.setBackgroundResource(arrayFotos[0]);
             imgSwitcher.setTag(arrayFotos[0]);
+            imgSeleccionada = imageView1;
         }
 
     }
@@ -257,6 +261,7 @@ public class PagerFragmentSetas extends Fragment
         {
             imgSwitcher.setBackgroundResource(arrayFotos[1]);
             imgSwitcher.setTag(arrayFotos[1]);
+            imgSeleccionada = imageView2;
         }
 
     }
@@ -270,6 +275,7 @@ public class PagerFragmentSetas extends Fragment
         {
             imgSwitcher.setBackgroundResource(arrayFotos[2]);
             imgSwitcher.setTag(arrayFotos[2]);
+            imgSeleccionada = imageView3;
         }
 
     }
@@ -283,6 +289,7 @@ public class PagerFragmentSetas extends Fragment
         {
             imgSwitcher.setBackgroundResource(arrayFotos[3]);
             imgSwitcher.setTag(arrayFotos[3]);
+            imgSeleccionada = imageView4;
         }
 
     }
@@ -295,7 +302,9 @@ public class PagerFragmentSetas extends Fragment
         intent.putExtra("nombreSeta",setaDetalles.getNombre());
         intent.putExtra("comestible",comestible);
         intent.putExtra("foto", Integer.valueOf(imgSwitcher.getTag().toString()));
-        startActivity(intent);
+
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(getActivity(),imgSeleccionada,"img_zoom");
+        startActivity(intent,options.toBundle());
     }
 
     @Override
