@@ -11,10 +11,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.dssoft.infosetas.R;
 import com.github.chrisbanes.photoview.PhotoView;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

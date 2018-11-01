@@ -28,7 +28,7 @@ public class BDAdapter
     private final String eliminarTabla = "DROP TABLE IF EXISTS Setas";
 
     private final String nombreBD = "BDSetas";
-    private final int versionBD = 18;
+    private final int versionBD = 24;
 
     private Context context;
     private SQLiteDatabase db;

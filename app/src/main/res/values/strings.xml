@@ -19,6 +19,8 @@
     <string name="btnGaleria">GALERÍA</string>
     <string name="btnTiempo">TIEMPO</string>
     <string name="btnZona">MIS ZONAS</string>
+    <string name="btnInfo">Politicas de Privacidad</string>
+    <string name="btnAyuda">AYUDA</string>
     <string name="totSetas">130 Setas</string>
     <string name="txtUbicacion">Para usar esta funcionalidad, debes permitir que la aplicacion acceda a la ubicación del dispositivo</string>
     <!-- Fin Pantalla Principal-->
@@ -45,6 +47,7 @@
     <string name="titErrorDialog_2">Error Localidad</string>
     <string name="txtErrorDialog_1">No se han podido obtener los datos del Servidor</string>
     <string name="txtErrorDialog_2">Conexión a internet necesaria</string>
+    <string name="txtIrAyuda">Pulsa aquí, si deseas obtener ayuda sobre las partes que componen una seta...etc</string>
     <!-- Fin Pantalla Detalles Seta-->
 
 
@@ -110,6 +113,14 @@
     <string name="txtErrorCambios">Error, No se han podido guardar los datos</string>
     <string name="txtCambiosOK">Modificación de datos correcta</string>
     <!-- Fin Pantalla Insertar Datos Zonas -->
+
+    <!-- Pantalla Ayuda-->
+    <string name="titPantallaAyuda">Ayuda</string>
+    <string name="titPartesSeta">Partes de una Seta</string>
+    <string name="titTiposSombrero">Tipos de Sombrero</string>
+    <string name="titDesarrolloSeta">Ciclo de una Seta</string>
+    <string name="txtPantallaAyuda">Pulsa sobre una imagen para verla en tamaño grande y poder hacer zoom sobre ella.</string>
+    <!-- Fin Pantalla Ayuda-->
 
     <!-- Bloques de Anuncios -->
     <string name="banner_ad_unit_id">ca-app-pub-2712815213167664/2866527416</string>

@@ -93,6 +93,7 @@ public class PantallaListaGaleria extends AppCompatActivity implements VistaList
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+
     }
 
 

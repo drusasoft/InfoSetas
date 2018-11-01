@@ -20,6 +20,14 @@
             android:icon="@mipmap/flecha"
             android:title="@string/btnZona"/>
 
+        <item android:id="@+id/drawer_opcion5"
+            android:icon="@mipmap/flecha"
+            android:title="@string/btnAyuda"/>
+
+        <item android:id="@+id/drawer_opcion6"
+            android:icon="@mipmap/flecha"
+            android:title="@string/btnInfo"/>
+
     </group>
 
 

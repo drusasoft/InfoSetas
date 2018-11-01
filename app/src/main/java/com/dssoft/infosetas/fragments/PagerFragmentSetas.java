@@ -17,6 +17,7 @@ import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
+import com.dssoft.infosetas.iu.PantallaAyuda;
 import com.dssoft.infosetas.iu.PantallaZoom;
 import com.dssoft.infosetas.R;
 import com.dssoft.infosetas.pojos.SetaFireBase;
@@ -305,6 +306,14 @@ public class PagerFragmentSetas extends Fragment
 
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(getActivity(),imgSeleccionada,"img_zoom");
         startActivity(intent,options.toBundle());
+    }
+
+    @Optional
+    @OnClick(R.id.txtIrAyuda)
+    public void irpantallaAyuda()
+    {
+        Intent intent = new Intent(context, PantallaAyuda.class);
+        startActivity(intent);
     }
 
     @Override

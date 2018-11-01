@@ -259,6 +259,7 @@ public class PantallaTiempo extends AppCompatActivity implements VistaTiempo, Ad
                                             permitirSeleccion = true;
 
                                             spinnerLocalidades.setSelection(0);//Se selecciona el primer elemento del spinner
+
                                         }else
                                         {
                                             cardViewPrevision.setVisibility(View.INVISIBLE);
@@ -408,7 +409,7 @@ public class PantallaTiempo extends AppCompatActivity implements VistaTiempo, Ad
 
 
     @Override
-    //Se muestra los datos de la prevision meteorologica obtenido del WS
+    //Se muestra los datos de la prevision meteorologica obtenido del WS, este metodo es llamado desde el Presentador
     public void mostrarPrevision(List<DatosPrevision> listPrevision)
     {
 
@@ -435,8 +436,6 @@ public class PantallaTiempo extends AppCompatActivity implements VistaTiempo, Ad
         }
 
         invalidateOptionsMenu();
-        spinnerAdapter.notifyDataSetChanged();
-
 
         //Se muestran los datos del Tiempo
         txtLocalidad.setText(listPrevision.get(0).getLocalidad());
@@ -461,7 +460,9 @@ public class PantallaTiempo extends AppCompatActivity implements VistaTiempo, Ad
         loadIconoTiempo(imgTiempoDia5, listPrevision.get(4).getIcono());
         txtFechaDia5.setText(listPrevision.get(4).getDiaSemana());
 
+
         efecto_mostrar_circular(cardViewPrevision);
+        permitirSeleccion = true;
 
     }
 
@@ -489,6 +490,14 @@ public class PantallaTiempo extends AppCompatActivity implements VistaTiempo, Ad
                 //Se actualiza el spinner con la nueva localidad guardada en la BD
                 listLocalidades.clear();
                 listLocalidades.addAll(presentadorTiempo.getLocalidadesBD());
+
+                //Se muestra en el spinner la localidad nueva que se ha añadido (que es el ultimo de la lista)
+                if(listLocalidades.size()>0)
+                {
+                    permitirSeleccion = false;
+                    spinnerLocalidades.setSelection(listLocalidades.size()-1);
+                    spinnerAdapter.notifyDataSetChanged();
+                }
 
                 //Se obtiene la prevision del tiempo del ws
                 presentadorTiempo.getPrevisionTiempo(localidad.toLowerCase()+","+cod_pais, presentadorTiempo, wsKey, getApplicationContext());
@@ -618,24 +627,34 @@ public class PantallaTiempo extends AppCompatActivity implements VistaTiempo, Ad
     }
 
 
-    private void efecto_mostrar_circular(View view)
+    private void efecto_mostrar_circular(final View view)
     {
 
-        // get the center for the clipping circle
-        int cx = (view.getLeft() + view.getRight())/2;
-        int cy = (view.getTop() + view.getBottom())/2;
+        //Se muestra el efecto circular dentro del LayoutListener
+        //Para evitar que se de el error de (Cannot start this animator on a detached view), que ha ocurrido algun usuario
+        layoutPantallaTiempo.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom)
+            {
+                layoutPantallaTiempo.removeOnLayoutChangeListener(this);
 
-        // get the final radius for the clipping circle
-        int finalRadious = Math.max(view.getWidth(), view.getHeight());
+                // get the center for the clipping circle
+                int cx = (view.getLeft() + view.getRight())/2;
+                int cy = (view.getTop() + view.getBottom())/2;
 
-        // create the animator for this view (the start radius is zero)
-        Animator anim = ViewAnimationUtils.createCircularReveal(view, cx, cy, 0, finalRadious);
-        anim.setDuration(1500);//Establezco una duracion mayor al la animacion para ver mejor el efecto
+                // get the final radius for the clipping circle
+                int finalRadious = Math.max(view.getWidth(), view.getHeight());
 
-        // make the view visible and start the animation
-        view.setVisibility(View.VISIBLE);
-        anim.start();
+                // create the animator for this view (the start radius is zero)
+                Animator anim = ViewAnimationUtils.createCircularReveal(view, cx, cy, 0, finalRadious);
+                anim.setDuration(1500);//Establezco una duracion mayor al la animacion para ver mejor el efecto
 
+                // make the view visible and start the animation
+                view.setVisibility(View.VISIBLE);
+                anim.start();
+            }
+
+        });
 
     }
 

@@ -1,14 +1,15 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.dssoft.infosetas"
         minSdkVersion 21
-        targetSdkVersion 25
-        versionCode 19
-        versionName "1.19"
+        targetSdkVersion 26
+        versionCode 24
+        versionName "1.204"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -42,6 +43,7 @@ dependencies {
     compile 'com.google.firebase:firebase-core:11.6.0'
     compile 'com.google.firebase:firebase-ads:11.6.0'
     compile 'com.google.firebase:firebase-database:11.6.0'
+    compile 'com.crashlytics.sdk.android:crashlytics:2.9.1'
     testCompile 'junit:junit:4.12'
 }
 

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.drawable.AnimationDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -163,6 +164,12 @@ public class PantallaPrincipal extends AppCompatActivity
 
                     case R.id.drawer_opcion4: irPantallaZonas();
                                                 break;
+
+                    case R.id.drawer_opcion5: irPantallaAyuda();
+                        break;
+
+                    case R.id.drawer_opcion6: irPoliticasPrivacidad();
+                        break;
                 }
 
 
@@ -323,6 +330,23 @@ public class PantallaPrincipal extends AppCompatActivity
 
         }
 
+    }
+
+
+    private void irPantallaAyuda()
+    {
+        if(mInterstitialAd.isLoaded())
+            mInterstitialAd.show();
+
+        Intent intent = new Intent(this, PantallaAyuda.class);
+        startActivity(intent);
+    }
+
+
+    private void irPoliticasPrivacidad()
+    {
+        Intent intentP = new Intent(Intent.ACTION_VIEW, Uri.parse("https://utilities.000webhostapp.com/setas_policy.html"));
+        startActivity(intentP);
     }
 
 

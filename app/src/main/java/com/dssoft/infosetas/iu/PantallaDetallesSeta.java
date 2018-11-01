@@ -6,12 +6,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -39,7 +39,7 @@ public class PantallaDetallesSeta extends AppCompatActivity implements VistaDeta
     @BindView(R.id.layoutPantallaDetalles) LinearLayout layoutPrincipal;
     @BindView(R.id.toolBar_pantalla_comestibles) Toolbar toolbar;
     @BindView(R.id.viewPager_Comestibles) ViewPager viewPager;
-    @BindView(R.id.PagerTabStrip_Comestibles) PagerTabStrip pagerTabStrip;
+    @BindView(R.id.tabs) TabLayout tabLayout;
     @BindView(R.id.imgToolBar) ImageView imgTooBar;
     @BindView(R.id.titToolBar) TextView titTooBar;
 
@@ -91,7 +91,6 @@ public class PantallaDetallesSeta extends AppCompatActivity implements VistaDeta
             //Se crea el ViewPager
             pagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
             viewPager.setAdapter(pagerAdapter);
-            pagerTabStrip.setTabIndicatorColor(ContextCompat.getColor(this,R.color.colorBlanco));
 
         }else
         {
@@ -161,7 +160,7 @@ public class PantallaDetallesSeta extends AppCompatActivity implements VistaDeta
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDarkGrey));
 
             toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryGrey));
-            pagerTabStrip.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryGrey));
+            tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryGrey));
             layoutPrincipal.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentGrey));
 
             imgTooBar.setImageResource(R.drawable.seta_regular_small);
@@ -178,7 +177,7 @@ public class PantallaDetallesSeta extends AppCompatActivity implements VistaDeta
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDarkOrange));
 
             toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryOrange));
-            pagerTabStrip.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryOrange));
+            tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryOrange));
             layoutPrincipal.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentOrange));
 
             imgTooBar.setImageResource(R.drawable.seta_venenosa_small);
@@ -196,7 +195,7 @@ public class PantallaDetallesSeta extends AppCompatActivity implements VistaDeta
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDarkRed));
 
             toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryRed));
-            pagerTabStrip.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryRed));
+            tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryRed));
             layoutPrincipal.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentRed));
 
             imgTooBar.setImageResource(R.drawable.skull_ico);
