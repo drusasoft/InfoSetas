@@ -58,7 +58,7 @@ public class AdaptadorSpinnerSetas extends ArrayAdapter<String>
             case 0: holder.imgSpinner.setVisibility(View.GONE);
                     break;
 
-            case 1: holder.imgSpinner.setImageResource(R.drawable.img_favorita);
+            case 1: holder.imgSpinner.setImageResource(android.R.drawable.star_big_on);
                     holder.imgSpinner.setVisibility(View.VISIBLE);
                     break;
 
@@ -72,6 +72,7 @@ public class AdaptadorSpinnerSetas extends ArrayAdapter<String>
 
             case 4: holder.imgSpinner.setImageResource(R.drawable.cuidado_small);
                     holder.imgSpinner.setVisibility(View.VISIBLE);
+                    holder.txtTipo.setText(R.string.txtPrecaución);
                     break;
 
             case 5: holder.imgSpinner.setImageResource(R.drawable.seta_venenosa_small);

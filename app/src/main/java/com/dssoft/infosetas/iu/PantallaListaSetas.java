@@ -11,6 +11,7 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -68,6 +69,9 @@ public class PantallaListaSetas extends AppCompatActivity implements VistaLista,
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        //Se cambia el color de la statusbar y se pone transparente
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         String[] arrayTipos = getResources().getStringArray(R.array.tipos_array);
         AdaptadorSpinnerSetas ass = new AdaptadorSpinnerSetas(this, arrayTipos);

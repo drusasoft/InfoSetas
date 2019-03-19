@@ -17,6 +17,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -90,6 +91,9 @@ public class PantallaZonas extends AppCompatActivity implements VistaZonas
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        //Se cambia el color de la statusbar y se pone transparente
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         InfoSetas infoSetas = (InfoSetas) getApplicationContext();
         presentadorMisZonas = new PresentadorMisZonas(infoSetas.getDataManagerBD(), infoSetas.getDataManagerGPS());

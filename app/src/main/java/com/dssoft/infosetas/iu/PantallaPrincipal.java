@@ -21,6 +21,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.dssoft.infosetas.R;
@@ -61,12 +62,15 @@ public class PantallaPrincipal extends AppCompatActivity
         MultiDex.install(this);
         ButterKnife.bind(this);
 
-        //Inicializa el SDK de Google Mobile Ads
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2712815213167664~2533509012");
-
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        //Se cambia el color de la statusbar y se pone transparente
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+
+        //Inicializa el SDK de Google Mobile Ads
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2712815213167664~2533509012");
 
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close)
         {

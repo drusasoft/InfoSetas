@@ -11,6 +11,7 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -62,6 +63,9 @@ public class PantallaListaGaleria extends AppCompatActivity implements VistaList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pantalla_lista_setas);
         ButterKnife.bind(this);
+
+        //Se cambia el color de la statusbar y se pone transparente
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

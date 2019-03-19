@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import com.dssoft.infosetas.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -42,6 +43,9 @@ public class PantallaMapaVerZona extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pantalla_mapa_ver_zona);
         ButterKnife.bind(this);
+
+        //Se cambia el color de la statusbar y se pone transparente
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         String lat = getIntent().getStringExtra("latitud");
         String lon = getIntent().getStringExtra("longitud");

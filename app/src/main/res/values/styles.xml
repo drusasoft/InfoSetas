@@ -19,8 +19,8 @@
         <item name="android:windowSharedElementExitTransition">
             @transition/change_image_transform</item>
 
-
     </style>
+
 
 
     <!-- Estilo de la ToolBar-->
@@ -34,11 +34,33 @@
         <item name="android:textColor">@color/colorBlanco</item>
     </style>
 
+    <!-- Estilo de la ToolBar PantallaZoom Comestible-->
+    <style name="AppTheme.ToolbarStyleComestible" parent="AppTheme">
+        <item name="colorControlNormal">@color/colorPrimaryDark</item>
+    </style>
+
+    <!-- Estilo de la ToolBar PantallaZoom Toxica-->
+    <style name="AppTheme.ToolbarStyleToxica" parent="AppTheme">
+        <item name="colorControlNormal">@color/colorPrimaryDarkOrange</item>
+    </style>
+
+    <!-- Estilo de la ToolBar PantallaZoom Mortal-->
+    <style name="AppTheme.ToolbarStyleMortal" parent="AppTheme">
+        <item name="colorControlNormal">@color/colorPrimaryDarkRed</item>
+    </style>
+
+    <!-- Estilo de la ToolBar PantallaZoom SinInteres-->
+    <style name="AppTheme.ToolbarStyleSinInteres" parent="AppTheme">
+        <item name="colorControlNormal">@color/colorPrimaryDarkGrey</item>
+    </style>
+
     <!--Estilo del menu desplegable de la Toolbar-->
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark">
         <item name="android:background">@color/colorPrimaryDark</item>
         <item name="android:textColor">@color/colorBlanco</item>
     </style>
+
+
 
     <!-- Estilo del PagerTabStrip-->
     <style name="AppTheme.PagerTabStrip" parent="TextAppearance.AppCompat.Medium">

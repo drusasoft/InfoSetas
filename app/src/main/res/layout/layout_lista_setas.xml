@@ -91,8 +91,8 @@
             android:layout_alignParentLeft="true"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="10dp"
-            android:visibility="gone"
-            android:src="@drawable/img_favorita"/>
+            android:visibility="visible"
+            android:src="@android:drawable/star_big_on"/>
 
         <ImageView
             android:id="@+id/imageView_seta_mario"

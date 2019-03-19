@@ -30,7 +30,7 @@
     <!-- Pantalla Lista Setas-->
     <string name="txtFavoritas">Actualmente tu lista de setas favoritas esta vacía.\n\n
         Para agregar/eliminar una seta a dicha lista, debe realizar una pulsación larga sobre la seta deseada.</string>
-
+    <string name="txtPrecaución">Precaución</string>
     <!-- Fin Pantalla Lista Setas-->
 
     <!-- Pantalla Detalles Seta-->
@@ -86,6 +86,7 @@
     <!-- Pantalla Mapa Nueva Zona -->
     <string name="titPantallaMapaNuevaZona">Nueva Zona</string>
     <string name="txtDialogMapaNuevaZona">¿Desea guardar la posicion marcada en el mapa?</string>
+    <string name="txtErrorCoordenadas">Error, no se han podido obtener las coordenadas de la localización indicada</string>
     <!-- Fin Pantalla Mapa Nueva Zona-->
 
     <!-- Pantalla Mapa GPS -->

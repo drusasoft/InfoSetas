@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
+import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.maps.GoogleMap;
@@ -46,6 +48,9 @@ public class PantallaMapaNuevaZona extends AppCompatActivity implements GoogleMa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pantalla_mapa_nueva_zona);
         ButterKnife.bind(this);
+
+        //Se cambia el color de la statusbar y se pone transparente
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -111,18 +116,27 @@ public class PantallaMapaNuevaZona extends AppCompatActivity implements GoogleMa
 
         if(resultCode == RESULT_OK && requestCode == NUEVA_ZONA)
         {
-            String nombreZona = data.getStringExtra("nombreZona");
-            String descripcionZona = data.getStringExtra("descripcionZona");
 
-            //Se añade un marcador donde hemos realizado la pulsacion larga
-            marcador = mapa.addMarker(new MarkerOptions()
-                    .title(nombreZona)
-                    .snippet(descripcionZona)
-                    .icon(imgMarcador)
-                    .position(coordenadasPulsadas)
-            );
+            if(coordenadasPulsadas != null)
+            {
 
-            marcador.showInfoWindow();//Con esto se hace que se muestre la info del marcador
+                String nombreZona = data.getStringExtra("nombreZona");
+                String descripcionZona = data.getStringExtra("descripcionZona");
+
+                //Se añade un marcador donde hemos realizado la pulsacion larga
+                marcador = mapa.addMarker(new MarkerOptions()
+                        .title(nombreZona)
+                        .snippet(descripcionZona)
+                        .icon(imgMarcador)
+                        .position(coordenadasPulsadas)
+                );
+
+                marcador.showInfoWindow();//Con esto se hace que se muestre la info del marcador
+
+            }else
+            {
+                Toast.makeText(this, R.string.txtErrorCoordenadas, Toast.LENGTH_LONG).show();
+            }
 
         }
     }
@@ -173,7 +187,15 @@ public class PantallaMapaNuevaZona extends AppCompatActivity implements GoogleMa
     {
         coordenadasPulsadas = latLng;
 
-        dialogGuardarPosicion();
+        if(coordenadasPulsadas != null)
+        {
+            dialogGuardarPosicion();
+        }else
+        {
+            Toast.makeText(this, R.string.txtErrorCoordenadas, Toast.LENGTH_LONG).show();
+        }
 
     }
+
+
 }
