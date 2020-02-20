@@ -7,16 +7,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_lista_setas"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/borde_toolbar"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:elevation="4dp"
+        app:titleTextColor="@color/colorBlanco"
         app:theme="@style/AppTheme.ToolbarStyle"
         app:titleTextAppearance="@style/AppTheme.ToolbarTextStyle">
 
@@ -33,7 +34,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_centerVertical="true"/>
 
-            <android.support.v7.widget.SearchView
+            <androidx.appcompat.widget.SearchView
                 android:id="@+id/buscador_setas"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -45,7 +46,7 @@
 
         </LinearLayout>
         
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/banner_pantalla_lista"
@@ -62,13 +63,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/cardViewFavoritas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="40dp"
+            android:alpha="0.7"
             android:visibility="invisible">
 
             <TextView
@@ -82,7 +84,7 @@
                 android:textStyle="bold"
                 android:text="@string/txtFavoritas"/>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
         <ListView android:id="@+id/listview_setas"
             android:layout_marginTop="20dp"

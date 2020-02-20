@@ -196,10 +196,10 @@ public class DataManagerBD
 
         do
         {
-            String nombre = context.getResources().getString(cursor.getInt(1));
-            String nombre_comun = context.getResources().getString(cursor.getInt(2));
-            String nombre_ordenar = context.getResources().getString(cursor.getInt(3));
-            String comestible = context.getResources().getString(cursor.getInt(4));
+            String nombre = context.getString(cursor.getInt(1));
+            String nombre_comun = context.getString(cursor.getInt(2));
+            String nombre_ordenar = context.getString(cursor.getInt(3));
+            String comestible = context.getString(cursor.getInt(4));
             String fotos = cursor.getString(5);
             int foto_list = cursor.getInt(6);
 

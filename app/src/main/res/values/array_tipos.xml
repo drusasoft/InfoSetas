@@ -2,13 +2,13 @@
 <resources>
 
     <string-array name="tipos_array">
-        <item>Todas...</item>
-        <item>Favoritas</item>
-        <item>Comestibles</item>
-        <item>Sin Interés Culinario</item>
-        <item>Con Precaución</item>
-        <item>Tóxicas</item>
-        <item>Mortales</item>
+        <item>All...</item>
+        <item>Favorites</item>
+        <item>Edibles</item>
+        <item>No Culinary Interest</item>
+        <item>With Caution</item>
+        <item>Toxics</item>
+        <item>Deadly</item>
     </string-array>
 
 </resources>

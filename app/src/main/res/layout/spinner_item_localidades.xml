@@ -5,7 +5,6 @@
     android:gravity="center_vertical|center_horizontal"
     android:textStyle="bold"
     android:textColor="@color/colorBlanco"
-    android:background="@color/colorPrimary"
     android:textSize="18sp"
     android:padding="5dp">
 

@@ -26,10 +26,15 @@ public class DataManagerFB
 
 
     //Se obtiene del Servidor FireBase los datos de la seta cuyo nombre hemos recibido como parametro
-    public SetaFireBase getDetallesSeta(String nombreSeta, final PresentadorMvpDetalles presentadorDetalles)
+    public SetaFireBase getDetallesSeta(String nombreSeta, final PresentadorMvpDetalles presentadorDetalles, String idioma)
     {
 
-        final DatabaseReference databaseReference = database.getReference("setas_esp").child(nombreSeta);
+        final DatabaseReference databaseReference;
+
+        if(idioma.equals("es"))
+            databaseReference = database.getReference("setas_esp").child(nombreSeta);
+        else
+            databaseReference = database.getReference("setas_eng").child(nombreSeta);
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener()
         {

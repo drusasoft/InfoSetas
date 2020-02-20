@@ -7,11 +7,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolBarTiempo"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/borde_toolbar"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -19,6 +19,7 @@
         android:elevation="4dp"
         app:theme="@style/AppTheme.ToolbarStyle"
         app:titleTextAppearance="@style/AppTheme.ToolbarTextStyle"
+        app:titleTextColor="@color/colorBlanco"
         app:popupTheme="@style/AppTheme.PopupOverlay">
 
         <Spinner
@@ -26,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
 
     <com.google.android.gms.ads.AdView
@@ -34,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="5dp"
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner_ad_unit_id">
     </com.google.android.gms.ads.AdView>
@@ -51,56 +52,94 @@
             android:layout_height="match_parent">
 
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewFormulario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="10dp"
+                android:alpha="0.85"
                 android:visibility="invisible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/borde_lista_setas"
                     android:orientation="vertical">
 
-
-                    <android.support.design.widget.TextInputLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:hint="@string/edit_localidad">
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:text="@string/titPantallaTiempo_2"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:lines="1"
+                        android:ellipsize="end"/>
 
-                        <EditText
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@color/colorPrimaryDark"/>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:hint="@string/edit_localidad"
+                        android:textColorHint="@color/color_texto_hint_2"
+                        app:hintTextColor="@color/color_texto_hint"
+                        app:boxStrokeColor="@color/color_text_input">
+
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editLocalidad"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorAccent"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"/>
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textCursorDrawable="@color/colorPrimaryDark"/>
 
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:hint="@string/edit_pais">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:hint="@string/edit_pais"
+                        android:textColorHint="@color/color_texto_hint_2"
+                        app:hintTextColor="@color/color_texto_hint"
+                        app:boxStrokeColor="@color/color_text_input">
 
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editPais"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorAccent"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginTop="20dp"/>
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textCursorDrawable="@color/colorPrimaryDark"/>
 
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                         android:id="@+id/btnLocalidad"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -108,15 +147,16 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="15dp"
                         android:text="@string/btn_aceptar"
-                        android:textColor="@drawable/texto_pulsacion_2"
-                        android:background="@drawable/btn_fondo"/>
+                        android:textColor="@color/colorPrimaryDark"
+                        app:strokeColor="@color/colorPrimaryDark"
+                        app:rippleColor="@color/colorPrimaryDark"/>
 
                 </LinearLayout>
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewPrevision"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -124,11 +164,13 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="10dp"
+                android:alpha="0.9"
                 android:visibility="invisible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/borde_lista_setas"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -148,7 +190,7 @@
                             android:textStyle="bold"
                             android:textColor="@color/colorPrimaryDark"/>
 
-                        <LinearLayout
+                        <View
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
                             android:layout_marginLeft="5dp"
@@ -182,12 +224,20 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <ImageView
-                                android:id="@+id/imgTiempoHoy"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
+                            <FrameLayout
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
                                 android:layout_marginLeft="20dp"
-                                android:layout_marginTop="5dp"/>
+                                android:layout_marginTop="5dp"
+                                android:background="@drawable/borde_tiempo">
+
+                                <ImageView
+                                    android:id="@+id/imgTiempoHoy"
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_gravity="center"/>
+
+                            </FrameLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -218,9 +268,10 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
+                    <View
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
+                        android:layout_marginTop="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
                         android:layout_marginBottom="5dp"
@@ -367,7 +418,7 @@
 
                 </LinearLayout>
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
         </RelativeLayout>

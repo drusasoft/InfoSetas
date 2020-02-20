@@ -1,19 +1,16 @@
 package com.dssoft.infosetas.iu;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.dssoft.infosetas.R;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Toast;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -22,6 +19,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -68,11 +66,6 @@ public class PantallaMapaNuevaZona extends AppCompatActivity implements GoogleMa
         });
 
 
-        //Se carga el banner
-        AdView mAdView = (AdView) findViewById(R.id.banner_pantalla_mapa_nueva_zona);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
     }
 
 
@@ -101,6 +94,9 @@ public class PantallaMapaNuevaZona extends AppCompatActivity implements GoogleMa
                                         return true;
 
             case R.id.menuVistaHibrido: mapa.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                                        return true;
+
+            case android.R.id.home: onBackPressed();
                                         return true;
 
         }
@@ -152,7 +148,7 @@ public class PantallaMapaNuevaZona extends AppCompatActivity implements GoogleMa
     private void dialogGuardarPosicion()
     {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_Centered);
         builder.setTitle(R.string.titPantallaDatosNuevaZona);
         builder.setMessage(R.string.txtDialogMapaNuevaZona);
 

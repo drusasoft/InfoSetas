@@ -1,0 +1,1160 @@
+<resources>
+    <string name="ws_key">8da3fe404852b2987901d2ccb4d3de97</string>
+    <string name="app_name">InfoSetas</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <!-- Menus -->
+    <string name="menu_actualizar">Actualizar</string>
+    <string name="menu_buscar">Buscar</string>
+    <string name="menu_eliminar">Eliminar</string>
+    <string name="menu_vista_normal">Vista Normal</string>
+    <string name="menu_vista_satelite">Vista Satelite</string>
+    <string name="menu_vista_terreno">Vista Terreno</string>
+    <string name="menu_vista_hibrida">Vista Hibrida</string>
+    <!-- Fin Menu -->
+
+    <!-- Pantalla Principal-->
+    <string name="btnSetas">SETAS</string>
+    <string name="btnGaleria">GALERÍA</string>
+    <string name="btnTiempo">TIEMPO</string>
+    <string name="btnZona">MIS ZONAS</string>
+    <string name="drawerSetas">Setas</string>
+    <string name="drawerGaleria">Galeria</string>
+    <string name="drawerTiempo">Tiempo</string>
+    <string name="drawerZonas">Mis Zonas</string>
+    <string name="drawerIdioma">Lenguaje: Español</string>
+    <string name="drawerAyuda">Ayuda</string>
+    <string name="drawerPoliticas">Politicas de Privacidad</string>
+    <string name="totSetas">128 Setas</string>
+    <string name="txtUbicacion">Para usar esta funcionalidad, debes permitir que la aplicacion acceda a la ubicación del dispositivo</string>
+    <!-- Fin Pantalla Principal-->
+
+
+
+    <!-- Pantalla Lista Setas-->
+    <string name="txtFavoritas">Actualmente tu lista de setas favoritas esta vacía.\n\n
+        Para agregar/eliminar una seta a dicha lista, debe realizar una pulsación larga sobre la seta deseada.</string>
+    <string name="txtPrecaución">Precaución</string>
+    <!-- Fin Pantalla Lista Setas-->
+
+    <!-- Pantalla Detalles Seta-->
+    <string name="titNombre">Nombre: </string>
+    <string name="titNombreComun">Nombre Común: </string>
+    <string name="titDescripcion">DESCRIPCIÓN</string>
+    <string name="titHabitat">HABITAT</string>
+    <string name="titComestibilidad">COMESTIBILIDAD</string>
+    <string name="titObservaciones">OBSERVACIONES</string>
+    <string name="titProgressDialog">Conectando</string>
+    <string name="txtProgressDialog">Conectando con el Servidor...</string>
+    <string name="btnAceptar">Aceptar</string>
+    <string name="titErrorDialog_1">Error Conexión</string>
+    <string name="titErrorDialog_2">Error Localidad</string>
+    <string name="txtErrorDialog_1">No se han podido obtener los datos del Servidor</string>
+    <string name="txtErrorDialog_2">Conexión a internet necesaria</string>
+    <string name="txtIrAyuda">Pulsa aquí, si deseas obtener ayuda sobre las partes que componen una seta...etc</string>
+    <string name="tipo_seta_1">Comestible</string>
+    <string name="tipo_seta_2">Con Precaución</string>
+    <string name="tipo_seta_3">Sin Interés Culinario</string>
+    <string name="tipo_seta_4">Tóxica</string>
+    <string name="tipo_seta_5">Mortal</string>
+    <string name="titTabLayout_1">Descripción</string>
+    <string name="titTabLayout_2">Hábitat y Comestibilidad</string>
+    <string name="titTabLayout_3">Observaciones</string>
+    <string name="titTabLayout_4">Galería</string>
+    <!-- Fin Pantalla Detalles Seta-->
+
+
+    <!-- Pantalla Tiempo -->
+    <string name="titPantallaTiempo">Tiempo</string>
+    <string name="titPantallaTiempo_2">Indica Localidad y País</string>
+    <string name="edit_localidad">Localidad</string>
+    <string name="edit_pais">País</string>
+    <string name="btn_aceptar">Aceptar</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="tit_dialog_guardar">Guardar</string>
+    <string name="txt_dialog_guardar">¿Desea guardar esta Localidad?</string>
+    <string name="tit_progress_dialog">Conectando...</string>
+    <string name="txt_progress_dialog">Conectando con Servidor Meteorológico...</string>
+    <string name="errGeoLocalidad">No se ha podido encontrar la Localidad</string>
+    <string name="errGeoLocalidad2">Error, no se han podido obtener datos para esa localidad</string>
+    <string name="errFormLocalidad">Debes introducir la localidad y el país</string>
+    <string name="errWSTiempo">No se han podido obtener los datos de Servidor</string>
+    <string name="diaSemana_1">Domingo</string>
+    <string name="diaSemana_2">Lunes</string>
+    <string name="diaSemana_3">Martes</string>
+    <string name="diaSemana_4">Miercoles</string>
+    <string name="diaSemana_5">Jueves</string>
+    <string name="diaSemana_6">Viernes</string>
+    <string name="diaSemana_7">Sabado</string>
+    <!-- Fin Pantalla Tiempo -->
+
+
+    <!-- Pantalla Zonas -->
+    <string name="titPantallaZonas">Mis Zonas</string>
+    <string name="txtNoZonas">Actualmente no tienes guardada ninguna zona de setas. Si deseas añadir una nueva localizacion
+        pulsa el boton situado en la parte inferior de la pantalla</string>
+    <string name="btnSi">Si</string>
+    <string name="btnNo">No</string>
+    <string name="titDialogUbicacionZona">GPS Deshabilitado</string>
+    <string name="txtDialogUbicacionZona">¿Deseas ir a la pantalla de configuracion para activarlo?</string>
+    <string name="titDialogBorrarZona">Borrar Zona</string>
+    <string name="txtDialogBorrarZona">¿Deseas borrar la zona seleccionada?</string>
+    <string name="titDialogBorrarZonas">Borrar Zonas</string>
+    <string name="txtDialogBorrarZonas">¿Deseas borrar la zonas seleccionadas?</string>
+    <string name="txtErrorBorrarZonas">Error, No se ha podido borrar la Zona de la Base de Datos</string>
+    <!-- Fin Pantalla Zonas -->
+
+    <!-- Pantalla Mapa Nueva Zona -->
+    <string name="titPantallaMapaNuevaZona">Nueva Zona</string>
+    <string name="txtDialogMapaNuevaZona">¿Desea guardar la posicion marcada en el mapa?</string>
+    <string name="txtErrorCoordenadas">Error, no se han podido obtener las coordenadas de la localización indicada</string>
+    <!-- Fin Pantalla Mapa Nueva Zona-->
+
+    <!-- Pantalla Mapa GPS -->
+    <string name="titPantallaMapaGPS">GPS</string>
+    <string name="txtCuentaAtras">Obteniendo ubicación en </string>
+    <string name="txtNuevaZonaGpsOK">La zona ha sido gurdada con exito</string>
+    <string name="titDialogGPS">Buscando GPS...</string>
+    <string name="txtNuevaConexionGps">Conectando con GPS...</string>
+    <string name="txtConexionGpsCancelada">Se ha cancelado la conexión</string>
+    <string name="titMarcadorPosicion">Posición Actual</string>
+    <!-- Fin Pantalla Mapa GPS-->
+
+    <!-- Pantalla Insertar Datos Zonas -->
+    <string name="titPantallaDatosNuevaZona">Datos Nueva Zona</string>
+    <string name="txtEditNombreNuevaZona">Nombre Zona</string>
+    <string name="txtEditDescripcionNuevaZona">Descripcion Zona</string>
+    <string name="titMensajeOK">Nueva Zona</string>
+    <string name="txtMensajeOK">Los datos de la nueva zona se han guardado correctamente</string>
+    <string name="titMensajeKO">Error</string>
+    <string name="txtMensajeKO">Los datos de la nueva zona no se han podido guardar</string>
+    <string name="txtNombreVacio">Debes indicar un nombre de zona</string>
+    <!-- Fin Pantalla Insertar Datos Zonas -->
+
+    <!-- Pantalla Insertar Datos Zonas -->
+    <string name="txtErrorCambios">Error, No se han podido guardar los datos</string>
+    <string name="txtCambiosOK">Modificación de datos correcta</string>
+    <!-- Fin Pantalla Insertar Datos Zonas -->
+
+    <!-- Pantalla Ayuda-->
+    <string name="titPantallaAyuda">Ayuda</string>
+    <string name="titPartesSeta">Partes de una Seta</string>
+    <string name="titTiposSombrero">Tipos de Sombrero</string>
+    <string name="titDesarrolloSeta">Ciclo de una Seta</string>
+    <string name="txtPantallaAyuda">Pulsa sobre una imagen para verla en tamaño grande y poder hacer zoom sobre ella.</string>
+    <string name="titPantallaZoom_1">Partes Setas</string>
+    <string name="titPantallaZoom_2">Tipos Sombreros</string>
+    <string name="titPantallaZoom_3">Desarrollo Seta</string>
+    <!-- Fin Pantalla Ayuda-->
+
+    <!-- Bloques de Anuncios -->
+    <string name="banner_ad_unit_id">ca-app-pub-2712815213167664/2866527416</string>
+    <!-- Fin Bloques de Anuncios -->
+
+
+    <!-- ****************************************************************************************-->
+        <!-- String de las Setas -->
+    <!-- ****************************************************************************************-->
+
+    <!-- Seta 1 -->
+        <string name="nombreSeta1">Agaricus Arvensis</string>
+        <string name="nombre_comunSeta1">Bola de Nieve</string>
+        <string name="nombre_ordenarSeta1">agaricus arvensis</string>
+        <string name="comestibilidad_seta1">comestible</string>
+    <!-- fin Seta 1 -->
+
+    <!-- Seta 2 -->
+        <string name="nombreSeta2">Agaricus Campestris</string>
+        <string name="nombre_comunSeta2">Champiñón Silvestre</string>
+        <string name="nombre_ordenarSeta2">agaricus campestris</string>
+        <string name="comestibilidad_seta2">comestible</string>
+    <!-- fin Seta 2 -->
+
+    <!-- Seta 3 -->
+        <string name="nombreSeta3">Agaricus Xanthodermus</string>
+        <string name="nombre_comunSeta3">Champiñón Amarilleante</string>
+        <string name="nombre_ordenarSeta3">agaricus xanthodermus</string>
+        <string name="comestibilidad_seta3">toxica</string>
+    <!-- fin Seta 3 -->
+
+    <!-- Seta 4 -->
+    <string name="nombreSeta4">Agrocybe Cylindracea</string>
+    <string name="nombre_comunSeta4">Seta de Chopo</string>
+    <string name="nombre_ordenarSeta4">agrocybe cylindracea</string>
+    <string name="comestibilidad_seta4">comestible</string>
+    <!-- fin Seta 4 -->
+
+    <!-- Seta 5 -->
+    <string name="nombreSeta5">Albatrellus Subrubescens</string>
+    <string name="nombre_comunSeta5">--</string>
+    <string name="nombre_ordenarSeta5">albatrellus subrubescens</string>
+    <string name="comestibilidad_seta5">sin_interes</string>
+    <!-- fin Seta 5 -->
+
+    <!-- Seta 6 -->
+    <string name="nombreSeta6">Amanita Caesarea</string>
+    <string name="nombre_comunSeta6">Oronja; Amanita de los Césares</string>
+    <string name="nombre_ordenarSeta6">amanita caesarea</string>
+    <string name="comestibilidad_seta6">comestible</string>
+    <!-- fin Seta 6 -->
+
+    <!-- Seta 7 -->
+    <string name="nombreSeta7">Amanita Muscaria</string>
+    <string name="nombre_comunSeta7">Falsa Oronja; Matamoscas</string>
+    <string name="nombre_ordenarSeta7">amanita muscaria</string>
+    <string name="comestibilidad_seta7">toxica</string>
+    <!-- fin Seta 7 -->
+
+    <!-- Seta 8 -->
+    <string name="nombreSeta8">Amanita Ovoidea</string>
+    <string name="nombre_comunSeta8">Amanita Ovoide</string>
+    <string name="nombre_ordenarSeta8">amanita ovoidea</string>
+    <string name="comestibilidad_seta8">sin_interes</string>
+    <!-- fin Seta 8 -->
+
+    <!-- Seta 9 -->
+    <string name="nombreSeta9">Amanita Phalloides</string>
+    <string name="nombre_comunSeta9">Oronja Verde</string>
+    <string name="nombre_ordenarSeta9">amanita phalloides</string>
+    <string name="comestibilidad_seta9">mortal</string>
+    <!-- fin Seta 9 -->
+
+    <!-- Seta 10 -->
+    <string name="nombreSeta10">Amanita Rubescens</string>
+    <string name="nombre_comunSeta10">Oronja Vinosa</string>
+    <string name="nombre_ordenarSeta10">amanita rubescens</string>
+    <string name="comestibilidad_seta10">precaucion</string>
+    <!-- fin Seta 10 -->
+
+    <!-- Seta 11 -->
+    <string name="nombreSeta11">Amanita Submembranacea</string>
+    <string name="nombre_comunSeta11">--</string>
+    <string name="nombre_ordenarSeta11">amanita submembranacea</string>
+    <string name="comestibilidad_seta11">precaucion</string>
+    <!-- fin Seta 11 -->
+
+    <!-- Seta 12 -->
+    <string name="nombreSeta12">Armillaria Mellea</string>
+    <string name="nombre_comunSeta12">Armilaria de Color Miel</string>
+    <string name="nombre_ordenarSeta12">armillaria mellea</string>
+    <string name="comestibilidad_seta12">sin_interes</string>
+    <!-- fin Seta 12 -->
+
+    <!-- Seta 13 -->
+    <string name="nombreSeta13">Astraeus Hygrometricus</string>
+    <string name="nombre_comunSeta13">Estrella de Tierra</string>
+    <string name="nombre_ordenarSeta13">astraeus hygrometricus</string>
+    <string name="comestibilidad_seta13">sin_interes</string>
+    <!-- fin Seta 13 -->
+
+    <!-- Seta 14 -->
+    <string name="nombreSeta14">Auricularia Auricula-Judae</string>
+    <string name="nombre_comunSeta14">Oreja de Judas</string>
+    <string name="nombre_ordenarSeta14">auricularia auricula-judae</string>
+    <string name="comestibilidad_seta14">sin_interes</string>
+    <!-- fin Seta 14 -->
+
+    <!-- Seta 15 -->
+    <string name="nombreSeta15">Baeospora Myosura</string>
+    <string name="nombre_comunSeta15">Colibia de las Piñas</string>
+    <string name="nombre_ordenarSeta15">baeospora myosura</string>
+    <string name="comestibilidad_seta15">sin_interes</string>
+    <!-- fin Seta 15 -->
+
+    <!-- Seta 16 -->
+    <string name="nombreSeta16">Boletus Edulis</string>
+    <string name="nombre_comunSeta16">Boleto; Calabaza</string>
+    <string name="nombre_ordenarSeta16">boletus edulis</string>
+    <string name="comestibilidad_seta16">comestible</string>
+    <!-- fin Seta 16 -->
+
+    <!-- Seta 17 -->
+    <string name="nombreSeta17">Boletus Satanas</string>
+    <string name="nombre_comunSeta17">Boleto de Satanás</string>
+    <string name="nombre_ordenarSeta17">boletus satanas</string>
+    <string name="comestibilidad_seta17">toxica</string>
+    <!-- fin Seta 17 -->
+
+    <!-- Seta 18 -->
+    <string name="nombreSeta18">Calocybe Gambosa</string>
+    <string name="nombre_comunSeta18">Perrechico; Perrochico; Seta de San Jorge</string>
+    <string name="nombre_ordenarSeta18">calocybe gambosa</string>
+    <string name="comestibilidad_seta18">comestible</string>
+    <!-- fin Seta 18 -->
+
+    <!-- Seta 19 -->
+    <string name="nombreSeta19">Calvatia Utriformis</string>
+    <string name="nombre_comunSeta19">--</string>
+    <string name="nombre_ordenarSeta19">calvatia utriformis</string>
+    <string name="comestibilidad_seta19">sin_interes</string>
+    <!-- fin Seta 19 -->
+
+    <!-- Seta 20 -->
+    <string name="nombreSeta20">Cantharellus Subpruinosus</string>
+    <string name="nombre_comunSeta20">Rebozuelo; Chantarela; Cabrilla</string>
+    <string name="nombre_ordenarSeta20">cantharellus subpruinosus</string>
+    <string name="comestibilidad_seta20">comestible</string>
+    <!-- fin Seta 20 -->
+
+    <!-- Seta 21 -->
+    <string name="nombreSeta21">Chondrostereum Purpureum</string>
+    <string name="nombre_comunSeta21">--</string>
+    <string name="nombre_ordenarSeta21">chondrostereum purpureum</string>
+    <string name="comestibilidad_seta21">sin_interes</string>
+    <!-- fin Seta 21 -->
+
+    <!-- Seta 22 -->
+    <string name="nombreSeta22">Clavariadelphus Truncatus</string>
+    <string name="nombre_comunSeta22">Seta Chupa-Chups</string>
+    <string name="nombre_ordenarSeta22">clavariadelphus truncatus</string>
+    <string name="comestibilidad_seta22">sin_interes</string>
+    <!-- fin Seta 22 -->
+
+    <!-- Seta 23 -->
+    <string name="nombreSeta23">Clitocybe Alexandri</string>
+    <string name="nombre_comunSeta23">--</string>
+    <string name="nombre_ordenarSeta23">clitocybe alexandri</string>
+    <string name="comestibilidad_seta23">sin_interes</string>
+    <!-- fin Seta 23 -->
+
+    <!-- Seta 24 -->
+    <string name="nombreSeta24">Clitocybe Candida</string>
+    <string name="nombre_comunSeta24">Cándida</string>
+    <string name="nombre_ordenarSeta24">clitocybe candida</string>
+    <string name="comestibilidad_seta24">comestible</string>
+    <!-- fin Seta 24 -->
+
+    <!-- Seta 25 -->
+    <string name="nombreSeta25">Clitocybe Geotropa</string>
+    <string name="nombre_comunSeta25">Platera</string>
+    <string name="nombre_ordenarSeta25">clitocybe geotropa</string>
+    <string name="comestibilidad_seta25">comestible</string>
+    <!-- fin Seta 25 -->
+
+    <!-- Seta 26 -->
+    <string name="nombreSeta26">Clitocybe Odora</string>
+    <string name="nombre_comunSeta26">Anisada</string>
+    <string name="nombre_ordenarSeta26">clitocybe odora</string>
+    <string name="comestibilidad_seta26">sin_interes</string>
+    <!-- fin Seta 26 -->
+
+
+    <!-- Seta 27 -->
+    <string name="nombreSeta27">Clitocybe Rivulosa</string>
+    <string name="nombre_comunSeta27">Clitocibe Blanco; Clitocibe de las Cunetas</string>
+    <string name="nombre_ordenarSeta27">clitocybe rivulosa</string>
+    <string name="comestibilidad_seta27">toxica</string>
+    <!-- fin Seta 27 -->
+
+    <!-- Seta 28 -->
+    <string name="nombreSeta28">Coprinus Comatus</string>
+    <string name="nombre_comunSeta28">Barbuda; Matacandil</string>
+    <string name="nombre_ordenarSeta28">coprinus comatus</string>
+    <string name="comestibilidad_seta28">comestible</string>
+    <!-- fin Seta 28 -->
+
+    <!-- Seta 29 -->
+    <string name="nombreSeta29">Cortinarius Mucosus</string>
+    <string name="nombre_comunSeta29">--</string>
+    <string name="nombre_ordenarSeta29">cortinarius mucosus</string>
+    <string name="comestibilidad_seta29">sin_interes</string>
+    <!-- fin Seta 29 -->
+
+    <!-- Seta 30 -->
+    <string name="nombreSeta30">Cortinarius Violaceus</string>
+    <string name="nombre_comunSeta30">--</string>
+    <string name="nombre_ordenarSeta30">cortinarius violaceus</string>
+    <string name="comestibilidad_seta30">sin_interes</string>
+    <!-- fin Seta 30 -->
+
+    <!-- Seta 31 -->
+    <string name="nombreSeta31">Cortinarius Sulphurinus</string>
+    <string name="nombre_comunSeta31">Cortinario Sulfurino</string>
+    <string name="nombre_ordenarSeta31">cortinarius sulphurinus</string>
+    <string name="comestibilidad_seta31">sin_interes</string>
+    <!-- fin Seta 31 -->
+
+    <!-- Seta 32 -->
+    <string name="nombreSeta32">Cyathus Olla</string>
+    <string name="nombre_comunSeta32">Nido de Pajaro</string>
+    <string name="nombre_ordenarSeta32">cyathus olla</string>
+    <string name="comestibilidad_seta32">sin_interes</string>
+    <!-- fin Seta 32 -->
+
+    <!-- Seta 33 -->
+    <string name="nombreSeta33">Cystoderma Amianthinum</string>
+    <string name="nombre_comunSeta33">--</string>
+    <string name="nombre_ordenarSeta33">cystoderma amianthinum</string>
+    <string name="comestibilidad_seta33">sin_interes</string>
+    <!-- fin Seta 33 -->
+
+    <!-- Seta 34 -->
+    <string name="nombreSeta34">Entoloma Sinuatum</string>
+    <string name="nombre_comunSeta34">Pérfido</string>
+    <string name="nombre_ordenarSeta34">entoloma sinuatum</string>
+    <string name="comestibilidad_seta34">toxica</string>
+    <!-- fin Seta 34 -->
+
+
+    <!-- Seta 35 -->
+    <string name="nombreSeta35">Fomes Fomentarius</string>
+    <string name="nombre_comunSeta35">Yesquero</string>
+    <string name="nombre_ordenarSeta35">fomes fomentarius</string>
+    <string name="comestibilidad_seta35">sin_interes</string>
+    <!-- fin Seta 35 -->
+
+
+    <!-- Seta 36 -->
+    <string name="nombreSeta36">Galerina Marginata</string>
+    <string name="nombre_comunSeta36">--</string>
+    <string name="nombre_ordenarSeta36">galerina marginata</string>
+    <string name="comestibilidad_seta36">mortal</string>
+    <!-- fin Seta 36 -->
+
+
+    <!-- Seta 37 -->
+    <string name="nombreSeta37">Ganoderma Lucidum</string>
+    <string name="nombre_comunSeta37">Pipa</string>
+    <string name="nombre_ordenarSeta37">ganoderma lucidum</string>
+    <string name="comestibilidad_seta37">sin_interes</string>
+    <!-- fin Seta 37 -->
+
+
+    <!-- Seta 38 -->
+    <string name="nombreSeta38">Gomphidius Roseus</string>
+    <string name="nombre_comunSeta38">Pie de Perdiz Rosa</string>
+    <string name="nombre_ordenarSeta38">gomphidius roseus</string>
+    <string name="comestibilidad_seta38">sin_interes</string>
+    <!-- fin Seta 38 -->
+
+
+    <!-- Seta 39 -->
+    <string name="nombreSeta39">Gyromitra Esculenta</string>
+    <string name="nombre_comunSeta39">Bonete</string>
+    <string name="nombre_ordenarSeta39">gyromitra esculenta</string>
+    <string name="comestibilidad_seta39">mortal</string>
+    <!-- fin Seta 39 -->
+
+
+    <!-- Seta 40 -->
+    <string name="nombreSeta40">Helvella Lacunosa</string>
+    <string name="nombre_comunSeta40">Oreja de Gato</string>
+    <string name="nombre_ordenarSeta40">helvella lacunosa</string>
+    <string name="comestibilidad_seta40">precaucion</string>
+    <!-- fin Seta 40 -->
+
+
+    <!-- Seta 41 -->
+    <string name="nombreSeta41">Hydnum Repandum</string>
+    <string name="nombre_comunSeta41">Gamuza; Lengua de Vaca; Lengua de Gato</string>
+    <string name="nombre_ordenarSeta41">hydnum repandum</string>
+    <string name="comestibilidad_seta41">comestible</string>
+    <!-- fin Seta 41 -->
+
+
+    <!-- Seta 42 -->
+    <string name="nombreSeta42">Hygrophoropsis Aurantiaca</string>
+    <string name="nombre_comunSeta42">Falso Rebozuelo</string>
+    <string name="nombre_ordenarSeta42">hygrophoropsis aurantiaca</string>
+    <string name="comestibilidad_seta42">sin_interes</string>
+    <!-- fin Seta 42 -->
+
+
+    <!-- Seta 43 -->
+    <string name="nombreSeta43">Hygrophorus Marzuolus</string>
+    <string name="nombre_comunSeta43">Seta de Marzo; Marcera</string>
+    <string name="nombre_ordenarSeta43">hygrophorus marzuolus</string>
+    <string name="comestibilidad_seta43">comestible</string>
+    <!-- fin Seta 43 -->
+
+
+    <!-- Seta 44 -->
+    <string name="nombreSeta44">Hygrophorus Russula</string>
+    <string name="nombre_comunSeta44">Higroforo Escarlata</string>
+    <string name="nombre_ordenarSeta44">hygrophorus russula</string>
+    <string name="comestibilidad_seta44">comestible</string>
+    <!-- fin Seta 44 -->
+
+
+    <!-- Seta 45 -->
+    <string name="nombreSeta45">Hypholoma Fasciculare</string>
+    <string name="nombre_comunSeta45">--</string>
+    <string name="nombre_ordenarSeta45">hypholoma fasciculare</string>
+    <string name="comestibilidad_seta45">toxica</string>
+    <!-- fin Seta 45 -->
+
+
+    <!-- Seta 46 -->
+    <string name="nombreSeta46">Inocybe Geophylla</string>
+    <string name="nombre_comunSeta46">--</string>
+    <string name="nombre_ordenarSeta46">inocybe geophylla</string>
+    <string name="comestibilidad_seta46">toxica</string>
+    <!-- fin Seta 46 -->
+
+
+    <!-- Seta 47 -->
+    <string name="nombreSeta47">Inonotus Hispidus</string>
+    <string name="nombre_comunSeta47">Yesquero</string>
+    <string name="nombre_ordenarSeta47">inonotus hispidus</string>
+    <string name="comestibilidad_seta47">sin_interes</string>
+    <!-- fin Seta 47 -->
+
+
+    <!-- Seta 48 -->
+    <string name="nombreSeta48">Laccaria Tortilis</string>
+    <string name="nombre_comunSeta48">Lacaria Tortuosa</string>
+    <string name="nombre_ordenarSeta48">laccaria tortilis</string>
+    <string name="comestibilidad_seta48">sin_interes</string>
+    <!-- fin Seta 48 -->
+
+
+    <!-- Seta 49 -->
+    <string name="nombreSeta49">Lactarius Deliciosus</string>
+    <string name="nombre_comunSeta49">Níscalo; Nícalo; Mizclo; Rebollón; Hongo Royo</string>
+    <string name="nombre_ordenarSeta49">lactarius deliciosus</string>
+    <string name="comestibilidad_seta49">comestible</string>
+    <!-- fin Seta 49 -->
+
+
+    <!-- Seta 50 -->
+    <string name="nombreSeta50">Lactarius Mairei</string>
+    <string name="nombre_comunSeta50">--</string>
+    <string name="nombre_ordenarSeta50">lactarius mairei</string>
+    <string name="comestibilidad_seta50">sin_interes</string>
+    <!-- fin Seta 50 -->
+
+
+    <!-- Seta 51 -->
+    <string name="nombreSeta51">Lactarius Vietus</string>
+    <string name="nombre_comunSeta51">--</string>
+    <string name="nombre_ordenarSeta51">lactarius vietus</string>
+    <string name="comestibilidad_seta51">sin_interes</string>
+    <!-- fin Seta 51 -->
+
+
+    <!-- Seta 52 -->
+    <string name="nombreSeta52">Leccinum Lepidum</string>
+    <string name="nombre_comunSeta52">--</string>
+    <string name="nombre_ordenarSeta52">leccinum lepidum</string>
+    <string name="comestibilidad_seta52">comestible</string>
+    <!-- fin Seta 52 -->
+
+
+    <!-- Seta 53 -->
+    <string name="nombreSeta53">Lenzitopsis Oxycedri</string>
+    <string name="nombre_comunSeta53">--</string>
+    <string name="nombre_ordenarSeta53">lenzitopsis oxycedri</string>
+    <string name="comestibilidad_seta53">sin_interes</string>
+    <!-- fin Seta 53 -->
+
+
+    <!-- Seta 54 -->
+    <string name="nombreSeta54">Lepiota Cristata</string>
+    <string name="nombre_comunSeta54">Lepiota Maloliente</string>
+    <string name="nombre_ordenarSeta54">lepiota cristata</string>
+    <string name="comestibilidad_seta54">mortal</string>
+    <!-- fin Seta 54 -->
+
+
+    <!-- Seta 55 -->
+    <string name="nombreSeta55">Lepista Nuda</string>
+    <string name="nombre_comunSeta55">Pie Azul;Borracha;Pistonuda</string>
+    <string name="nombre_ordenarSeta55">lepista nuda</string>
+    <string name="comestibilidad_seta55">comestible</string>
+    <!-- fin Seta 55 -->
+
+
+    <!-- Seta 56 -->
+    <string name="nombreSeta56">Lycoperdon Perlatum</string>
+    <string name="nombre_comunSeta56">Pedo de Lobo;Bejín</string>
+    <string name="nombre_ordenarSeta56">lycoperdon perlatum</string>
+    <string name="comestibilidad_seta56">sin_interes</string>
+    <!-- fin Seta 56 -->
+
+
+    <!-- Seta 57 -->
+    <string name="nombreSeta57">Macrolepiota Procera</string>
+    <string name="nombre_comunSeta57">Parasol; Apagador</string>
+    <string name="nombre_ordenarSeta57">macrolepiota procera</string>
+    <string name="comestibilidad_seta57">comestible</string>
+    <!-- fin Seta 57 -->
+
+
+    <!-- Seta 58 -->
+    <string name="nombreSeta58">Marasmius Quercophilus</string>
+    <string name="nombre_comunSeta58">--</string>
+    <string name="nombre_ordenarSeta58">marasmius quercophilus</string>
+    <string name="comestibilidad_seta58">sin_interes</string>
+    <!-- fin Seta 58 -->
+
+
+    <!-- Seta 59 -->
+    <string name="nombreSeta59">Marasmius Oreades</string>
+    <string name="nombre_comunSeta59">Senderuela; Seta de Carrerilla</string>
+    <string name="nombre_ordenarSeta59">marasmius oreades</string>
+    <string name="comestibilidad_seta59">comestible</string>
+    <!-- fin Seta 59 -->
+
+
+    <!-- Seta 60 -->
+    <string name="nombreSeta60">Mitrula Paludosa</string>
+    <string name="nombre_comunSeta60">--</string>
+    <string name="nombre_ordenarSeta60">mitrula paludosa</string>
+    <string name="comestibilidad_seta60">sin_interes</string>
+    <!-- fin Seta 60 -->
+
+
+    <!-- Seta 61 -->
+    <string name="nombreSeta61">Morchella Purpurascens</string>
+    <string name="nombre_comunSeta61">Colmenilla; Cagarria; Morilla</string>
+    <string name="nombre_ordenarSeta61">morchella purpurascens</string>
+    <string name="comestibilidad_seta61">precaucion</string>
+    <!-- fin Seta 61 -->
+
+
+    <!-- Seta 62 -->
+    <string name="nombreSeta62">Paxillus Involutus</string>
+    <string name="nombre_comunSeta62">--</string>
+    <string name="nombre_ordenarSeta62">paxillus involutus</string>
+    <string name="comestibilidad_seta62">mortal</string>
+    <!-- fin Seta 62 -->
+
+
+    <!-- Seta 63 -->
+    <string name="nombreSeta63">Peziza Phyllogena</string>
+    <string name="nombre_comunSeta63">--</string>
+    <string name="nombre_ordenarSeta63">peziza phyllogena</string>
+    <string name="comestibilidad_seta63">sin_interes</string>
+    <!-- fin Seta 63 -->
+
+
+    <!-- Seta 64 -->
+    <string name="nombreSeta64">Phaeomarasmius Erinaceus</string>
+    <string name="nombre_comunSeta64">--</string>
+    <string name="nombre_ordenarSeta64">phaeomarasmius erinaceus</string>
+    <string name="comestibilidad_seta64">sin_interes</string>
+    <!-- fin Seta 64 -->
+
+
+    <!-- Seta 65 -->
+    <string name="nombreSeta65">Phellinus Torulosus</string>
+    <string name="nombre_comunSeta65">Yesquero de la Encina</string>
+    <string name="nombre_ordenarSeta65">phellinus torulosus</string>
+    <string name="comestibilidad_seta65">sin_interes</string>
+    <!-- fin Seta 65 -->
+
+
+    <!-- Seta 66 -->
+    <string name="nombreSeta66">Pholiota Highlandensis</string>
+    <string name="nombre_comunSeta66">Foliota de las Carboneras</string>
+    <string name="nombre_ordenarSeta66">pholiota highlandensis</string>
+    <string name="comestibilidad_seta66">toxica</string>
+    <!-- fin Seta 66 -->
+
+
+    <!-- Seta 67 -->
+    <string name="nombreSeta67">Piptoporus Betulinus</string>
+    <string name="nombre_comunSeta67">Yesquero del Abedul</string>
+    <string name="nombre_ordenarSeta67">piptoporus betulinus</string>
+    <string name="comestibilidad_seta67">sin_interes</string>
+    <!-- fin Seta 67 -->
+
+
+    <!-- Seta 68 -->
+    <string name="nombreSeta68">Pleurotus Eryngii</string>
+    <string name="nombre_comunSeta68">Seta de Cardo</string>
+    <string name="nombre_ordenarSeta68">pleurotus eryngii</string>
+    <string name="comestibilidad_seta68">comestible</string>
+    <!-- fin Seta 68 -->
+
+
+    <!-- Seta 69 -->
+    <string name="nombreSeta69">Rhodocollybia Butyracea</string>
+    <string name="nombre_comunSeta69">Colibia Butiracea</string>
+    <string name="nombre_ordenarSeta69">rhodocollybia butyracea</string>
+    <string name="comestibilidad_seta69">sin_interes</string>
+    <!-- fin Seta 69 -->
+
+
+    <!-- Seta 70 -->
+    <string name="nombreSeta70">Russula Cyanoxantha</string>
+    <string name="nombre_comunSeta70">Carbonera</string>
+    <string name="nombre_ordenarSeta70">russula cyanoxantha</string>
+    <string name="comestibilidad_seta70">comestible</string>
+    <!-- fin Seta 70 -->
+
+
+    <!-- Seta 71 -->
+    <string name="nombreSeta71">Russula Sanguinaria</string>
+    <string name="nombre_comunSeta71">Rúsula Sanguínea</string>
+    <string name="nombre_ordenarSeta71">russula sanguinaria</string>
+    <string name="comestibilidad_seta71">sin_interes</string>
+    <!-- fin Seta 71 -->
+
+
+    <!-- Seta 72 -->
+    <string name="nombreSeta72">Sarcodon Squamosus</string>
+    <string name="nombre_comunSeta72">--</string>
+    <string name="nombre_ordenarSeta72">sarcodon squamosus</string>
+    <string name="comestibilidad_seta72">comestible</string>
+    <!-- fin Seta 72 -->
+
+
+    <!-- Seta 73 -->
+    <string name="nombreSeta73">Sarcosphaera Coronaria</string>
+    <string name="nombre_comunSeta73">Peziza Wstrellada; Angula de Tierra</string>
+    <string name="nombre_ordenarSeta73">sarcosphaera coronaria</string>
+    <string name="comestibilidad_seta73">precaucion</string>
+    <!-- fin Seta 73 -->
+
+
+    <!-- Seta 74 -->
+    <string name="nombreSeta74">Sparassis Crispa</string>
+    <string name="nombre_comunSeta74">Seta Coliflor</string>
+    <string name="nombre_ordenarSeta74">sparassis crispa</string>
+    <string name="comestibilidad_seta74">comestible</string>
+    <!-- fin Seta 74 -->
+
+
+    <!-- Seta 75 -->
+    <string name="nombreSeta75">Spathularia Flavida</string>
+    <string name="nombre_comunSeta75">Espatularia Amarilla</string>
+    <string name="nombre_ordenarSeta75">spathularia flavida</string>
+    <string name="comestibilidad_seta75">sin_interes</string>
+    <!-- fin Seta 75 -->
+
+
+    <!-- Seta 76 -->
+    <string name="nombreSeta76">Stropharia Aeruginosa</string>
+    <string name="nombre_comunSeta76">Estrofaria Verde</string>
+    <string name="nombre_ordenarSeta76">stropharia aeruginosa</string>
+    <string name="comestibilidad_seta76">sin_interes</string>
+    <!-- fin Seta 76 -->
+
+
+    <!-- Seta 77 -->
+    <string name="nombreSeta77">Suillus Luteus</string>
+    <string name="nombre_comunSeta77">Babosa; Boleto Anillado</string>
+    <string name="nombre_ordenarSeta77">suillus luteus</string>
+    <string name="comestibilidad_seta77">precaucion</string>
+    <!-- fin Seta 77 -->
+
+
+    <!-- Seta 78 -->
+    <string name="nombreSeta78">Tremella Aurantia</string>
+    <string name="nombre_comunSeta78">Tremela Anaranjada</string>
+    <string name="nombre_ordenarSeta78">tremella aurantia</string>
+    <string name="comestibilidad_seta78">sin_interes</string>
+    <!-- fin Seta 78 -->
+
+
+    <!-- Seta 79 -->
+    <string name="nombreSeta79">Tricholoma Equestre</string>
+    <string name="nombre_comunSeta79">Seta de los Caballeros</string>
+    <string name="nombre_ordenarSeta79">tricholoma equestre</string>
+    <string name="comestibilidad_seta79">toxica</string>
+    <!-- fin Seta 79 -->
+
+
+    <!-- Seta 80 -->
+    <string name="nombreSeta80">Tricholoma Portentosum</string>
+    <string name="nombre_comunSeta80">Capuchina</string>
+    <string name="nombre_ordenarSeta80">tricholoma portentosum</string>
+    <string name="comestibilidad_seta80">comestible</string>
+    <!-- fin Seta 80 -->
+
+
+    <!-- Seta 81 -->
+    <string name="nombreSeta81">Tricholoma Terreum</string>
+    <string name="nombre_comunSeta81">Negrilla; Ratón</string>
+    <string name="nombre_ordenarSeta81">tricholoma terreum</string>
+    <string name="comestibilidad_seta81">comestible</string>
+    <!-- fin Seta 81 -->
+
+
+    <!-- Seta 82 -->
+    <string name="nombreSeta82">Tuber Melanosporum</string>
+    <string name="nombre_comunSeta82">Trufa Negra</string>
+    <string name="nombre_ordenarSeta82">tuber melanosporum</string>
+    <string name="comestibilidad_seta82">comestible</string>
+    <!-- fin Seta 82 -->
+
+
+    <!-- Seta 83 -->
+    <string name="nombreSeta83">Xerocomus Chrysentheron</string>
+    <string name="nombre_comunSeta83">--</string>
+    <string name="nombre_ordenarSeta83">xerocomus chrysentheron</string>
+    <string name="comestibilidad_seta83">sin_interes</string>
+    <!-- fin Seta 83 -->
+
+
+    <!-- Seta 84 -->
+    <string name="nombreSeta84">Geastrum Parvistriatum</string>
+    <string name="nombre_comunSeta84">Estrella de Tierra</string>
+    <string name="nombre_ordenarSeta84">geastrum parvistriatum</string>
+    <string name="comestibilidad_seta84">sin_interes</string>
+    <!-- fin Seta 84 -->
+
+
+    <!-- Seta 85 -->
+    <string name="nombreSeta85">Cortinarius Lacustris</string>
+    <string name="nombre_comunSeta85">--</string>
+    <string name="nombre_ordenarSeta85">cortinarius lacustris</string>
+    <string name="comestibilidad_seta85">sin_interes</string>
+    <!-- fin Seta 85 -->
+
+
+
+    <!-- Seta 86 -->
+    <string name="nombreSeta86">Agaricus Bitorquis</string>
+    <string name="nombre_comunSeta86">Champiñon Bianillado</string>
+    <string name="nombre_ordenarSeta86">agaricus bitorquis</string>
+    <string name="comestibilidad_seta86">comestible</string>
+    <!-- fin Seta 86 -->
+
+
+    <!-- Seta 87 -->
+    <string name="nombreSeta87">Lepista Personata</string>
+    <string name="nombre_comunSeta87">Seta de Vaca; Pie Violeta</string>
+    <string name="nombre_ordenarSeta87">lepista Personata</string>
+    <string name="comestibilidad_seta87">comestible</string>
+    <!-- fin Seta 87 -->
+
+
+    <!-- Seta 88 -->
+    <string name="nombreSeta88">Agaricus Sylvicola</string>
+    <string name="nombre_comunSeta88">Champiñon Anisado; Hongo de Bosque</string>
+    <string name="nombre_ordenarSeta88">agaricus sylvicola</string>
+    <string name="comestibilidad_seta88">comestible</string>
+    <!-- fin Seta 88 -->
+
+
+    <!-- Seta 89 -->
+    <string name="nombreSeta89">Amanita Ponderosa</string>
+    <string name="nombre_comunSeta89">Gurumelo</string>
+    <string name="nombre_ordenarSeta89">amanita ponderosa</string>
+    <string name="comestibilidad_seta89">comestible</string>
+    <!-- fin Seta 89 -->
+
+
+    <!-- Seta 90 -->
+    <string name="nombreSeta90">Amanita Vaginata</string>
+    <string name="nombre_comunSeta90">Amanita Enfundada</string>
+    <string name="nombre_ordenarSeta90">amanita vaginata</string>
+    <string name="comestibilidad_seta90">precaucion</string>
+    <!-- fin Seta 90 -->
+
+
+    <!-- Seta 91 -->
+    <!--<string name="nombreSeta91">Infundibulicybe Geotropa</string>
+    <string name="nombre_comunSeta91">Platera</string>
+    <string name="nombre_ordenarSeta91">infundibulicybe geotropa</string>
+    <string name="comestibilidad_seta91">comestible</string>-->
+    <!-- fin Seta 91 -->
+
+
+    <!-- Seta 91 -->
+    <string name="nombreSeta91">Clitopilus Prunulus</string>
+    <string name="nombre_comunSeta91">Molinera</string>
+    <string name="nombre_ordenarSeta91">clitopilus prunulus</string>
+    <string name="comestibilidad_seta91">comestible</string>
+    <!-- fin Seta 91 -->
+
+
+    <!-- Seta 92 -->
+    <string name="nombreSeta92">Laccaria Laccata</string>
+    <string name="nombre_comunSeta92">Lacaria</string>
+    <string name="nombre_ordenarSeta92">laccaria laccata</string>
+    <string name="comestibilidad_seta92">comestible</string>
+    <!-- fin Seta 92 -->
+
+
+    <!-- Seta 93 -->
+    <string name="nombreSeta93">Lactarius Rugatus</string>
+    <string name="nombre_comunSeta93">Níscalo Arrugado</string>
+    <string name="nombre_ordenarSeta93">lactarius rugatus</string>
+    <string name="comestibilidad_seta93">comestible</string>
+    <!-- fin Seta 93 -->
+
+
+    <!-- Seta 94 -->
+    <string name="nombreSeta94">Lactarius Semisanguifluus</string>
+    <string name="nombre_comunSeta94">Níscalo Sanguinolento</string>
+    <string name="nombre_ordenarSeta94">lactarius semisanguifluus</string>
+    <string name="comestibilidad_seta94">comestible</string>
+    <!-- fin Seta 94 -->
+
+
+    <!-- Seta 95 -->
+    <string name="nombreSeta95">Lyophyllum Decastes</string>
+    <string name="nombre_comunSeta95">Liófilo Agregado</string>
+    <string name="nombre_ordenarSeta95">lyophyllum decastes</string>
+    <string name="comestibilidad_seta95">comestible</string>
+    <!-- fin Seta 95 -->
+
+
+    <!-- Seta 96 -->
+    <string name="nombreSeta96">Macrolepiota Mastoidea</string>
+    <string name="nombre_comunSeta96">Parasol</string>
+    <string name="nombre_ordenarSeta96">macrolepiota mastoidea</string>
+    <string name="comestibilidad_seta96">comestible</string>
+    <!-- fin Seta 96 -->
+
+
+    <!-- Seta 97 -->
+    <string name="nombreSeta97">Melanoleuca Grammopodia</string>
+    <string name="nombre_comunSeta97">Seta de Cañadilla</string>
+    <string name="nombre_ordenarSeta97">melanoleuca grammopodia</string>
+    <string name="comestibilidad_seta97">comestible</string>
+    <!-- fin Seta 97 -->
+
+
+    <!-- Seta 98 -->
+    <string name="nombreSeta98">Pleurotus Ostreatus</string>
+    <string name="nombre_comunSeta98">Seta de Mimbre; Seta de Ostra</string>
+    <string name="nombre_ordenarSeta98">pleurotus ostreatus</string>
+    <string name="comestibilidad_seta98">comestible</string>
+    <!-- fin Seta 98 -->
+
+
+    <!-- Seta 99 -->
+    <string name="nombreSeta99">Russula Virescens</string>
+    <string name="nombre_comunSeta99">Russula Cambiante</string>
+    <string name="nombre_ordenarSeta99">russula virescens</string>
+    <string name="comestibilidad_seta99">comestible</string>
+    <!-- fin Seta 99 -->
+
+
+    <!-- Seta 100 -->
+    <string name="nombreSeta100">Craterellus Lutescens</string>
+    <string name="nombre_comunSeta100">Trompeta Amarilla</string>
+    <string name="nombre_ordenarSeta100">craterellus lutescens</string>
+    <string name="comestibilidad_seta100">comestible</string>
+    <!-- fin Seta 100 -->
+
+
+    <!-- Seta 101 -->
+    <string name="nombreSeta101">Hydnum Rufescens</string>
+    <string name="nombre_comunSeta101">Lengua de Gato Rojiza</string>
+    <string name="nombre_ordenarSeta101">hydnum rufescens</string>
+    <string name="comestibilidad_seta101">comestible</string>
+    <!-- fin Seta 101 -->
+
+
+    <!-- Seta 102 -->
+    <string name="nombreSeta102">Boletus Aereus</string>
+    <string name="nombre_comunSeta102">Tentullo; Tontullo; Hongo Negro</string>
+    <string name="nombre_ordenarSeta102">boletus aereus</string>
+    <string name="comestibilidad_seta102">comestible</string>
+    <!-- fin Seta 102 -->
+
+
+    <!-- Seta 103 -->
+    <string name="nombreSeta103">Boletus Impolitus</string>
+    <string name="nombre_comunSeta103">Boleto Amarillento</string>
+    <string name="nombre_ordenarSeta103">boletus impolitus</string>
+    <string name="comestibilidad_seta103">comestible</string>
+    <!-- fin Seta 103 -->
+
+
+    <!-- Seta 104 -->
+    <string name="nombreSeta104">Leccinum Corsicum</string>
+    <string name="nombre_comunSeta104">Faisan de la Jara</string>
+    <string name="nombre_ordenarSeta104">leccinum corsicum</string>
+    <string name="comestibilidad_seta104">comestible</string>
+    <!-- fin Seta 104 -->
+
+
+    <!-- Seta 105 -->
+    <string name="nombreSeta105">Suillus Granulatus</string>
+    <string name="nombre_comunSeta105">Boletu Granulado; Bojin</string>
+    <string name="nombre_ordenarSeta105">suillus granulatus</string>
+    <string name="comestibilidad_seta105">comestible</string>
+    <!-- fin Seta 105 -->
+
+
+    <!-- Seta 106 -->
+    <string name="nombreSeta106">Gyroporus Castaneus</string>
+    <string name="nombre_comunSeta106">Giroporo</string>
+    <string name="nombre_ordenarSeta106">gyroporus castaneus</string>
+    <string name="comestibilidad_seta106">comestible</string>
+    <!-- fin Seta 106 -->
+
+
+    <!-- Seta 107 -->
+    <string name="nombreSeta107">Fistulina Hepatica</string>
+    <string name="nombre_comunSeta107">Lengua de Buey</string>
+    <string name="nombre_ordenarSeta107">fistulina hepatica</string>
+    <string name="comestibilidad_seta107">comestible</string>
+    <!-- fin Seta 107 -->
+
+
+    <!-- Seta 108 -->
+    <string name="nombreSeta108">Terfezia Arenaria</string>
+    <string name="nombre_comunSeta108">Turma; Criadilla de Tierra; Patata de Tierra</string>
+    <string name="nombre_ordenarSeta108">terfezia arenaria</string>
+    <string name="comestibilidad_seta108">comestible</string>
+    <!-- fin Seta 108 -->
+
+
+    <!-- Seta 109 -->
+    <string name="nombreSeta109">Aleuria Aurantia</string>
+    <string name="nombre_comunSeta109">Peciza Anaranjada</string>
+    <string name="nombre_ordenarSeta109">aleuria aurantia</string>
+    <string name="comestibilidad_seta109">comestible</string>
+    <!-- fin Seta 109 -->
+
+
+    <!-- Seta 110 -->
+    <string name="nombreSeta110">Albatrellus Pes-Caprae</string>
+    <string name="nombre_comunSeta110">Poliporo Pie de Cabra</string>
+    <string name="nombre_ordenarSeta110">albatrellus pes-caprae</string>
+    <string name="comestibilidad_seta110">comestible</string>
+    <!-- fin Seta 110 -->
+
+
+    <!-- Seta 111 -->
+    <string name="nombreSeta111">Cantharellus Tubaeformis</string>
+    <string name="nombre_comunSeta111">Rebozuelo Atrompetado</string>
+    <string name="nombre_ordenarSeta111">cantharellus tubaeformis</string>
+    <string name="comestibilidad_seta111">comestible</string>
+    <!-- fin Seta 111 -->
+
+
+    <!-- Seta 112 -->
+    <string name="nombreSeta112">Craterellus Cornucopioides</string>
+    <string name="nombre_comunSeta112">Trompeta de los Muertos; Trufa del Pobre</string>
+    <string name="nombre_ordenarSeta112">craterellus cornucopioides</string>
+    <string name="comestibilidad_seta112">comestible</string>
+    <!-- fin Seta 112 -->
+
+
+    <!-- Seta 113 -->
+    <string name="nombreSeta113">Hygrophorus Penarius</string>
+    <string name="nombre_comunSeta113">Escarlet Blanc</string>
+    <string name="nombre_ordenarSeta113">hygrophorus penarius</string>
+    <string name="comestibilidad_seta113">comestible</string>
+    <!-- fin Seta 113 -->
+
+
+    <!-- Seta 114 -->
+    <string name="nombreSeta114">Clitocybe Nebularis</string>
+    <string name="nombre_comunSeta114">Pardilla</string>
+    <string name="nombre_ordenarSeta114">clitocybe nebularis</string>
+    <string name="comestibilidad_seta114">precaucion</string>
+    <!-- fin Seta 114 -->
+
+
+    <!-- Seta 115 -->
+    <string name="nombreSeta115">Tricholoma Goniospermum</string>
+    <string name="nombre_comunSeta115">--</string>
+    <string name="nombre_ordenarSeta115">tricholoma goniospermum</string>
+    <string name="comestibilidad_seta115">comestible</string>
+    <!-- fin Seta 115 -->
+
+
+    <!-- Seta 116 -->
+    <string name="nombreSeta116">Leucopaxillus Lepistoides</string>
+    <string name="nombre_comunSeta116">--</string>
+    <string name="nombre_ordenarSeta116">leucopaxillus lepistoides</string>
+    <string name="comestibilidad_seta116">comestible</string>
+    <!-- fin Seta 116 -->
+
+
+    <!-- Seta 117 -->
+    <string name="nombreSeta117">Russula Vesca</string>
+    <string name="nombre_comunSeta117">Rúsula Comestible</string>
+    <string name="nombre_ordenarSeta117">russula vesca</string>
+    <string name="comestibilidad_seta117">comestible</string>
+    <!-- fin Seta 117 -->
+
+
+    <!-- Seta 118 -->
+    <string name="nombreSeta118">Boletus Pinophilus</string>
+    <string name="nombre_comunSeta118">Boleto de Pino</string>
+    <string name="nombre_ordenarSeta118">boletus pinophilus</string>
+    <string name="comestibilidad_seta118">comestible</string>
+    <!-- fin Seta 118 -->
+
+
+    <!-- Seta 119 -->
+    <string name="nombreSeta119">Boletus Aestivalis</string>
+    <string name="nombre_comunSeta119">Boleto Reticulado</string>
+    <string name="nombre_ordenarSeta119">boletus aestivalis</string>
+    <string name="comestibilidad_seta119">comestible</string>
+    <!-- fin Seta 119 -->
+
+
+    <!-- Seta 120 -->
+    <string name="nombreSeta120">Clitocybe Phyllophylla</string>
+    <string name="nombre_comunSeta120">Clitocibe Blanco</string>
+    <string name="nombre_ordenarSeta120">clitocybe phyllophylla</string>
+    <string name="comestibilidad_seta120">toxica</string>
+    <!-- fin Seta 121 -->
+
+    <!-- Seta 122 -->
+    <!--<string name="nombreSeta122">Entoloma Lividum</string>
+    <string name="nombre_comunSeta122">Pérfido; Seta Engañosa</string>
+    <string name="nombre_ordenarSeta122">entoloma lividum</string>
+    <string name="comestibilidad_seta122">toxica</string>-->
+    <!-- fin Seta 122 -->
+
+    <!-- Seta 121 -->
+    <string name="nombreSeta121">Amanita Pantherina</string>
+    <string name="nombre_comunSeta121">Amanita Pantera</string>
+    <string name="nombre_ordenarSeta121">amanita pantherina</string>
+    <string name="comestibilidad_seta121">mortal</string>
+    <!-- fin Seta 121 -->
+
+    <!-- Seta 122 -->
+    <string name="nombreSeta122">Amanita Virosa</string>
+    <string name="nombre_comunSeta122">Amanita Maloliente</string>
+    <string name="nombre_ordenarSeta122">amanita virosa</string>
+    <string name="comestibilidad_seta122">mortal</string>
+    <!-- fin Seta 122 -->
+
+    <!-- Seta 123 -->
+    <string name="nombreSeta123">Cortinarius Orellanus</string>
+    <string name="nombre_comunSeta123">Ortinario de Montaña</string>
+    <string name="nombre_ordenarSeta123">cortinarius orellanus</string>
+    <string name="comestibilidad_seta123">mortal</string>
+    <!-- fin Seta 123 -->
+
+    <!-- Seta 124 -->
+    <string name="nombreSeta124">Omphalotus Illudens</string>
+    <string name="nombre_comunSeta124">--</string>
+    <string name="nombre_ordenarSeta124">omphalotus illudens</string>
+    <string name="comestibilidad_seta124">toxica</string>
+    <!-- fin Seta 124 -->
+
+    <!-- Seta 125 -->
+    <string name="nombreSeta125">Amanita Verna</string>
+    <string name="nombre_comunSeta125">Cicuta Blanca; Cogomasa</string>
+    <string name="nombre_ordenarSeta125">amanita verna</string>
+    <string name="comestibilidad_seta125">mortal</string>
+    <!-- fin Seta 125 -->
+
+    <!-- Seta 126 -->
+    <string name="nombreSeta126">Coprinopsis Atramentaria</string>
+    <string name="nombre_comunSeta126">Coprino Antialcohólico; Coprino Entintado</string>
+    <string name="nombre_ordenarSeta126">coprinopsis atramentaria</string>
+    <string name="comestibilidad_seta126">toxica</string>
+    <!-- fin Seta 126 -->
+
+    <!-- Seta 127 -->
+    <string name="nombreSeta127">Cortinarius Sanguineus</string>
+    <string name="nombre_comunSeta127">Cortinario rojo</string>
+    <string name="nombre_ordenarSeta127">cortinarius sanguineus</string>
+    <string name="comestibilidad_seta127">mortal</string>
+    <!-- fin Seta 127 -->
+
+    <!-- Seta 128 -->
+    <string name="nombreSeta128">Hebeloma Sinapizans</string>
+    <string name="nombre_comunSeta128">Seta con Olor a Rábano</string>
+    <string name="nombre_ordenarSeta128">hebeloma sinapizans</string>
+    <string name="comestibilidad_seta128">toxica</string>
+    <!-- fin Seta 130 -->
+
+
+</resources>

@@ -5,7 +5,8 @@
 
         <shape>
 
-            <stroke android:color="@color/colorPrimary" android:width="3dp"></stroke>
+            <stroke android:color="@color/colorPrimaryDark" android:width="3dp"></stroke>
+            <solid android:color="@color/verde_claro"></solid>
 
         </shape>
 
@@ -17,6 +18,7 @@
         <shape>
 
             <stroke android:color="@color/colorBlanco" android:width="3dp"></stroke>
+            <solid android:color="@color/verde_claro"></solid>
 
         </shape>
 

@@ -1,10 +1,10 @@
 package com.dssoft.infosetas.iu;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
@@ -39,6 +39,10 @@ public class PantallaZoom extends AppCompatActivity
     {
 
         super.onCreate(savedInstanceState);
+
+        //Se pone la pantalla a pantalla completa
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.layout_pantalla_zoom);
         ButterKnife.bind(this);
 

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/verde_claro">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolBar_pantalla_insertar_datos_zona"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -16,6 +16,7 @@
         android:layout_alignParentTop="true"
         app:theme="@style/AppTheme.ToolbarStyle"
         app:titleTextAppearance="@style/AppTheme.ToolbarTextStyle"
+        app:titleTextColor="@color/colorBlanco"
         app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
 
@@ -31,7 +32,7 @@
     </com.google.android.gms.ads.AdView>
 
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cardViewNuevaZona"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -39,60 +40,69 @@
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
+        android:alpha="0.9"
         android:layout_below="@+id/banner_pantalla_insertar_datos_zona">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/borde_lista_setas"
             android:orientation="vertical">
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:textColorHint="@color/colorPrimaryDark"
-                android:hint="@string/txtEditNombreNuevaZona">
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="@string/txtEditNombreNuevaZona"
+                android:textColorHint="@color/color_texto_hint_2"
+                app:hintTextColor="@color/color_texto_hint"
+                app:boxStrokeColor="@color/color_text_input">
 
                 <EditText
                     android:id="@+id/editNombreZona"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/colorPrimaryDark"
                     android:lines="1"
-                    android:maxLines="1"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"/>
+                    android:maxLines="1"/>
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:textColorHint="@color/colorPrimaryDark"
-                android:hint="@string/txtEditDescripcionNuevaZona">
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="@string/txtEditDescripcionNuevaZona"
+                android:textColorHint="@color/color_texto_hint_2"
+                app:hintTextColor="@color/color_texto_hint"
+                app:boxStrokeColor="@color/color_text_input">
 
                 <EditText
                     android:id="@+id/editDescripcionZona"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/colorPrimaryDark"
                     android:gravity="top"
                     android:lines="10"
-                    android:maxLines="10"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"/>
+                    android:maxLines="10"/>
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
         </LinearLayout>
 
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
         android:id="@+id/btnSaveZona"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -100,7 +110,8 @@
         android:layout_marginRight="10dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:src="@mipmap/ic_disk"
+        app:srcCompat="@mipmap/ic_disk"
+        app:tint="@null"
         app:elevation="4dp"
         app:pressedTranslationZ="4dp"
         app:backgroundTint="@color/colorPrimaryDark"

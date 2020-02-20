@@ -12,7 +12,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
         android:text="Selecciona la forma de obtener la ubicacion de la zona que quieres guardar"/>
 
     <LinearLayout

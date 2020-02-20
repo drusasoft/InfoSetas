@@ -1,21 +1,17 @@
 package com.dssoft.infosetas.adaptadores;
 
 import android.app.Activity;
-import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.dssoft.infosetas.R;
 import com.dssoft.infosetas.pojos.Zona;
-
 import java.util.List;
-
 import butterknife.BindColor;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -71,8 +67,8 @@ public class AdaptadorListaZonas extends ArrayAdapter<Zona>
 
         }else
         {
-            holder.txtNombreZona.setTextColor(R.drawable.texto_pulsacion);
-            holder.txtDescZona.setTextColor(R.drawable.texto_pulsacion);
+            holder.txtNombreZona.setTextColor(context.getResources().getColor(R.color.texto_pulsacion));
+            holder.txtDescZona.setTextColor(context.getResources().getColor(R.color.texto_pulsacion));
             holder.layoutListaZona.setBackgroundResource(R.drawable.borde_lista_zonas);
             holder.layoutSeparadorZona.setBackgroundResource(R.drawable.borde_lista_zonas2);
         }

@@ -4,7 +4,6 @@
     android:installLocation="auto">
 
     <uses-feature android:name="android.hardware.location.gps"/>
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
@@ -15,14 +14,17 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:largeHeap="true">
+        android:largeHeap="true"
+        android:usesCleartextTraffic="true">
 
+        <!--Esto es obligatorio para el SDK de anuncios, si no se pone peta la aplicacion-->
         <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2712815213167664~2533509012"/>
 
-        <meta-data android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDiDM_3yz238Doe57JsY_RslQfurmQnURQ"/>
+        <!--La Api_Key para google Maps-->
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA9sAr_pWXohmGSHoeEy35nVx4fmYXmb1M"/>
 
         <activity android:name=".iu.PantallaPrincipal" android:screenOrientation="portrait">
             <intent-filter>
@@ -32,19 +34,19 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".iu.PantallaDetallesSeta" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaListaSetas"/>
-        <activity android:name=".iu.PantallaListaSetas" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaPrincipal"/>
-        <activity android:name=".iu.PantallaListaGaleria" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaPrincipal"/>
-        <activity android:name=".iu.PantallaGaleria" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaListaGaleria"/>
+        <activity android:name=".iu.PantallaDetallesSeta" android:screenOrientation="portrait"/>
+        <activity android:name=".iu.PantallaListaSetas" android:screenOrientation="portrait"/>
+        <activity android:name=".iu.PantallaListaGaleria" android:screenOrientation="portrait"/>
+        <activity android:name=".iu.PantallaGaleria" android:screenOrientation="portrait"/>
         <activity android:name=".iu.PantallaZoom" android:screenOrientation="portrait"/>
-        <activity android:name=".iu.PantallaTiempo" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaPrincipal"/>
-        <activity android:name=".iu.PantallaZonas" android:screenOrientation="portrait" android:label="@string/titPantallaZonas" android:parentActivityName=".iu.PantallaPrincipal"/>
-        <activity android:name=".iu.PantallaMapaNuevaZona" android:screenOrientation="portrait" android:label="@string/titPantallaMapaNuevaZona" android:parentActivityName=".iu.PantallaZonas"/>
+        <activity android:name=".iu.PantallaTiempo" android:screenOrientation="portrait"/>
+        <activity android:name=".iu.PantallaZonas" android:screenOrientation="portrait" android:label="@string/titPantallaZonas"/>
+        <activity android:name=".iu.PantallaMapaNuevaZona" android:screenOrientation="portrait" android:label="@string/titPantallaMapaNuevaZona"/>
         <activity android:name=".iu.PantallaInsertarDatosZona" android:screenOrientation="portrait" android:label="@string/titPantallaDatosNuevaZona"/>
-        <activity android:name=".iu.PantallaVerDatosZonas" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaZonas"/>
+        <activity android:name=".iu.PantallaVerDatosZonas" android:screenOrientation="portrait"/>
         <activity android:name=".iu.PantallaMapaVerZona" android:screenOrientation="portrait"/>
-        <activity android:name=".iu.PantallaMapaGPS" android:screenOrientation="portrait" android:parentActivityName=".iu.PantallaZonas" android:label="@string/titPantallaMapaGPS"/>
-        <activity android:name=".iu.PantallaAyuda" android:screenOrientation="portrait" android:label="@string/titPantallaAyuda"/>
+        <activity android:name=".iu.PantallaMapaGPS" android:screenOrientation="portrait" android:label="@string/titPantallaMapaGPS"/>
+        <activity android:name=".iu.PantallaAyuda" android:screenOrientation="portrait"/>
 
     </application>
 

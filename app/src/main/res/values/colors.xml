@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#1B5E20</color>
     <color name="colorAccent">#009688</color>
     <color name="verde_claro">#95c8e6c9</color>
+    <color name="verde_claro2">#73388E3C</color><!-- es el colorPrimary al que le he dado una opacidad del 65% poniendo el codigo 73 delante -->
+    <color name="verde_claro3">#D9388E3C</color><!-- es el colorPrimary al que le he dado una opacidad del 85% poniendo el codigo D9 delante -->
     <color name="colorBlanco">#ffffff</color>
     <color name="colorBlanco2">#CFD8DC</color>
     <color name="transparente">#00ffffff</color>

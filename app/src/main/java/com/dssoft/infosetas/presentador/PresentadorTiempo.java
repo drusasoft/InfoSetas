@@ -3,6 +3,10 @@ package com.dssoft.infosetas.presentador;
 import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
+
+import androidx.core.content.ContextCompat;
+
+import com.dssoft.infosetas.R;
 import com.dssoft.infosetas.iu.VistaBase;
 import com.dssoft.infosetas.iu.VistaTiempo;
 import com.dssoft.infosetas.modelo.DataManagerBD;
@@ -28,12 +32,14 @@ public class PresentadorTiempo implements PresentadorMvpTiempo
     private VistaTiempo vista;
     private DataManagerBD dataManagerBD;
     private DataManagerWS dataManagerWS;
+    private Context context;
 
     //El presentador recibe el modelo para poder llamar a sus metodos y recuperar asi los datos necesarios
-    public PresentadorTiempo(DataManagerBD dataManagerBD, DataManagerWS dataManagerWS)
+    public PresentadorTiempo(DataManagerBD dataManagerBD, DataManagerWS dataManagerWS, Context context)
     {
         this.dataManagerBD = dataManagerBD;
         this.dataManagerWS = dataManagerWS;
+        this.context = context;
     }
 
     @Override
@@ -104,9 +110,9 @@ public class PresentadorTiempo implements PresentadorMvpTiempo
 
     @Override
     //Se llama al metodo que se conecta al WS del Tiempo para obtener la prevision
-    public void getPrevisionTiempo(String localidad, PresentadorMvpTiempo presentadorMvpTiempo, String wsKey, Context context)
+    public void getPrevisionTiempo(String localidad, PresentadorMvpTiempo presentadorMvpTiempo, String wsKey, String idioma, Context context)
     {
-        dataManagerWS.getPrevision(presentadorMvpTiempo, localidad, wsKey, context);
+        dataManagerWS.getPrevision(presentadorMvpTiempo, localidad, wsKey, idioma, context);
     }
 
 
@@ -159,19 +165,19 @@ public class PresentadorTiempo implements PresentadorMvpTiempo
     {
         switch(numDia)
         {
-            case 1: return "Domingo";
+            case 1: return context.getString(R.string.diaSemana_1);
 
-            case 2: return "Lunes";
+            case 2: return context.getString(R.string.diaSemana_2);
 
-            case 3: return "Martes";
+            case 3: return context.getString(R.string.diaSemana_3);
 
-            case 4: return "Miercoles";
+            case 4: return context.getString(R.string.diaSemana_4);
 
-            case 5: return "Jueves";
+            case 5: return context.getString(R.string.diaSemana_5);
 
-            case 6: return "Viernes";
+            case 6: return context.getString(R.string.diaSemana_6);
 
-            case 7: return "Sabado";
+            case 7: return context.getString(R.string.diaSemana_7);
         }
 
         return "";

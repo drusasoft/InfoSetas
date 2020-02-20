@@ -4,11 +4,12 @@ import android.animation.Animator;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.WindowManager;
@@ -165,6 +166,19 @@ public class PantallaListaGaleria extends AppCompatActivity implements VistaList
 
         if(animacionFondoIniciada && animacionFondo.isRunning())
             animacionFondo.stop();//se pausa la animacion del fondo de pantalla
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+
+        switch (item.getItemId())
+        {
+            case android.R.id.home: onBackPressed();
+        }
+
+        return true;
     }
 
 

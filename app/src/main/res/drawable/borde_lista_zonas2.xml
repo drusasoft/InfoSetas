@@ -5,7 +5,7 @@
 
         <shape>
 
-            <solid android:color="@color/colorPrimary"></solid>
+            <solid android:color="@color/colorPrimaryDark"></solid>
 
         </shape>
 

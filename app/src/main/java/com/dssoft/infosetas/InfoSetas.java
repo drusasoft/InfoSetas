@@ -1,7 +1,6 @@
 package com.dssoft.infosetas;
 
 import android.app.Application;
-
 import com.dssoft.infosetas.modelo.BDAdapter;
 import com.dssoft.infosetas.modelo.DataManagerBD;
 import com.dssoft.infosetas.modelo.DataManagerFB;
@@ -52,4 +51,5 @@ public class InfoSetas extends Application
     public DataManagerGPS getDataManagerGPS() {
         return dataManagerGPS;
     }
+
 }

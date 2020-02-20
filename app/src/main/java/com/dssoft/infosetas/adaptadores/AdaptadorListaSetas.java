@@ -1,9 +1,8 @@
 package com.dssoft.infosetas.adaptadores;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +13,6 @@ import com.dssoft.infosetas.R;
 import com.dssoft.infosetas.pojos.Seta;
 import com.squareup.picasso.Picasso;
 import java.util.List;
-
-import butterknife.BindColor;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -83,23 +80,23 @@ public class AdaptadorListaSetas extends ArrayAdapter<Seta>
         switch(listaSetas.get(position).getComestible())
         {
 
-            case ("sin_interes"): Picasso.with(context).load(R.drawable.seta_regular_small).into(holder.imgSetaMario);
+            case ("sin_interes"): Picasso.get().load(R.drawable.seta_regular_small).into(holder.imgSetaMario);
 
                                   break;
 
-            case ("precaucion"): Picasso.with(context).load(R.drawable.cuidado_small).into(holder.imgSetaMario);
+            case ("precaucion"): Picasso.get().load(R.drawable.cuidado_small).into(holder.imgSetaMario);
 
                                  break;
 
-            case ("toxica"): Picasso.with(context).load(R.drawable.seta_venenosa_small).into(holder.imgSetaMario);
+            case ("toxica"): Picasso.get().load(R.drawable.seta_venenosa_small).into(holder.imgSetaMario);
 
                              break;
 
-            case ("mortal"): Picasso.with(context).load(R.drawable.skull_ico).into(holder.imgSetaMario);
+            case ("mortal"): Picasso.get().load(R.drawable.skull_ico).into(holder.imgSetaMario);
 
                              break;
 
-            default: Picasso.with(context).load(R.drawable.seta_buena_small).into(holder.imgSetaMario);
+            default: Picasso.get().load(R.drawable.seta_buena_small).into(holder.imgSetaMario);
                      break;
 
         }

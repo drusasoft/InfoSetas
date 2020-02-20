@@ -7,11 +7,11 @@ import android.graphics.drawable.AnimationDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +19,6 @@ import android.view.ViewAnimationUtils;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -30,9 +29,11 @@ import com.dssoft.infosetas.pojos.DatosPrevision;
 import com.dssoft.infosetas.presentador.PresentadorTiempo;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.material.textfield.TextInputEditText;
 import com.squareup.picasso.Picasso;
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,8 +52,8 @@ public class PantallaTiempo extends AppCompatActivity implements VistaTiempo, Ad
     @BindView(R.id.spinnerLocalidades) Spinner spinnerLocalidades;
     @BindView(R.id.cardViewFormulario) CardView cardViewFormulario;
     @BindView(R.id.cardViewPrevision) CardView cardViewPrevision;
-    @BindView(R.id.editLocalidad) EditText editLocalidad;
-    @BindView(R.id.editPais) EditText editPais;
+    @BindView(R.id.editLocalidad) TextInputEditText editLocalidad;
+    @BindView(R.id.editPais) TextInputEditText editPais;
     @BindView(R.id.txtTiempoLocalidad) TextView txtLocalidad;
     @BindView(R.id.txtTiempoHoy) TextView txtTiempo;
     @BindView(R.id.txtFechaHoy) TextView txtFecha;
@@ -83,7 +84,7 @@ public class PantallaTiempo extends AppCompatActivity implements VistaTiempo, Ad
     private PresentadorTiempo presentadorTiempo;
     private AnimationDrawable animacionFondo;
     private boolean animacionFondoIniciada, mostrarMenu, mostrarActualizar, modEditLocalidad=true, modEditPais=true;
-    private String localidad, pais, cod_pais;
+    private String localidad, pais, cod_pais, idioma;
 
     private List<String> listLocalidades;
     private List<PresentadorTiempo> listPrevision;
@@ -106,9 +107,21 @@ public class PantallaTiempo extends AppCompatActivity implements VistaTiempo, Ad
         //Se cambia el color de la statusbar y se pone transparente
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
+        //Se obtiene el idioma de la App pasado comom paremetro
+        idioma = getIntent().getStringExtra("Idioma");
+
+        //Por si acaso
+        if(idioma == null)
+        {
+            if(Locale.getDefault().getLanguage().equals("es"))
+                idioma = "es";
+            else
+                idioma = "en";
+        }
+
         //Se crea el Presentador de esta pantalla y se le pasa la capa modelo (DataManagerBD) creada en la variable global
         InfoSetas infoSetas = (InfoSetas) getApplication();
-        presentadorTiempo = new PresentadorTiempo(infoSetas.getDataManagerBD(), infoSetas.getDataManagerWS());
+        presentadorTiempo = new PresentadorTiempo(infoSetas.getDataManagerBD(), infoSetas.getDataManagerWS(), getApplicationContext());
         presentadorTiempo.setVista(this);
 
         animacion_fondo();//Se crea la animacion de la imagen de fondo de la pantalla
@@ -223,17 +236,20 @@ public class PantallaTiempo extends AppCompatActivity implements VistaTiempo, Ad
         switch (item.getItemId())
         {
 
+            case android.R.id.home: onBackPressed();
+                                        return true;
+
             case R.id.menu_actualizar:   mostrarDialogConexion();
 
                                          if(listLocalidades.size()>0)
                                          {
                                              //Se obtiene la prevision del tiempo del ws
-                                             presentadorTiempo.getPrevisionTiempo(spinnerLocalidades.getSelectedItem().toString().toLowerCase(), presentadorTiempo, wsKey, getApplicationContext());
+                                             presentadorTiempo.getPrevisionTiempo(spinnerLocalidades.getSelectedItem().toString().toLowerCase(), presentadorTiempo, wsKey, idioma, getApplicationContext());
 
                                          }else
                                          {
                                              //Se obtiene la prevision del tiempo del ws
-                                             presentadorTiempo.getPrevisionTiempo(localidad.toLowerCase()+","+cod_pais, presentadorTiempo, wsKey, getApplicationContext());
+                                             presentadorTiempo.getPrevisionTiempo(localidad.toLowerCase()+","+cod_pais, presentadorTiempo, wsKey, idioma, getApplicationContext());
                                          }
 
 
@@ -316,7 +332,7 @@ public class PantallaTiempo extends AppCompatActivity implements VistaTiempo, Ad
                         }else
                         {
                             //Se obtiene la prevision del tiempo del ws
-                            presentadorTiempo.getPrevisionTiempo(localidad.toLowerCase()+","+cod_pais, presentadorTiempo, wsKey, getApplicationContext());
+                            presentadorTiempo.getPrevisionTiempo(localidad.toLowerCase()+","+cod_pais, presentadorTiempo, wsKey, idioma, getApplicationContext());
 
                         }
 
@@ -504,7 +520,7 @@ public class PantallaTiempo extends AppCompatActivity implements VistaTiempo, Ad
                 }
 
                 //Se obtiene la prevision del tiempo del ws
-                presentadorTiempo.getPrevisionTiempo(localidad.toLowerCase()+","+cod_pais, presentadorTiempo, wsKey, getApplicationContext());
+                presentadorTiempo.getPrevisionTiempo(localidad.toLowerCase()+","+cod_pais, presentadorTiempo, wsKey, idioma, getApplicationContext());
 
             }
 
@@ -517,7 +533,7 @@ public class PantallaTiempo extends AppCompatActivity implements VistaTiempo, Ad
                 dialog.dismiss();
 
                 //Se obtiene la prevision del tiempo del ws
-                presentadorTiempo.getPrevisionTiempo(localidad.toLowerCase()+","+cod_pais, presentadorTiempo, wsKey, getApplicationContext());
+                presentadorTiempo.getPrevisionTiempo(localidad.toLowerCase()+","+cod_pais, presentadorTiempo, wsKey, idioma, getApplicationContext());
             }
         });
 
@@ -556,58 +572,58 @@ public class PantallaTiempo extends AppCompatActivity implements VistaTiempo, Ad
     {
         switch(icono)
         {
-            case("01d"): Picasso.with(this).load(R.drawable.icono_01d).into(imgView);
+            case("01d"): Picasso.get().load(R.drawable.icono_01d).into(imgView);
                 break;
 
-            case("01n"): Picasso.with(this).load(R.drawable.icono_01n).into(imgView);
+            case("01n"): Picasso.get().load(R.drawable.icono_01n).into(imgView);
                 break;
 
-            case("02d"): Picasso.with(this).load(R.drawable.icono_02d).into(imgView);
+            case("02d"): Picasso.get().load(R.drawable.icono_02d).into(imgView);
                 break;
 
-            case("02n"): Picasso.with(this).load(R.drawable.icono_02n).into(imgView);
+            case("02n"): Picasso.get().load(R.drawable.icono_02n).into(imgView);
                 break;
 
-            case("03d"): Picasso.with(this).load(R.drawable.icono_03d).into(imgView);
+            case("03d"): Picasso.get().load(R.drawable.icono_03d).into(imgView);
                 break;
 
-            case("03n"): Picasso.with(this).load(R.drawable.icono_03n).into(imgView);
+            case("03n"): Picasso.get().load(R.drawable.icono_03n).into(imgView);
                 break;
 
-            case("04d"): Picasso.with(this).load(R.drawable.icono_04d).into(imgView);
+            case("04d"): Picasso.get().load(R.drawable.icono_04d).into(imgView);
                 break;
 
-            case("04n"): Picasso.with(this).load(R.drawable.icono_04d).into(imgView);
+            case("04n"): Picasso.get().load(R.drawable.icono_04d).into(imgView);
                 break;
 
-            case("09d"): Picasso.with(this).load(R.drawable.icono_09d).into(imgView);
+            case("09d"): Picasso.get().load(R.drawable.icono_09d).into(imgView);
                 break;
 
-            case("09n"): Picasso.with(this).load(R.drawable.icono_09d).into(imgView);
+            case("09n"): Picasso.get().load(R.drawable.icono_09d).into(imgView);
                 break;
 
-            case("10d"): Picasso.with(this).load(R.drawable.icono_10d).into(imgView);
+            case("10d"): Picasso.get().load(R.drawable.icono_10d).into(imgView);
                 break;
 
-            case("10n"): Picasso.with(this).load(R.drawable.icono_10n).into(imgView);
+            case("10n"): Picasso.get().load(R.drawable.icono_10n).into(imgView);
                 break;
 
-            case("11d"): Picasso.with(this).load(R.drawable.icono_11d).into(imgView);
+            case("11d"): Picasso.get().load(R.drawable.icono_11d).into(imgView);
                 break;
 
-            case("11n"): Picasso.with(this).load(R.drawable.icono_11d).into(imgView);
+            case("11n"): Picasso.get().load(R.drawable.icono_11d).into(imgView);
                 break;
 
-            case("13d"): Picasso.with(this).load(R.drawable.icono_13d).into(imgView);
+            case("13d"): Picasso.get().load(R.drawable.icono_13d).into(imgView);
                 break;
 
-            case("13n"): Picasso.with(this).load(R.drawable.icono_13d).into(imgView);
+            case("13n"): Picasso.get().load(R.drawable.icono_13d).into(imgView);
                 break;
 
-            case("50d"): Picasso.with(this).load(R.drawable.icono_50d).into(imgView);
+            case("50d"): Picasso.get().load(R.drawable.icono_50d).into(imgView);
                 break;
 
-            case("50n"): Picasso.with(this).load(R.drawable.icono_50d).into(imgView);
+            case("50n"): Picasso.get().load(R.drawable.icono_50d).into(imgView);
                 break;
         }
     }
@@ -672,7 +688,7 @@ public class PantallaTiempo extends AppCompatActivity implements VistaTiempo, Ad
             mostrarDialogConexion();
 
             //Se obtiene la prevision del tiempo del ws
-            presentadorTiempo.getPrevisionTiempo(listLocalidades.get(position).toLowerCase(), presentadorTiempo, wsKey, getApplicationContext());
+            presentadorTiempo.getPrevisionTiempo(listLocalidades.get(position).toLowerCase(), presentadorTiempo, wsKey, idioma, getApplicationContext());
         }
 
     }

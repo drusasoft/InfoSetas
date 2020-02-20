@@ -20,7 +20,7 @@ public interface PresentadorMvpTiempo extends PresentadorBase
     List<String> getLocalidadesBD();
     void addLocalidadBD(String localidad, String pais, String cod_pais);
     void delLocalidadBD(String localidad);
-    void getPrevisionTiempo(String localidad, PresentadorMvpTiempo presentadorMvpTiempo, String wsKey, Context context);
+    void getPrevisionTiempo(String localidad, PresentadorMvpTiempo presentadorMvpTiempo, String wsKey, String idioma, Context context);
     void mostrarDialogError(String titulo, String mensaje);
     void mostrarPrevision(PrevisionTiempo previsionTiempo, String localidad);
 }

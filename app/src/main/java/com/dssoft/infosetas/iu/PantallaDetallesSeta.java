@@ -5,17 +5,18 @@ import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -26,6 +27,7 @@ import com.dssoft.infosetas.R;
 import com.dssoft.infosetas.fragments.PagerFragmentSetas;
 import com.dssoft.infosetas.pojos.SetaFireBase;
 import com.dssoft.infosetas.presentador.PresentadorDetalles;
+import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -46,12 +48,12 @@ public class PantallaDetallesSeta extends AppCompatActivity implements VistaDeta
     private PresentadorDetalles presentadorDetalles;
 
     private final int NUM_PAGINAS=4;
-    private String[] titPestañas = new String[]{"Descripción", "Hábitat y Comestibilidad", "Observaciones", "Galería"};
+    private String[] titPestañas;
     private PagerAdapter pagerAdapter;
 
     private ProgressDialog progressDialog;
     private SetaFireBase setaDetalles;
-    private String fotos, comestible;
+    private String fotos, comestible, idioma;
 
 
     @Override
@@ -66,9 +68,24 @@ public class PantallaDetallesSeta extends AppCompatActivity implements VistaDeta
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+        //Se obtiene el idioma de la App
+        idioma = getIntent().getStringExtra("Idioma");
+
+        //Esto lo hago por precaucion porque alguna vez el idioma se ha pasado como nulo y entonces ha dado un NullPointerException en la Clase DataManagerFB
+        if(idioma == null)
+        {
+            if(Locale.getDefault().getLanguage().equals("es"))
+                idioma = "es";
+            else
+                idioma = "en";
+        }
+
+        //Se carga el Array de Strings con los titulos del TabLayout
+        titPestañas = new String[]{getString(R.string.titTabLayout_1), getString(R.string.titTabLayout_2), getString(R.string.titTabLayout_3), getString(R.string.titTabLayout_4)};
+
         //Se crea el Presentador de esta pantalla y se le pasa la capa modelo (DataManagerFB) creada en la variable global
         InfoSetas infoSetas = (InfoSetas) getApplication();
-        presentadorDetalles = new PresentadorDetalles(infoSetas.getDataManagerFB());
+        presentadorDetalles = new PresentadorDetalles(infoSetas.getDataManagerFB(), idioma);
         presentadorDetalles.setVista(this);
 
         //Se obtiene el nombre de la seta pasado como paremetro
@@ -97,6 +114,19 @@ public class PantallaDetallesSeta extends AppCompatActivity implements VistaDeta
             mostrarDialogError(R.string.titErrorDialog_1, R.string.txtErrorDialog_2);
         }
 
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+
+        switch (item.getItemId())
+        {
+            case android.R.id.home: onBackPressed();
+        }
+
+        return true;
     }
 
 
@@ -154,14 +184,14 @@ public class PantallaDetallesSeta extends AppCompatActivity implements VistaDeta
         if(comestible.equals("sin_interes"))
         {
             //Se cambia el color de la statusbar, toolbar y pagertabstrip
-            Window window = this.getWindow();
+            /*Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDarkGrey));
 
             toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryGrey));
             tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryGrey));
-            layoutPrincipal.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentGrey));
+            layoutPrincipal.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentGrey));*/
 
             imgTooBar.setImageResource(R.drawable.seta_regular_small);
 
@@ -171,14 +201,14 @@ public class PantallaDetallesSeta extends AppCompatActivity implements VistaDeta
         if(comestible.equals("toxica"))
         {
             //Se cambia el color de la statusbar, toolbar y pagertabstrip
-            Window window = this.getWindow();
+            /*Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDarkOrange));
 
             toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryOrange));
             tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryOrange));
-            layoutPrincipal.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentOrange));
+            layoutPrincipal.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentOrange));*/
 
             imgTooBar.setImageResource(R.drawable.seta_venenosa_small);
 
@@ -189,23 +219,21 @@ public class PantallaDetallesSeta extends AppCompatActivity implements VistaDeta
         if(comestible.equals("mortal"))
         {
             //Se cambia el color de la statusbar, toolbar y pagertabstrip
-            Window window = this.getWindow();
+            /*Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDarkRed));
 
             toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryRed));
             tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryRed));
-            layoutPrincipal.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentRed));
+            layoutPrincipal.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentRed));*/
 
             imgTooBar.setImageResource(R.drawable.skull_ico);
 
             return;
         }
 
-
         imgTooBar.setImageResource(R.drawable.seta_buena_small);
-
 
     }
 
@@ -253,6 +281,7 @@ public class PantallaDetallesSeta extends AppCompatActivity implements VistaDeta
             bundle.putParcelable("setaDetalles", setaDetalles);
             bundle.putString("fotos", fotos);
             bundle.putString("comestible",comestible);
+            bundle.putString("Idioma", idioma);
 
             PagerFragmentSetas pagerFragmentSetas = new PagerFragmentSetas();
             pagerFragmentSetas.setArguments(bundle);

@@ -6,11 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolBar_pantalla_zonas"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/borde_toolbar"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -18,7 +18,8 @@
         android:elevation="4dp"
         android:layout_alignParentTop="true"
         app:theme="@style/AppTheme.ToolbarStyle"
-        app:titleTextAppearance="@style/AppTheme.ToolbarTextStyle"/>
+        app:titleTextAppearance="@style/AppTheme.ToolbarTextStyle"
+        app:titleTextColor="@color/colorBlanco"/>
 
 
     <com.google.android.gms.ads.AdView
@@ -27,44 +28,54 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/toolBar_pantalla_zonas"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner_ad_unit_id">
     </com.google.android.gms.ads.AdView>
 
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cardViewNoZonas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
+        android:alpha="0.7"
         android:visibility="invisible">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:text="@string/txtNoZonas"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"/>
+            android:layout_height="match_parent">
 
-    </android.support.v7.widget.CardView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/txtNoZonas"
+                android:textColor="@color/colorPrimaryDark"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"/>
+
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
 
     <ListView
         android:id="@+id/listViewZonas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/banner_pantalla_zonas"
         android:divider="@null"
         android:visibility="invisible"/>
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
         android:id="@+id/btnNuevaZona"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -72,13 +83,15 @@
         android:layout_marginRight="10dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:src="@mipmap/ic_add"
+        app:srcCompat="@mipmap/ic_add"
+        app:tint="@null"
         app:elevation="4dp"
         app:pressedTranslationZ="4dp"
         app:backgroundTint="@color/colorPrimaryDark"
         app:rippleColor="@color/colorBlanco"/>
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
         android:id="@+id/btnBorrarZona"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,8 +99,9 @@
         android:layout_marginRight="10dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:src="@mipmap/ic_trash"
         android:visibility="invisible"
+        app:srcCompat="@mipmap/ic_trash"
+        app:tint="@null"
         app:elevation="4dp"
         app:pressedTranslationZ="4dp"
         app:backgroundTint="@color/colorPrimaryDark"

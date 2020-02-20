@@ -1,8 +1,11 @@
 package com.dssoft.infosetas.presentador;
+
 import com.dssoft.infosetas.iu.VistaBase;
 import com.dssoft.infosetas.iu.VistaDetalles;
 import com.dssoft.infosetas.modelo.DataManagerFB;
 import com.dssoft.infosetas.pojos.SetaFireBase;
+
+import java.util.Locale;
 
 /**
  * Created by Angel on 14/09/2017.
@@ -14,12 +17,13 @@ public class PresentadorDetalles implements PresentadorMvpDetalles
 
     private DataManagerFB dataManagerFB;
     private VistaDetalles vista;
+    private String idioma;
 
-    public PresentadorDetalles(DataManagerFB dataManagerFB)
+    public PresentadorDetalles(DataManagerFB dataManagerFB, String idioma)
     {
         this.dataManagerFB = dataManagerFB;
+        this.idioma = idioma;
     }
-
 
     @Override
     // El presentador recibe su vista para poder llamar a sus métodos.
@@ -33,8 +37,7 @@ public class PresentadorDetalles implements PresentadorMvpDetalles
     public void getDetallesSeta(String nombre, PresentadorMvpDetalles presentadorMvpDetalles)
     {
         //Se llama al metodo de la capa Modelo que se conecta al servidor FireBase y se obtiene los detalles de las setas
-        dataManagerFB.getDetallesSeta(nombre, presentadorMvpDetalles);
-
+        dataManagerFB.getDetallesSeta(nombre, presentadorMvpDetalles, idioma);
     }
 
     @Override

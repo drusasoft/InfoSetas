@@ -20,12 +20,12 @@ public class DataManagerWS
     private final String URL_BASE="http://api.openweathermap.org/data/2.5/";
     //http://api.openweathermap.org/data/2.5/forecast/daily?q=madrid,es&mode=json&units=metric&lang=es&cnt=6&APPID=8da3fe404852b2987901d2ccb4d3de97
 
-    public void getPrevision(final PresentadorMvpTiempo presentadorTiempo, final String localidad, String key, final Context context)
+    public void getPrevision(final PresentadorMvpTiempo presentadorTiempo, final String localidad, String key, final String idioma, final Context context)
     {
 
         final String mode = "json";
         final String units = "metric";
-        final String lang = "es";
+        final String lang = idioma;
         final String cnt = "6";
 
         //para obtener los datos del WS

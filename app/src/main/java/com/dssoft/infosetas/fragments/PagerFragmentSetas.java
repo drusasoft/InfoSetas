@@ -5,9 +5,9 @@ import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.cardview.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 import com.dssoft.infosetas.iu.PantallaAyuda;
@@ -37,13 +38,16 @@ import butterknife.Unbinder;
 public class PagerFragmentSetas extends Fragment
 {
 
+    @Nullable @BindView(R.id.cardViewTipoSeta) CardView cardViewTipoSeta;
     @Nullable @BindView(R.id.cardViewNombre) CardView cardViewNombre;
     @Nullable @BindView(R.id.cardViewDescripcion) CardView cardViewDescripcion;
     @Nullable @BindView(R.id.cardViewHabitat) CardView cardViewHabitat;
     @Nullable @BindView(R.id.cardViewComestibilidad) CardView cardViewComestibilidad;
     @Nullable @BindView(R.id.cardViewObservaciones) CardView cardViewObservaciones;
     @Nullable @BindView(R.id.cardViewGaleria) CardView cardViewGaleria;
+    @Nullable @BindView(R.id.layoutTipoSeta) LinearLayout layoutTipoSeta;
 
+    @Nullable @BindView(R.id.txtTipoSeta) TextView txtTipoSeta;
     @Nullable @BindView(R.id.txtDescripcion) TextView txtDescripcion;
     @Nullable @BindView(R.id.txtHabitat) TextView txtHabitat;
     @Nullable @BindView(R.id.txtComestibilidad) TextView txtComestibilidad;
@@ -51,6 +55,7 @@ public class PagerFragmentSetas extends Fragment
     @Nullable @BindView(R.id.txtNombre) TextView txtNombre;
     @Nullable @BindView(R.id.txtNombreComun) TextView txtNombreComun;
 
+    @Nullable @BindView(R.id.imgTipoSeta) ImageView imgTipoSeta;
     @Nullable @BindView(R.id.imgGaleria_1) ImageView imageView1;
     @Nullable @BindView(R.id.imgGaleria_2) ImageView imageView2;
     @Nullable @BindView(R.id.imgGaleria_3) ImageView imageView3;
@@ -62,7 +67,7 @@ public class PagerFragmentSetas extends Fragment
     private SetaFireBase setaDetalles;
     private Unbinder unbinder;
     private Context context;
-    private String fotos, comestible;
+    private String fotos, comestible, idioma;
     private ImageView imgSeleccionada;
 
     @Override
@@ -76,6 +81,7 @@ public class PagerFragmentSetas extends Fragment
         setaDetalles = bundle.getParcelable("setaDetalles");
         fotos = bundle.getString("fotos");
         comestible = bundle.getString("comestible");
+        idioma = bundle.getString("Idioma");
         context = getContext();
 
     }
@@ -95,6 +101,8 @@ public class PagerFragmentSetas extends Fragment
 
                     if(setaDetalles != null)
                     {
+                        configurarColorTipo();
+
                         txtNombre.setText(setaDetalles.getNombre());
                         txtNombreComun.setText(setaDetalles.getNombre_comun());
                         txtDescripcion.setText(setaDetalles.getDescripcion());
@@ -106,6 +114,7 @@ public class PagerFragmentSetas extends Fragment
                             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom)
                             {
                                 rootPag1.removeOnLayoutChangeListener(this);
+                                efecto_mostrar_circular(cardViewTipoSeta);
                                 efecto_mostrar_circular(cardViewNombre);
                                 efecto_mostrar_circular(cardViewDescripcion);
 
@@ -240,6 +249,7 @@ public class PagerFragmentSetas extends Fragment
         return null;
     }
 
+
     @Optional
     @OnClick(R.id.imgGaleria_1)
     public void loadImage1()
@@ -295,6 +305,7 @@ public class PagerFragmentSetas extends Fragment
 
     }
 
+
     @Optional
     @OnClick(R.id.imageSwitcherDetalles)
     public void irPantallaZoom()
@@ -308,19 +319,72 @@ public class PagerFragmentSetas extends Fragment
         startActivity(intent,options.toBundle());
     }
 
+
     @Optional
     @OnClick(R.id.txtIrAyuda)
     public void irpantallaAyuda()
     {
         Intent intent = new Intent(context, PantallaAyuda.class);
+        intent.putExtra("Idioma", idioma);
         startActivity(intent);
     }
+
 
     @Override
     public void onDestroy()
     {
         super.onDestroy();
-        unbinder.unbind();
+
+        if(unbinder != null)
+            unbinder.unbind();
+    }
+
+
+    //Se configura el color del CardView que indica el tipo de Seta
+    private void configurarColorTipo()
+    {
+
+        layoutTipoSeta.setBackgroundResource(R.drawable.borde_tipo_comestible);
+        txtTipoSeta.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        txtTipoSeta.setText(R.string.tipo_seta_1);
+        imgTipoSeta.setImageResource(R.drawable.seta_buena_small);
+
+        if(comestible.equals("sin_interes"))
+        {
+            layoutTipoSeta.setBackgroundResource(R.drawable.borde_tipo_sin_interes);
+            txtTipoSeta.setTextColor(getResources().getColor(R.color.colorPrimaryDarkGrey));
+            txtTipoSeta.setText(R.string.tipo_seta_3);
+            imgTipoSeta.setImageResource(R.drawable.seta_regular_small);
+
+            return;
+        }
+
+        if(comestible.equals("toxica"))
+        {
+            layoutTipoSeta.setBackgroundResource(R.drawable.borde_tipo_toxica);
+            txtTipoSeta.setTextColor(getResources().getColor(R.color.colorPrimaryDarkOrange));
+            txtTipoSeta.setText(R.string.tipo_seta_4);
+            imgTipoSeta.setImageResource(R.drawable.seta_venenosa_small);
+
+            return;
+        }
+
+        if(comestible.equals("mortal"))
+        {
+            layoutTipoSeta.setBackgroundResource(R.drawable.borde_tipo_mortal);
+            txtTipoSeta.setTextColor(getResources().getColor(R.color.colorPrimaryDarkRed));
+            txtTipoSeta.setText(R.string.tipo_seta_5);
+            imgTipoSeta.setImageResource(R.drawable.skull_ico);
+
+            return;
+        }
+
+        if(comestible.equals("precaucion"))
+        {
+            imgTipoSeta.setImageResource(R.drawable.cuidado_small);
+            txtTipoSeta.setText(R.string.tipo_seta_2);
+        }
+
     }
 
 
@@ -363,7 +427,6 @@ public class PagerFragmentSetas extends Fragment
             return imageView;
 
         }
-
 
     }
 

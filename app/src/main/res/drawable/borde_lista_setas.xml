@@ -6,7 +6,7 @@
         <shape>
 
             <solid android:color="@color/verde_claro"></solid>
-            <stroke android:color="@color/colorPrimaryDark" android:width="5dp"></stroke>
+            <stroke android:color="@color/colorPrimaryDark" android:width="2dp"></stroke>
 
         </shape>
 
@@ -18,7 +18,7 @@
         <shape>
 
             <solid android:color="@color/verde_claro"></solid>
-            <stroke android:color="@color/colorBlanco" android:width="5dp"></stroke>
+            <stroke android:color="@color/colorBlanco" android:width="2dp"></stroke>
 
         </shape>
 

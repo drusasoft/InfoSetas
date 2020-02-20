@@ -2,19 +2,20 @@ package com.dssoft.infosetas.iu;
 
 import android.animation.Animator;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.appcompat.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.WindowManager;
@@ -151,14 +152,27 @@ public class PantallaZonas extends AppCompatActivity implements VistaZonas
     }
 
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+
+        switch (item.getItemId())
+        {
+            case android.R.id.home: onBackPressed();
+        }
+
+        return true;
+    }
+
+
     @Optional
     @OnClick(R.id.btnNuevaZona)
     public void mostrarDialogoNuevaZona()
     {
 
         opcionSeleccionada = "mapa";
-        
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_Centered);
         layoutDialog = (LinearLayout) getLayoutInflater().inflate(R.layout.layout_dialog_nueva_zona, null);
         builder.setView(layoutDialog);
         ButterKnife.bind(this, layoutDialog);
@@ -224,7 +238,7 @@ public class PantallaZonas extends AppCompatActivity implements VistaZonas
     public void mostrarDialogoBorrarZona()
     {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_Centered);
 
         if(zonasSeleccionadas >1)
         {
@@ -422,7 +436,7 @@ public class PantallaZonas extends AppCompatActivity implements VistaZonas
     public void mostrarDialogConfiguracion()
     {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_Centered);
         builder.setTitle(R.string.titDialogUbicacionZona);
         builder.setMessage(R.string.txtDialogUbicacionZona);
 

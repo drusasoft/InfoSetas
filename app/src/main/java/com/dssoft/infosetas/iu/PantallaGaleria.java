@@ -3,10 +3,11 @@ package com.dssoft.infosetas.iu;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -67,6 +68,19 @@ public class PantallaGaleria extends AppCompatActivity
 
         //Se muestran las imagenes en los ImageViews
         mostrarImagenes(fotos);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+
+        switch (item.getItemId())
+        {
+            case android.R.id.home: onBackPressed();
+        }
+
+        return true;
     }
 
 
@@ -150,7 +164,6 @@ public class PantallaGaleria extends AppCompatActivity
         imgGaleria_3.setBackgroundResource(arrayFotos[2]);
         imgGaleria_4.setBackgroundResource(arrayFotos[3]);
 
-
     }
 
 
@@ -165,32 +178,34 @@ public class PantallaGaleria extends AppCompatActivity
             return;
         }
 
+
         if(comestible.equals("sin_interes"))
         {
             //Se cambia el color de la statusbar, toolbar y pagertabstrip
-            Window window = this.getWindow();
+            /*Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDarkGrey));
 
             toolBar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryGrey));
-            layoutGaleria.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentGrey));
+            layoutGaleria.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentGrey));*/
 
             imgToolbar.setImageResource(R.drawable.seta_regular_small);
 
             return;
         }
 
+
         if(comestible.equals("toxica"))
         {
             //Se cambia el color de la statusbar, toolbar y pagertabstrip
-            Window window = this.getWindow();
+            /*Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDarkOrange));
 
             toolBar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryOrange));
-            layoutGaleria.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentOrange));
+            layoutGaleria.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentOrange));*/
 
             imgToolbar.setImageResource(R.drawable.seta_venenosa_small);
 
@@ -201,13 +216,13 @@ public class PantallaGaleria extends AppCompatActivity
         if(comestible.equals("mortal"))
         {
             //Se cambia el color de la statusbar, toolbar y pagertabstrip
-            Window window = this.getWindow();
+            /*Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDarkRed));
 
             toolBar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryRed));
-            layoutGaleria.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentRed));
+            layoutGaleria.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentRed));*/
 
             imgToolbar.setImageResource(R.drawable.skull_ico);
 
@@ -216,7 +231,6 @@ public class PantallaGaleria extends AppCompatActivity
 
 
         imgToolbar.setImageResource(R.drawable.seta_buena_small);
-
 
     }
 

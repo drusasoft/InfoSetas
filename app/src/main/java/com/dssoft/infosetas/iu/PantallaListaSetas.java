@@ -4,11 +4,12 @@ import android.animation.Animator;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.WindowManager;
@@ -33,7 +34,6 @@ import butterknife.BindColor;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
 /**
  * Created by Angel on 23/05/2017.
  */
@@ -49,7 +49,6 @@ public class PantallaListaSetas extends AppCompatActivity implements VistaLista,
     @BindView(R.id.cardViewFavoritas) CardView cardViewFavoritas;
     @BindColor(R.color.colorPrimaryDarkOrange) int colorNaranja;
 
-
     private PresentadorLista presentadorLista;
     private AdaptadorListaSetas als;
     private List<Seta> listSetas = new ArrayList<Seta>();//Aqui se almacenan las setas que se van a mostrar en el ListView
@@ -57,6 +56,7 @@ public class PantallaListaSetas extends AppCompatActivity implements VistaLista,
     private AnimationDrawable animacionFondo;
     private boolean pulsacionSpinner = false;//Esta variable es por la mierda del spinner porque para evitar que se haga la pulsacion automatica que sucede cuado se crea la pantalla
     private boolean animacionFondoIniciada;
+    private String idioma;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -79,6 +79,9 @@ public class PantallaListaSetas extends AppCompatActivity implements VistaLista,
         spinnerSetas.setAdapter(ass);
         spinnerSetas.setOnItemSelectedListener(this);
 
+        //Se obtiene el idioma de la App pasado comom paremetro
+        idioma = getIntent().getStringExtra("Idioma");
+
         //Se crea el Presentador de esta pantalla y se le pasa la capa modelo (DataManagerBD) creada en la variable global
         InfoSetas infoSetas = (InfoSetas) getApplication();
         presentadorLista = new PresentadorLista(infoSetas.getDataManagerBD());
@@ -87,7 +90,9 @@ public class PantallaListaSetas extends AppCompatActivity implements VistaLista,
         buscador.setOnQueryTextListener(this);
         buscador.setOnCloseListener(this);
 
-        listSetas = presentadorLista.obtenerSetasBD(getApplicationContext());//Se obtienen todas las setas de la BD
+        //Se obtienen todas las setas de la BD (Nota: si le pasaba el context con getApplicationContext
+        // en lugar de con this, al cambiar el idioma al ingles dentro de la App no se mostraban los string en ingles)
+        listSetas = presentadorLista.obtenerSetasBD(this);
 
         als = new AdaptadorListaSetas(this, listSetas);
         listViewSetas.setAdapter(als);
@@ -117,6 +122,7 @@ public class PantallaListaSetas extends AppCompatActivity implements VistaLista,
                 intent.putExtra("nombreSeta", listSetas.get(position).getNombre());
                 intent.putExtra("comestible", listSetas.get(position).getComestible());
                 intent.putExtra("fotos", listSetas.get(position).getFotos());
+                intent.putExtra("Idioma", idioma);
                 startActivity(intent);
             }
 
@@ -173,6 +179,19 @@ public class PantallaListaSetas extends AppCompatActivity implements VistaLista,
 
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+
+        switch (item.getItemId())
+        {
+            case android.R.id.home: onBackPressed();
+        }
+
+        return true;
+    }
+
+
+    @Override
     //Se ejecuta cuando se selecciona un item del spinner
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
     {
@@ -213,7 +232,6 @@ public class PantallaListaSetas extends AppCompatActivity implements VistaLista,
             pulsacionSpinner = true;//ahora ya se permite pulsar el spinner (es para evitar la mierda de la pulsacion automatica que se produce la primera vez cuando se carga)
         }
 
-
     }
 
     @Override
@@ -239,7 +257,6 @@ public class PantallaListaSetas extends AppCompatActivity implements VistaLista,
     @Override
     public boolean onQueryTextSubmit(String query)
     {
-
         return false;
     }
 
@@ -350,4 +367,6 @@ public class PantallaListaSetas extends AppCompatActivity implements VistaLista,
         als.notifyDataSetChanged();
 
     }
+
+
 }

@@ -2,22 +2,25 @@ package com.dssoft.infosetas.iu;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.multidex.MultiDex;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import android.preference.PreferenceManager;
+import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +35,7 @@ import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.StringTokenizer;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,6 +55,7 @@ public class PantallaPrincipal extends AppCompatActivity
     private boolean animacionFondoIniciada;
     private InterstitialAd mInterstitialAd;
 
+    private String idioma;
     private boolean permisoGps;
     private static final int RC_HANDLE_GPS_PERM = 3;
 
@@ -59,18 +64,30 @@ public class PantallaPrincipal extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_principal);
-        MultiDex.install(this);
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setTitle(R.string.app_name);
+
+        //Inicializa el SDK de Google Mobile Ads
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2712815213167664~2533509012");
 
         //Se cambia el color de la statusbar y se pone transparente
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-        //Inicializa el SDK de Google Mobile Ads
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2712815213167664~2533509012");
+        //Se obtiene el idioma de la app de las preferencias
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        idioma = prefs.getString("Idioma", null);
+
+        if(idioma == null)
+        {
+            if(Locale.getDefault().getLanguage().equals("es"))
+                idioma = "es";
+            else
+                idioma = "en";
+        }
 
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close)
         {
@@ -128,6 +145,23 @@ public class PantallaPrincipal extends AppCompatActivity
 
 
     @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+
+        //Al cerrar la App se elimina el idioma de las Preferencia de usuario
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        if(prefs.getString("Idioma", null) != null)
+        {
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.remove("Idioma");
+            editor.commit();
+        }
+
+    }
+
+    @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState)
     {
         super.onPostCreate(savedInstanceState);
@@ -169,13 +203,15 @@ public class PantallaPrincipal extends AppCompatActivity
                     case R.id.drawer_opcion4: irPantallaZonas();
                                                 break;
 
-                    case R.id.drawer_opcion5: irPantallaAyuda();
+                    case R.id.drawer_opcion5: cambiarIdioma();
+                                              break;
+
+                    case R.id.drawer_opcion6: irPantallaAyuda();
                         break;
 
-                    case R.id.drawer_opcion6: irPoliticasPrivacidad();
+                    case R.id.drawer_opcion7: irPoliticasPrivacidad();
                         break;
                 }
-
 
                 return false;
             }
@@ -193,6 +229,7 @@ public class PantallaPrincipal extends AppCompatActivity
         if(animacionFondoIniciada && animacionFondo.isRunning())
             animacionFondo.stop();//se pausa la animacion del fondo de pantalla
     }
+
 
     @Override
     public void onConfigurationChanged(Configuration newConfig)
@@ -275,6 +312,7 @@ public class PantallaPrincipal extends AppCompatActivity
             mInterstitialAd.show();
 
         Intent intent = new Intent(this, PantallaListaSetas.class);
+        intent.putExtra("Idioma", idioma);
         startActivity(intent);
     }
 
@@ -299,6 +337,7 @@ public class PantallaPrincipal extends AppCompatActivity
             mInterstitialAd.show();
 
          Intent intent = new Intent(this, PantallaTiempo.class);
+         intent.putExtra("Idioma", idioma);
          startActivity(intent);
 
     }
@@ -343,6 +382,7 @@ public class PantallaPrincipal extends AppCompatActivity
             mInterstitialAd.show();
 
         Intent intent = new Intent(this, PantallaAyuda.class);
+        intent.putExtra("Idioma", idioma);
         startActivity(intent);
     }
 
@@ -352,6 +392,36 @@ public class PantallaPrincipal extends AppCompatActivity
         Intent intentP = new Intent(Intent.ACTION_VIEW, Uri.parse("https://utilities.000webhostapp.com/setas_policy.html"));
         startActivity(intentP);
     }
+
+
+    //Se cambia el idioma de la Aplicacion
+    private void cambiarIdioma()
+    {
+        if(idioma.equals("es"))
+            idioma = "en";
+        else
+            idioma = "es";
+
+        Locale myLocale = new Locale(idioma);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.setLocale(myLocale);
+        res.updateConfiguration(conf,dm);
+
+        //Se guarda en prefencias el valor actual de la variable Idioma
+        // ya que al refrescar la actividad se vuelve a crear de nuevo y se pierde el valor de las variables
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("Idioma", idioma);
+        editor.commit();
+
+        //Se refresca la Actividad
+        Intent refreshIntent = new Intent(this, PantallaPrincipal.class);
+        refreshIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(refreshIntent);
+
+     }
 
 
     //Se inicia la animacion (AnimationDrawable) de la imagen de fondo de la pantalla principal
@@ -395,6 +465,7 @@ public class PantallaPrincipal extends AppCompatActivity
 
             }
         });
+
     }
 
 

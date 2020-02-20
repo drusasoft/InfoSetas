@@ -6,27 +6,31 @@
 
         <item android:id="@+id/drawer_opcion1"
             android:icon="@mipmap/flecha"
-            android:title="@string/btnSetas"/>
+            android:title="@string/drawerSetas"/>
 
         <item android:id="@+id/drawer_opcion2"
             android:icon="@mipmap/flecha"
-            android:title="@string/btnGaleria"/>
+            android:title="@string/drawerGaleria"/>
 
         <item android:id="@+id/drawer_opcion3"
             android:icon="@mipmap/flecha"
-            android:title="@string/btnTiempo"/>
+            android:title="@string/drawerTiempo"/>
 
         <item android:id="@+id/drawer_opcion4"
             android:icon="@mipmap/flecha"
-            android:title="@string/btnZona"/>
+            android:title="@string/drawerZonas"/>
 
         <item android:id="@+id/drawer_opcion5"
             android:icon="@mipmap/flecha"
-            android:title="@string/btnAyuda"/>
+            android:title="@string/drawerIdioma"/>
 
         <item android:id="@+id/drawer_opcion6"
             android:icon="@mipmap/flecha"
-            android:title="@string/btnInfo"/>
+            android:title="@string/drawerAyuda"/>
+
+        <item android:id="@+id/drawer_opcion7"
+            android:icon="@mipmap/flecha"
+            android:title="@string/drawerPoliticas"/>
 
     </group>
 
